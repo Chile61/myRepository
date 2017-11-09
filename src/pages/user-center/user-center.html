@@ -1,0 +1,87 @@
+<!--
+  Generated template for the LogOut page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>用户中心</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content >
+  <!-- 个人信息头部 -->
+  <div id="my_info_wrap" (click)="enterMemberInfo()">
+    <div class="m-info">
+      <div class="info">
+        <a id="toInfo">
+         <div>
+          <div class="avatar">
+            <img *ngIf="userVo" src="{{userVo.avatarUrl? userVo.avatarUrl:'assets/images/default_avatar.png'}}" alt="">
+          </div>
+          <div class="content" *ngIf="userVo">
+            <div class="name">{{userVo.nickName}}</div>
+            <div class="sign">{{userVo.remark? userVo.remark:'暂无内容'}}</div>
+            <div class="level-integral">
+              <span class="level">lv.{{userVo.level}}</span>
+              <span class="integral">积分值 {{userVo.integralAmount}}</span>
+            </div>
+          </div>
+          <div class="arrow">
+           <span class="r-arrow-1"></span>
+          </div>
+         </div>
+				</a>
+      </div>
+    </div>
+  </div>
+  <!-- 功能列表 -->
+  <div class="box">
+    <ul class="m-list-1">
+      <li (click)="enterMemberHistory()">
+        <a>
+          <img src="assets/images/member/kecheng.png">
+          <p>已学课程</p>
+        </a>
+      </li>
+      <li (click)="enterMemberRank()">
+        <a>
+          <img src="assets/images/member/paihang.png">
+          <p>学习排行</p>
+        </a>
+      </li>
+      <li (click)="enterMemberStatistics()">
+        <a>
+          <img src="assets/images/member/tongji.png">
+          <p>学习统计</p>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+  <!-- 个人列表 -->
+  <!--<ion-list>
+    <button ion-item *ngFor="let item of userModule" icon-left>
+      {{ item.itemName }}
+    </button>
+  </ion-list>-->
+  <ul class="m-list-2">
+  <li (click)="enterMemberGroup()"><a class="group"><p>人群切换<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterMemberCollection()"><a class="favorites" ><p>我的收藏<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterOfflineDownload()"><a class="download"><p>离线下载<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterMemberComments()"><a class="comment"><p>我的评论<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterMemberIntegral()"><a class="integral" ><p>我的积分<span class="r-arrow"></span></p></a></li>
+
+  <li (click)="enterMorePage()" style="border-top:10px solid #eee;"><a class="more" ><p>更多<span class="r-arrow"></span></p></a></li>
+  </ul>
+  <div padding>
+    <button ion-button color="secondary" block (click)="logout()" >
+      退出
+    </button>
+  </div>
+</ion-content>

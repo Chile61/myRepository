@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="section" color="primary" mode="md">
+
+            <ion-segment-button value="myCircle" style="width :40px">
+                我的圈子
+            </ion-segment-button>
+            <ion-segment-button value="allCircle" style="width :40px">
+                所有圈子
+            </ion-segment-button>
+
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="section">
+        <div *ngSwitchCase="'myCircle'">
+            <ion-refresher (ionRefresh)="doRefreshMyCircle($event, true)" enabled="true">
+                <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+                </ion-refresher-content>
+            </ion-refresher>
+            <ul class="circle-list">
+                <li class="item" *ngFor="let myCircle of myCircleList" (click)="gotoCircleDetail(myCircle)">
+                    <a class="circle">
+                        <div class="item-box">
+                            <div class="icon">
+                                <img src="{{myCircle.iconURL? myCircle.iconURL:'assets/images/circle/circle_defaultpic.png'}}" alt="">
+                            </div>
+                            <div class="content">
+                                <div class="name">{{myCircle.name}}</div>
+                                <div class="description">{{myCircle.desc}}</div>
+                                <div class="condition">
+                                    <span class="posts">{{myCircle.subjectsCount}}</span><span>条帖子</span>
+                                    <span class="attention">
+									<span *ngIf="myCircle.groupType=='AT00'">所有人</span>
+                                    <span class="circleStytle" *ngIf="myCircle.groupType!='AT00'">{{myCircle.membersCount}}</span><span *ngIf="myCircle.groupType!='AT00'">人</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ion-infinite-scroll (ionInfinite)="doRefreshMyCircle($event)" enabled="false" *ngIf="canLoadMore">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+            <div class="blank_wrap" *ngIf="myCircleList.length<=0"><img src="assets/images/task/null.png"></div>
+        </div>
+
+        <div *ngSwitchCase="'allCircle'">
+            <ion-refresher (ionRefresh)="doRefreshAllCircle($event, true)" enabled="true">
+                <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+                </ion-refresher-content>
+            </ion-refresher>
+            <ul class="circle-list">
+                <li class="item" *ngFor="let allCircle of allCircleList">
+                    <a class="circle">
+                        <div class="item-box">
+                            <div class="icon" (click)="gotoCircleDetail(allCircle)">
+                                <img src="{{allCircle.iconURL? allCircle.iconURL:'assets/images/circle/circle_defaultpic.png'}}" alt="">
+                            </div>
+                            <div class="content" (click)="gotoCircleDetail(allCircle)">
+                                <div class="name">{{allCircle.name}}</div>
+                                <div class="description">{{allCircle.desc}}</div>
+                                <div class="condition">
+                                    <span class="posts">{{allCircle.subjectsCount}}条帖子</span>
+                                    <span class="attention">
+									<span *ngIf="allCircle.groupType==AT00">所有人</span>
+                                    <span *ngIf="allCircle.groupType!=AT00">{{allCircle.membersCount}}人</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="status">
+                                <span *ngIf="allCircle.joinStatus==2">已加入</span>
+                                <span *ngIf="allCircle.joinStatus==1">审核中</span>
+                                <img class="joinIcon" *ngIf="allCircle.joinStatus==0" src="assets/images/circle/searchgroup.png" (click)="joinCircle(allCircle)">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ion-infinite-scroll (ionInfinite)="doRefreshAllCircle($event)" enabled="false" *ngIf="canLoadMore">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+            <div class="blank_wrap" *ngIf="allCircleList.length<=0"><img src="assets/images/task/null.png"></div>
+        </div>
+    </div>
+</ion-content>

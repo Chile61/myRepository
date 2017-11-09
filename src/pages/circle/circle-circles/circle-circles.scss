@@ -1,0 +1,185 @@
+
+page-circle-circles{
+    /******************************
+	圈子列表样式
+******************************/
+// .circle-list .item a {
+// 	display: block;
+// 	padding: 15px;
+// 	border-bottom: 1px solid #e5e5e5;
+// }
+// .item{
+// 	position: relative !important;
+// }
+//  .icon {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 40px;
+// 	height: 40px;
+// }
+//  .icon img {
+// 	width: 100%;
+// 	height: 100%;
+// 	border-radius: 100%;
+// }
+// .content {
+// 	padding: 0 0 0 60px;
+// }
+// .content .name {
+// 	margin: 0 0 5px 0;
+// 	color: #333;
+// 	font-size: 16px;
+// }
+// .circledescription {
+// 	margin: 0 0 2px 0;
+// 	color: #999;
+// 	font-size: 13px;
+// 	width:150px;
+// 	white-space: nowrap;
+// 	overflow: hidden;
+// 	text-overflow: ellipsis !important;
+// }
+//  .content .condition {
+// 	color: #999;
+// 	font-size: 13px;
+// }
+//  .content .condition .posts {
+// 	margin: 0 15px 0 0;
+// }
+
+
+// .btn-box {
+// 	padding: 0 15px;
+// }
+// .btn {
+// 	padding: 15px 6px;
+// 	color: #333;
+// 	font-size: 16px;
+// 	border: 1px dashed #d0d0d0;
+// 	background: #fff;
+// }
+// .img-wrap > div {
+//     width: 18%;
+//     height: 60px;
+//     display: inline-block;
+// }
+// img.data_img {
+//     display: none;
+// }
+// .avatar {
+//     position: absolute;
+// 	top: 10px;
+// 	left: 10px;
+// 	width: 40px;
+// 	height: 40px;
+// 	border-radius: 20px;
+// }
+// .avatar img {
+// 	width: 100%;
+// 	border-radius: 100%;
+//     height: 100%;
+// }
+// .content {
+//     float: left;
+//     padding-left: 60px !important;
+// }
+// .scroll-content{
+//     margin-top: 40px !important;
+// }
+// .joinIcon{
+// 	width: 30px;
+// 	height: 30px;
+// }
+// .desc-wrap{
+// 	height: inherit;
+// }
+// .list-ios{
+// 	    margin: -1px 0 85px 0;
+// }
+/***************圈子列表*************************/
+.circle-list {
+	margin: 0 0 80px 0;
+	background: #fff;
+}
+.circle-list .item .circle {
+	display: block;
+	padding: 15px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.circle-list .item .item-box {
+	position: relative;
+}
+.circle-list .item .icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+}
+.circle-list .item .icon img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.circle-list .item .content {
+	margin: 0 80px 0 55px;
+}
+.circle-list .item .content .name {
+	margin: 0 0 5px 0;
+	color: #333;
+	font-size: 16px;
+}
+.circle-list .item .content .description {
+	margin: 0 0 2px 0;
+	color: #999;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.circle-list .item .content .condition {
+	color: #999;
+	font-size: 13px;
+}
+.circle-list .item .content .condition .posts {
+	margin: 0 3px 0 0;
+	color: #ff8200;
+}
+.circle-list .item .status {
+	position: absolute;
+	top: 22px;
+	right: 0;
+}
+.circle-list .item .status span {
+	display: inline-block;
+	height: 30px;
+	font-size: 13px;
+}
+.circle-list .item .status .i {
+	width: 30px;
+}
+.circle-list .item .status .i img {
+	width: 100%;
+	height: 100%;
+}
+.circle-list .item .status .t {
+	line-height: 30px;
+	color: #999;
+	font-size: 13px;
+}
+.joinIcon{
+	width: 30px;
+	height: 30px;
+}
+.element.style {
+    margin-top: 43px !important;
+}
+.scroll-content {
+    background: #ffffff;
+    margin-top: 58px !important;
+}
+.circleStytle{
+	color: #ff8200;
+}
+}

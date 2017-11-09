@@ -1,0 +1,651 @@
+page-course-detail {
+    #cdPage {
+        padding: 0 0 60px 0;
+    }
+    #vcPage {
+        display: none;
+        background: #000;
+    }
+    #pcPage {
+        display: none;
+        background: #fff;
+    }
+
+    .com-tag-1 {
+        margin-right: 7px;
+        padding: 4px;
+        font-size: 11px;
+        border: 1px solid #eee;
+        color: #eee;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    .com-tag-2 {
+        margin: 0px 7px;
+        color: #999;
+        font-size: 11px;
+    }
+
+    /*** 课程详情 ***/
+    .cd-box {
+        padding: 15px 15px 0;
+        border-bottom: 10px solid #e5e5e5;
+    }
+    .cd-header {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .cd-header h1 {
+        margin-bottom: 12px;
+        font-size: 20px;
+        line-height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .cd-header div {
+        margin-bottom: 12px;
+        height: 14px;
+        line-height: 14px;
+    }
+    .cd-content {
+        padding-top: 17px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .cd-content .a {
+        margin-bottom: 17px;
+        color: #666;
+        font-size: 15px;
+        line-height: 24px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .cd-content .thumbnail {
+        position: relative;
+        margin-bottom: 17px;
+        width: 100%;
+        height: 250px;
+    }
+    .cd-content img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
+    .cd-content .thumbnail div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .cd-content .thumbnail div img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -40px;
+        margin-left: -40px;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+    }
+    .cd-content .b {
+        margin-bottom: 17px;
+        color: #333;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .cd-content .evaluation-wrap {
+        margin: 0 0 20px 0;
+        padding: 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 6px;
+    }
+    .cd-content .evaluation-wrap .evaluation-title {
+        position: relative;
+        margin: 0 0 5px 0;
+        padding: 0 0 0 10px;
+        color: #999;
+    }
+    .cd-content .evaluation-wrap .icon {
+        position: absolute;
+        top: 0;
+        left: -15px;
+        padding: 0 6px 0 2px;
+        color: #fff;
+        font-style: italic;
+        background: #ffb12b;
+    }
+    .cd-content .evaluation-wrap .evaluation {
+        color: #666;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .cd-content .evaluation-wrap pre {
+        white-space: pre-line;
+    }
+
+    .cd-footer {
+        padding: 24px 0;
+    }
+    .cd-footer .action-wrap {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .cd-footer .action-wrap:before,
+    .cd-footer .action-wrap:after {
+        display: table;
+        content: "";
+    }
+    .cd-footer .action-wrap:after {
+        clear: both;
+    }
+    .cd-footer .action-1 {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+    .cd-footer .action-2 {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+    .cd-footer .action-3 {
+        float: left;
+        width: 33%;
+        text-align: center;
+    }
+    .cd-footer .action-4 {
+        float: left;
+        width: 25%;
+        text-align: center;
+    }
+    .cd-footer .action a {
+        display: block;
+    }
+    .cd-footer .action img {
+        margin-bottom: 5px;
+        width: 40px;
+        height: 40px;
+    }
+    .cd-footer .action p {
+        color: #666;
+        font-size: 12px;
+    }
+
+    /*** 课程评论 ***/
+    .cm-items {
+        margin-top: 4px;
+        padding: 0 0 0 13px;
+    }
+    .cm-items .cm-item {
+        position: relative;
+        padding: 16px 0;
+        height: auto;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .cm-items .cm-item:last-child {
+        border-bottom: none;
+    }
+    .cm-items .cm-item .cm-item-avatar {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+    }
+    .cm-items .cm-item .cm-item-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .cm-items .cm-item .cm-item-content {
+        padding: 0 15px 0 48px;
+    }
+    .cm-items .cm-item .cm-item-content .name {
+        margin-bottom: 10px;
+        color: #999;
+        font-size: 12px;
+    }
+    .cm-items .cm-item .cm-item-content .comment {
+        margin-bottom: 10px;
+    }
+    .cm-items .cm-item .cm-item-content .sub-comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #d0d0d0;
+        background: #fff;
+    }
+    .cm-items .cm-item .cm-item-content .bottom {
+        color: #999;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .cm-items .cm-item .cm-item-content .bottom img {
+        width: 12px;
+        height: 12px;
+    }
+
+    /******************************
+
+    ******************************/
+    .pc-wrap {
+        margin: 0 auto;
+        padding: 8px 10px;
+        width: 100%;
+        max-width: 480px;
+        border-top: 1px solid #d0d0d0;
+        background: #fff;
+        box-sizing: border-box;
+    }
+    .pc-wrap input {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        color: #999;
+        font-family: Arial, "Microsoft YaHei";
+        border: 1px solid #d0d0d0;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    /******************************
+
+    ******************************/
+    #vcWrap {
+        position: relative;
+    }
+    #vcWrap .vc-btn {
+        position: fixed;
+        top: -40px;
+        right: -40px;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        background: rgba(0, 0, 0, .5);
+    }
+    #vcWrap .vc-btn a {
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        z-index: 999;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        text-align: center;
+    }
+    #vcWrap .vc-cnt video {
+        margin: 40px 0;
+    }
+
+    /******************************
+
+    ******************************/
+    .pc-box {
+        padding: 10px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #eee;
+    }
+    .pc-box .pc-title {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    .pc-box .pc-title h1 {
+        font-size: 14px;
+        text-align: center;
+    }
+    .pc-box .pc-title a {
+        position: absolute;
+    }
+    .pc-box .pc-title #cancelBtn {
+        top: 0;
+        left: 0;
+    }
+    .pc-box .pc-title #sendBtn {
+        top: 0;
+        right: 0;
+    }
+    .pc-box .pc-input textarea {
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        color: #999;
+        font-family: Arial, "Microsoft YaHei";
+        border: 1px solid #d0d0d0;
+        box-sizing: border-box;
+        resize: none;
+    }
+
+    .cc-more-btn {
+        display: block;
+        padding: 10px 13px;
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+    }
+    .top-box {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 480px;
+        text-align: right;
+    }
+    .top-box div {
+        position: relative;
+    }
+    .top-box a {
+        display: inline-block;
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        padding: 10px;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, .6) !important;
+        margin: 0;
+    }
+
+    /******************************
+        课程评论
+    ******************************/
+    .tab-box .hd {
+        position: relative;
+    }
+    .tab-box .hd ul {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px 12px;
+    }
+    .tab-box .hd ul:before,
+    .tab-box .hd ul:after {
+        display: table;
+        content: "";
+    }
+    .tab-box .hd ul:after {
+        clear: both;
+    }
+    .tab-box .hd ul li {
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    .tab-box .hd ul li a {
+        display: inline-block;
+        padding: 0 1px 1px;
+        text-align: center;
+    }
+    .tab-box .hd ul li.on a {
+        color: #5b99ee;
+        border-bottom: 3px solid #5b99ee;
+    }
+
+    .c-title {
+        padding: 12px;
+        color: #333;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .c-title .c-line {
+        display: inline-block;
+        margin: 0 8px 0 0;
+        width: 3px;
+        height: 16px;
+        border-radius: 1px;
+        background: #5b99ee;
+    }
+
+    .comment-list {
+        margin: 0 0 12px 0;
+        background: #fff;
+    }
+    .comment-list .item {
+        padding: 12px;
+        word-break: break-all;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .comment-list .item-box {
+        position: relative;
+        min-height: 35px;
+    }
+    .comment-list .avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+    }
+    .comment-list .avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .comment-list .content {
+        margin: 0 0 0 45px;
+    }
+    .comment-list .content .name {
+        margin: 0 0 5px 0;
+        color: #999;
+        font-size: 12px;
+    }
+    .comment-list .content .name .nickname {
+        max-width: 90%;
+        line-height: 35px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .comment-list .content .name .level {
+        margin: 0 0 0 5px;
+        display: inline-block;
+        vertical-align: 14px;
+    }
+    .comment-list .content .comment {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .comment-list .content .bottom {
+        height: 13px;
+        line-height: 13px;
+        color: #999;
+        font-size: 11px;
+        width: 100%;
+    }
+    .comment-list .content .bottom a {
+        display: inline-block;
+        color: #999;
+        font-size: 11px;
+    }
+    .comment-list .content .bottom img {
+        margin: 0 5px;
+        width: 11px;
+        height: 11px;
+    }
+    .sub-comment-list {
+        margin: 0 0 15px 0;
+        border: 1px solid #e5e5e5;
+    }
+    .sub-comment-list .sub-item {
+        padding: 10px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .sub-comment-list .sub-item:last-child {
+        border-bottom: none;
+    }
+    .sub-comment-list .sub-item .sub-name {
+        margin: 0 0 5px 0;
+        color: #999;
+        font-size: 12px;
+    }
+    .sub-comment-list .sub-item .sub-comment {
+        color: #333;
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+
+    #page_2,
+    #page_3 {
+        display: none;
+    }
+
+    #audio_video-view {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: -100;
+    }
+
+    .c-title {
+        padding: 12px;
+        color: #333;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .c-title .c-line {
+        display: inline-block;
+        margin: 0 8px 0 0;
+        width: 3px;
+        height: 16px;
+        border-radius: 1px;
+        background: #5b99ee;
+    }
+
+    .recommend-course {
+        padding: 5px;
+        border-bottom: 10px solid #e5e5e5;
+    }
+    .td-s-tit {
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .td-s-des {
+        padding: 12px;
+        color: #999;
+    }
+    .td-s-list .td-s-item a {
+        display: block;
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .td-s-list .td-s-item a:focus {
+        background: #f6f6f6;
+    }
+    .td-s-list .td-s-item a > div {
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    .td-s-list .td-s-item .td-s-img {
+        width: 100px;
+        height: 80px;
+    }
+    .td-s-list .td-s-item .td-s-img img {
+        width: 100%;
+        height: 100%;
+    }
+    .td-s-list .td-s-item .td-s-cnt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 0 0 108px;
+        width: 100%;
+        height: 80px;
+        box-sizing: border-box;
+    }
+    .td-s-list .td-s-item .td-s-cnt .td-c-title {
+        font-size: 14px;
+        height: 40px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .td-c-bottom {
+        width: 100%;
+        color: #8b8b8b;
+        font-size: 12px;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    //视频播放
+    .video-play {
+        background: #5e5e5e;
+        width: 100%;
+        height: 100%;
+    }
+    .video-normal {
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
+    .video-full {
+        position: fixed;
+        left: 0px;
+        z-index: 100;
+        transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(Rotation=1);
+        background: #5e5e5e;
+    }
+    .content-full {
+        background: #ffffff;
+        z-index: 11 !important;
+    }
+    .content-normal {
+        background: #ffffff;
+        z-index: auto;
+    };
+
+    .list-ios .item-block .item-inner {
+        border-bottom: 0;
+    }
+
+    //ios头部padding样式覆盖
+    .toolbar-ios {
+        padding: 0px;
+    }
+}

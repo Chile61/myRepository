@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <div>
+                <div class="normal-head">圈子简介</div>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="information">
+        <div class="icon">
+            <img src="{{myCircle.iconURL||'assets/images/circle/circle_defaultpic.png'}}">
+        </div>
+        <div class="content">
+            <div class="name">{{myCircle.name}}</div>
+            <div class="info">
+                <span>{{myCircle.subjectsCount}}</span>条话题
+                <span *ngIf="myCircle.groupType=='AT00'">所有人</span>
+                <span *ngIf="myCircle.groupType!='AT00'">{{myCircle.membersCount}}人</span>
+            </div>
+        </div>
+    </div>
+    <div class="introduction">
+        <h1>圈子简介</h1>
+        <div>{{myCircle.desc}}</div>
+    </div>
+</ion-content>

@@ -1,0 +1,89 @@
+page-game-course {
+    .toolbar{
+        display: none !important;
+    }
+    //.footer{
+    //    position: fixed;
+    //    bottom: 0;
+    //    width: 100%;
+    //    background: #fff;
+    //    z-index: 100;
+    //}
+    .toolbar-ios ion-title{
+        padding: 0px !important;
+    }
+    .game-footer{
+        position: relative;
+        height: 55px;
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .game-footer .prev_btn{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding:10px 20px;
+        border-radius: 5px;
+        border:1px solid #e5e5e5;
+        background-color: #fff;
+        color: rgb(21, 139, 224);
+        z-index: 150;
+    }
+    .game-footer .next_btn{
+        position: absolute;
+        top:10px;
+        right: 10px;
+        padding:10px 20px;
+        border-radius: 5px;
+        border:1px solid #e5e5e5;
+        background-color: #fff;
+        color: rgb(21, 139, 224);
+        z-index: 150;
+    }
+    .submit_btn{
+        position: absolute;
+        top:10px;
+        right: 10px;
+        padding:10px 20px;
+        border-radius: 5px;
+        border:1px solid #e5e5e5;
+        background-color: rgb(21, 139, 224);
+        color: #fff;
+        z-index: 150;
+    }
+    .game-footer span{
+        line-height: 55px;
+        font-weight: 500;
+        color: #333;
+        font-size: 13px;
+    }
+    .list{
+        padding:0 !important;
+    }
+    .gmae-title{
+        height:46px;
+        line-height: 46px;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    .gmae-title span{
+        font-size: 1.7rem;
+        font-weight: 600;
+        text-align: center;
+        color: #000;
+        pointer-events: auto;
+    }
+    .gmae-title-ionic{
+        position: absolute;
+        top:12px;
+        left:10px;
+        z-index: 100;
+        background: url(../assets/images/game/my_icon_game.png) no-repeat;
+        width: 22px;
+        height:22px;
+        background-size:22px;
+        display: block;
+    }
+}

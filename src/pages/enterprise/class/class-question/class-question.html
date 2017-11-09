@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>班级问答</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event,true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ul class="topic-list">
+        <li *ngFor="let topic of classQuestionList">
+            <div class="img-wrap left" (click)="goClassQuestionDetail(topic.groupId,topic.subjectId)">
+                <img src="{{topic.author.avatarUrl? topic.author.avatarUrl:'assets/images/default_avatar.png'}}">
+            </div>
+            <div class="right-content left" (click)="goClassQuestionDetail(topic.groupId,topic.subjectId)">
+                <span class="m-name">{{topic.anonymousFlag==0? topic.author.nickName:'匿名'}}</span>
+                <span class="m-date">{{topic.createDate | timePipe}}</span>
+            </div>
+            <div class="clearB"></div>
+            <div class="middle-wrap" (click)="goClassQuestionDetail(topic.groupId,topic.subjectId)">
+                <h3 class="topic-title">{{topic.title}}</h3>
+                <div class="topic-content" [innerHtml]="transSmiles(topic.content)"></div>
+            </div>
+            <div class="img-content" *ngIf="topic.imgURLs">
+                <div class="comment-img">
+                    <img *ngFor="let imgUrl of topic.imgURLs;let i=index" src="{{imgUrl}}" (click)="showBigPicture(topic.imgURLs,i)">
+                </div>
+            </div>
+            <div class="bottom" (click)="goClassQuestionDetail(topic.groupId,topic.subjectId)">
+                <div class="right">
+                    <span><span class="reply-icon"></span>{{topic.countOfComments}}</span>
+                </div>
+                <div class="clearB"></div>
+            </div>
+        </li>
+    </ul>
+    <!--<div class="fab-bottom" (click)="postQuestion()">
+        <img class="topic_img" src="assets/images/circle/circle_icon_topic.png">
+    </div>-->
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <div class="blank_wrap" *ngIf="classQuestionList.length == 0"><img src="assets/images/task/null.png"></div>
+
+    <ion-fab right bottom class="fab-bottom" (click)="postQuestion()">
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    </ion-fab>    
+</ion-content>

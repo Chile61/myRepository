@@ -1,0 +1,86 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="section" color="primary">
+
+            <ion-segment-button value="myclass" style="width :40px">
+                我的班级
+            </ion-segment-button>
+            <ion-segment-button value="allclass" style="width :40px">
+                所有班级
+            </ion-segment-button>
+
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div [ngSwitch]="section">
+        <div *ngSwitchCase="'myclass'">
+
+            <ion-refresher (ionRefresh)="doRefreshMyClass($event, true)" enabled="true">
+                <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+                </ion-refresher-content>
+            </ion-refresher>
+
+            <ion-list>
+                <ion-item tappable *ngFor="let classinfo of myClassList" detail-push (click)="goClassDetail(classinfo)">
+                    <div class="class">
+                        <div *ngIf="classinfo.joinStatus==1"><span class="review">审核中</span></div>
+                        <div class="class_img"><img [src]="classinfo.imageUrl==null? 'assets/images/class/photo.png':classinfo.imageUrl"></div>
+                        <div class="class_content">
+                            <div class="class_title">{{classinfo.className}}</div>
+                            <div class="labels">
+                                {{classinfo.currentStageName}}
+                            </div>
+                            <div class="start">开始：{{classinfo.startTime | date:'yyyy/MM/dd HH:mm'}}</div>
+                            <div class="end">结束：{{classinfo.endTime | date:'yyyy/MM/dd HH:mm'}}</div>
+                            <div class="address">地址：{{classinfo.address}}</div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-infinite-scroll (ionInfinite)="doRefreshMyClass($event)" enabled="false" *ngIf="canLoadMore">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+
+            <div class="blank_wrap" *ngIf="myClassList.length == 0"><img src="assets/images/task/null.png"></div>
+
+        </div>
+        <div *ngSwitchCase="'allclass'">
+
+            <ion-refresher (ionRefresh)="doRefreshAllClass($event, true)" enabled="true">
+                <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+                </ion-refresher-content>
+            </ion-refresher>
+
+            <ion-list>
+                <ion-item class="item-thumbnail-left" tappable *ngFor="let classinfo of allClassList" detail-push (click)="goClassDetail(classinfo)">
+                    <!--<ion-img width="80" height="80" [src]="classinfo.imageUrl"> </ion-img>-->
+                    <div class="class">
+                        <div class="class_img"><img [src]="classinfo.imageUrl==null? 'assets/images/class/photo.png':classinfo.imageUrl"></div>
+                        <div class="class_content">
+                            <div class="class_title">{{classinfo.className}}</div>
+                            <div class="labels">
+                                {{classinfo.currentStageName}}
+                            </div>
+                            <div class="start">开始：{{classinfo.startTime | date:'yyyy/MM/dd HH:mm'}}</div>
+                            <div class="end">结束：{{classinfo.endTime | date:'yyyy/MM/dd HH:mm'}}</div>
+                            <div class="address">地址：{{classinfo.address}}</div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+           <ion-infinite-scroll (ionInfinite)="doRefreshAllClass($event)" enabled="false" *ngIf="canLoadMore">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+            <div class="blank_wrap" *ngIf="allClassList.length == 0"><img src="assets/images/task/null.png"></div>
+        </div>
+
+    </div>
+</ion-content>

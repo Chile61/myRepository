@@ -1,0 +1,27 @@
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <li class="m-list" *ngFor="let newInfor of newList let i=index">
+        <a class="message" href="javascript:void(0);" (click)="goNewsDetail(newInfor)">
+            <div class="message-content">
+                <h5 style="font-size: 14px;">{{newInfor.title}}</h5>
+                <div class="msg-image" *ngIf="informationUrl[i]">
+                    <img *ngFor="let urls of informationUrl[i] let j=index" src="{{urls}}">
+                </div>
+                <div class="msg-bottom">
+                    <span class="right">
+                        <span>{{newInfor.publishTime | date:'yyyy/MM/dd HH:mm'}}</span>
+                    <a class="notice" *ngIf="newInfor.objType==2">公告</a>
+                    <a class="news" *ngIf="newInfor.objType==1">新闻</a>
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event)" enabled="false" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

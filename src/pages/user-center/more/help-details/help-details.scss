@@ -1,0 +1,122 @@
+page-help-details {
+/******************************
+	服务问题详情样式
+******************************/
+body{
+	background: #fff;
+}
+pre{
+    white-space: pre-line;
+}
+.top_box{
+	height: 44px;
+  position: fixed;
+  max-width: 480px;
+  width: 100%;
+  z-index: 1;
+}
+.box{
+	position: relative;
+	margin: 0;
+	 background: #138bdf;
+}
+.back_wrap{
+	position: absolute;
+	top:0;
+}
+.back_box{
+	display: inline-block;
+  box-sizing: border-box;
+  width: 10px;
+  height: 19px;
+  margin: 12px 10px;
+  vertical-align: middle;
+}
+.back_box img{
+	width: 100%;
+	height: 100%;
+}
+.back_img{
+  display: block;
+	background: url(../images/back-icon.png) no-repeat;
+	background-size: 10px ;
+  height: 100%;
+}
+.box h1{
+	margin: 0;
+	padding: 14px;
+  background: #138bdf;
+  text-align: center;
+  color: #fff;
+  border-bottom: none;
+}
+.qna-details-wrap {
+	padding: 12px;
+	background: #fff;
+}
+.qna-details-wrap .qna-content {
+	font-size: 16px;
+	margin: 15px 0; 
+	text-align: justify;
+	text-justify: inter-ideograph;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.img-wrap {
+  margin: 0 0 24px 0;
+  width: 90%;
+  height: 230px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.img-tip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  padding: 0 5px;
+  color:#fff;
+}
+.img-wrap img {
+	width: 100%;
+	height: 100%;
+}
+.img-tip{
+	
+}
+.qna-details-wrap  .head {
+	  margin: 0 0 10px 0;
+	border-bottom: 1px solid #e5e5e5; 
+	height: 1px;
+}
+.qna-details-wrap  .head span {
+	padding: 0 22px 3px 22px;;
+	color: #1b8bdf;
+	font-size: 16px;
+	border-top: 1px solid;
+}
+.qna-answer p{
+	text-align: justify;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.qna-answer {
+  margin-bottom: 10px;
+}
+/**********************
+*
+***********************/
+
+ .gallery-cell{
+   height: 120px;
+   width: 33.3%;
+   overflow: hidden;
+   display: inline-block;
+ }
+.gallery-cell img{
+  width: 90%;
+  height: 100px;
+  padding: 5px;
+}
+}

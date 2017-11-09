@@ -1,0 +1,42 @@
+<ion-header>
+   <normal-header #NormalHeaderComponent (goBack)="goBackClick()"></normal-header>
+    <div class="circle-info-wrap" *ngIf="myCircle">
+        <div class="a">
+            <div class="circle-info-box">
+                <div class="icon" (click)="goToCircleIntroduction()">
+                    <img src="{{myCircle.iconURL||'assets/images/circle/circle_defaultpic.png'}}">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span (click)="goToCircleIntroduction()">{{myCircle.name}}</span>
+                        <div *ngIf="myCircle.groupType!='AT00'">
+                            <img class="joinStatus" *ngIf="myCircle.joinStatus==0" src="assets/images/circle/circle_join.png" (click)="joinCircle()">
+                            <img class="joinStatus" *ngIf="myCircle.joinStatus==2" src="assets/images/circle/circle_exit.png" (click)="quitCircle()">
+                        </div>
+                        <span class="joinStatus" *ngIf="myCircle.joinStatus==1">审核中</span>
+                    </div>
+                    <div class="information" (click)="goToCircleIntroduction()">
+                        <span>{{myCircle.subjectsCount}}</span>条话题 <span>{{myCircle.membersCount}}</span>人
+                    </div>
+                    <div class="introduction" (click)="goToCircleIntroduction()">
+                        {{myCircle.desc}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <ion-tabs class="tabClass">
+        <ion-tab [root]="tab1" [rootParams]="Params" tabTitle="热门话题"></ion-tab>
+        <ion-tab [root]="tab2" [rootParams]="Params" tabTitle="最新话题"></ion-tab>
+    </ion-tabs>
+    <ion-fab right bottom class="fab-bottom">
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="left">
+            <div style="width: 40px; height:40px;" (click)="goPostTopic()"><img src="assets/images/circle/circle_icon_topic.png" alt=""></div>
+            <div style="width: 40px; height:40px; margin-right: 20px;" (click)="openCircleVote()"><img src="assets/images/circle/circle_icon_vote.png" alt=""></div>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

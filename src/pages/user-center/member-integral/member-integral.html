@@ -1,0 +1,126 @@
+<!--
+  Generated template for the MemberIntegral page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的积分</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+ <!-- Integral Header -->
+  <div id="integral_wrap" style="background: rgb(21, 139, 224);" *ngIf="myIntegral" >
+    <div class="integral-level">
+      <div class="integral">{{myIntegral.curScore}}
+        <span>分</span>
+      </div>
+      <div class="level">
+        <div class="level-text">
+          <span class="icon"></span>LV{{myIntegral.level}}
+        </div>
+        <div class="progress-bar">
+          <div class="progress" [ngStyle]="integralProgress(myIntegral.curScore,myIntegral.nextScore)"></div>
+          <span class="text">{{myIntegral.curScore}}/{{myIntegral.nextScore}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div>
+    <ion-segment [(ngModel)]="integralBar">
+           <ion-segment-button value="reward" (click)="getIntegralRewards()">
+                积分奖励
+            </ion-segment-button>
+            <ion-segment-button value="origin" (click)="getIntegralOrgins()">
+                积分来源
+            </ion-segment-button>
+            <ion-segment-button value="statements" (click)="getIntegralStatements()">
+                等级说明
+            </ion-segment-button>
+            <ion-segment-button value="rules" (click)="getIntegralRules()">
+                积分规则
+            </ion-segment-button>
+        </ion-segment>
+  </div>
+  <div [ngSwitch]="integralBar">
+    <!-- 积分奖励 -->
+    <ion-list *ngSwitchCase="'reward'">
+      <ul id="reward_list" class="reward-list">
+        <li class="item"  *ngFor="let reward of rewardList" >
+          <a href="javascript:void(0);">
+            <div class="text">
+              <h3 class="reward_title">{{reward.title}}</h3>
+              <p class="requirement">{{reward.requirement}}{{reward.description? ','+reward.description:''}}</p>
+            </div>
+            <div class="image">
+              <img src="{{reward.imgUrl? reward.imgUrl:'assets/images/default-pic@3x.png'}}" alt="">
+            </div>
+          </a>
+        </li>
+      </ul>
+    </ion-list>
+    <!-- 积分来源 -->
+    <ion-list *ngSwitchCase="'origin'">
+    <ul class="origin-list" >
+     <li *ngFor="let orgin of orginList">
+        <div class="left-float">
+          <div class="name">{{orgin.eventName}}</div>
+          <div class="time">{{orgin.lastestEventDate | date :'yyyy-MM-dd'}}</div>
+        </div>
+        <div class="right-float">
+          <span class="score">{{orgin.eventScore > 0? '+'+ orgin.eventScore:orgin.eventScore}}</span>
+        </div>
+        <div class="clearB"></div>
+      </li>
+    </ul>
+    </ion-list>
+    <!-- 等级说明 -->
+    <ion-list *ngSwitchCase="'statements'">
+      <table id="levels_list" class="levels-list">
+        <thead>
+					<tr>
+						<th>等级</th>
+						<th>等级称号</th>
+						<th>积分标准</th>
+					</tr>
+        </thead>
+				<tbody >
+          <tr *ngFor="let state of statementsList" >
+            <td >Lv.{{state.level}}</td>
+            <td>{{state.title}}</td>
+            <td>{{state.minScore}}~{{state.maxScore}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-list>
+    <!-- 积分规则 -->
+    <ion-list *ngSwitchCase="'rules'">
+      <ul id="rules_list" class="rules-list" >
+        <li class="item"  *ngFor="let rule of rulesList">
+          <div class="col-1" >{{rule.title}}</div>
+          <div class="col-2">{{rule.content}}</div>
+        </li>
+      </ul>
+    </ion-list>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doRefresh($event,false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,94 @@
+<!--
+  Generated template for the TaskForm page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>混合任务详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="section-wrap" *ngIf="taskForm">
+    <h2>{{taskForm.name}}</h2>
+    <div>
+      <div class="title-wrap">
+        <div class="title-icon-wrap">
+          <img src="assets/images/task/ms.png">
+        </div>
+        <span>任务描述</span>
+      </div>
+      <div class="statement">
+        {{taskForm.remarks}}
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="title-wrap">
+        <div class="title-icon-wrap">
+          <img src="assets/images/task/bjrw.png">
+        </div>
+        <span>任务反馈</span>
+     </div>
+  </div>
+  <div *ngIf="taskForm" >
+    <div *ngFor="let item of taskForm.containers; let index = index" >
+      <h2 class="txt-title"><span *ngIf="item.field.required == '1'" >*</span>{{item.field.label}}</h2>
+      <!--字符串 1单行文本框2多行文本框 3单选选择 4多项选择 8图片 11定位12选择机构人员 -->
+      <div [ngSwitch]="item.field.type">
+          <!--单行文本框-->
+          <div *ngSwitchCase="'1'">
+            <div>
+              <input type="text" placeholder="请输入文字" id="{{item.field.id}}" value="{{item.field.defaultValue}}" />
+            </div>
+          </div>
+          <!--多行文本框-->
+          <div *ngSwitchCase="'2'">
+            <div>
+              <textarea placeholder="请输入文字" id="{{item.field.id}}">{{item.field.defaultValue}}</textarea>
+            </div>
+          </div>
+          <!--单选选择-->
+          <div *ngSwitchCase="'3'">
+            <ion-item detail-push (click)="bindSelectItems(item.field,index)">
+              <span *ngIf="item.field.selectedItems" >{{item.field.selectedItems}}</span>
+            </ion-item>
+          </div>
+          <!--4多项选择-->
+          <div *ngSwitchCase="'4'">
+            <ion-item detail-push (click)="bindSelectItems(item.field,index)">
+              <span *ngIf="item.field.selectedItems" >{{item.field.selectedItems}}</span>
+            </ion-item>
+          </div>
+          <!--8图片-->
+          <div *ngSwitchCase="'8'">
+            <div class="addPic-warp">
+              <img src="assets/images/icon_addpic_unfocused.png">
+            </div>
+          </div>
+          <!--11定位-->
+          <div *ngSwitchCase="'11'">
+            11定位
+          </div>
+          <!--12选择机构人员-->
+          <div *ngSwitchCase="'12'">
+            12选择机构人员
+          </div>
+    </div>
+
+   </div>
+  </div>
+
+</ion-content>
+<!-- Footer -->
+<ion-footer >
+    <span class="feedback-btn" color="secondary" (click)="submitBtn()">
+      提交
+    </span>
+</ion-footer>

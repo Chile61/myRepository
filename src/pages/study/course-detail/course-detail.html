@@ -1,0 +1,188 @@
+<ion-header>
+    <!--<ion-navbar>-->
+    <!--<ion-title>课程详情</ion-title>-->
+    <!--</ion-navbar>-->
+    <ion-navbar hideBackButton="true">
+        <div class="bar-title" *ngIf="isShowHeader">
+            <img class="img-left" src="assets/images/back-icon.png" (click)="goBack()">
+            <div class="text-title">课程详情</div>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content><!--class="{{videoFull?'content-full':'content-normal'}}"-->
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true" *ngIf="!videoFull">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list class="comment-list">
+        <ion-item style="padding: 0px" *ngIf="courseDetail">
+            <div class="com-box cd-box">
+                <!--头部-->
+                <header class="cd-header">
+                    <h1>{{courseDetail.title}}</h1>
+                    <div>
+                        <span class="{{getCategoryCss(courseDetail.columnName)}}" *ngIf="courseDetail.columnName">{{courseDetail.columnName}}</span>
+                        <span class="com-tag-2">{{courseDetail.competencyName}}</span>
+                        <span class="com-tag right">{{(courseDetail.pubTime||courseDetail.modTime) | timePipe}}</span>
+                    </div>
+                </header>
+                <!--内容-->
+                <section class="cd-content">
+                    <p class="a">{{courseDetail.description}}</p>
+                    <div class="thumbnail" *ngIf="courseDetail.middleIcon">
+                        <img src="{{courseDetail.middleIcon}}">
+                        <a id="view_btn" *ngIf="lookImg" (click)="clickLook()">
+                            <div>
+                                <img src="{{lookImg}}">
+                            </div>
+                        </a>
+                        <div class="video-play" *ngIf="playVideo">
+                            <video id="{{'courseVideo'+courseDetail.courseId}}" class="{{videoCss}}" controls="controls" autoplay="autoplay"
+                                   [src]="videoResUrl" #VideoPlayer></video>
+                        </div>
+                    </div>
+                    <audio id="{{'courseAudio'+courseDetail.courseId}}" controls="controls" [src]="audioResUrl" *ngIf="isAudioCourse"
+                           style="width: 100%" (click)="playAudio()"></audio>
+                    <p class="a" *ngIf="courseDetail.resTypeId!=8">{{courseDetail.contents}}</p>
+                    <p class="b"></p>
+                    <div class="evaluation-wrap" *ngIf="courseDetail.courseComment">
+                        <div class="evaluation-title">
+                            <span class="icon">评</span>课程点评
+                        </div>
+                        <p class="evaluation"></p>
+                        <pre>{{courseDetail.courseComment}}</pre>
+                    </div>
+                </section>
+                <!--交互-->
+                <footer class="cd-footer" *ngIf="isShowInteraction">
+                    <div class="action-wrap">
+                        <div class="{{interactionCss}} action" *ngIf="isShowUp">
+                            <a id="praise_btn">
+                                <img
+                                    src="{{courseDetail.hasAppraised?'assets/images/praise_icon04.png':'assets/images/praise_icon03.png'}}"
+                                    (click)="thumbUpCourse()">
+                                <p>{{courseDetail.hasAppraised?'已赞':'赞'}}(<span>{{courseDetail.appraiseNum}}</span>)</p>
+                            </a>
+                        </div>
+                        <div class="{{interactionCss}} action" *ngIf="isShowCollect">
+                            <a id="favorites_btn">
+                                <img
+                                    src="{{courseDetail.hasFavrited?'assets/images/favorites_icon04.png':'assets/images/favorites_icon03.png'}}"
+                                    (click)="collectionCourse()">
+                                <p>{{courseDetail.hasFavrited?'已收藏':'收藏'}}</p>
+                            </a>
+                        </div>
+                        <div class="{{interactionCss}} action" *ngIf="courseDetail.shareUrl">
+                            <a id="share_btn">
+                                <img src="assets/images/course_share.png" (click)="CourseShare()">
+                                <p>分享</p>
+                            </a>
+                        </div>
+                        <div class="{{interactionCss}} action" *ngIf="isShowDownload && courseDetail.downloadUrl">
+                            <a id="download_btn">
+                                <img
+                                    src="{{courseDetail.downloadState==2?'assets/images/download_icon01.png':'assets/images/download_icon02.png'}}"
+                                    (click)="downloadCourse()">
+                                <p>
+                                    {{courseDetail.downloadState==2?'已下载':(courseDetail.downloadState==1)?'下载中...':'下载'}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--相关推荐-->
+            <div class="recommend-course" *ngIf="isShowRecommendCourse && courseDetail.recommendCourseList">
+                <div class="title">
+                    <span class="title-label"></span>
+                    <span class="title-title">相关推荐</span>
+                </div>
+                <ion-list class="td-s-list" no-lines>
+                    <ion-item class="td-s-item" *ngFor="let recommendCourse of courseDetail.recommendCourseList"
+                              (click)="toCourseDetail(recommendCourse.courseId)" style="padding: 0px">
+                        <a class="course">
+                            <div>
+                                <div class="td-s-img">
+                                    <img src="{{recommendCourse.smallIcon}}">
+                                </div>
+                                <div class="td-s-cnt">
+                                    <div class="td-c-title">{{recommendCourse.title}}</div>
+                                    <div class="td-c-bottom">
+                                        {{recommendCourse.description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <!--评论头部-->
+            <div class="tab-box" *ngIf="courseComments.length > 0">
+                <div class="hd">
+                    <h1 class="c-title"><span class="c-line"></span>课程评论({{totalCount}})</h1>
+                    <ul>
+                        <li class="{{commentType==2?'on':''}}">
+                            <a commenttype="2" (click)="selectCommentType(2)">最热</a>
+                        </li>
+                        <li class="{{commentType==2?'':'on'}}">
+                            <a commenttype="1" (click)="selectCommentType(1)">最新</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ion-item>
+        <!--评论列表-->
+        <ion-item class="item" *ngFor="let comment of courseComments;let i = index">
+            <div class="item-box">
+                <div class="avatar">
+                    <img src="{{comment.user.avatarUrl||'assets/images/default_avatar.png'}}">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span class="nickname">{{comment.user.nickName}}</span>
+                        <span class="level">lv{{comment.user.level || 0}}</span>
+                    </div>
+                    <div class="comment" [innerHtml]="transSmiles(comment.content)"></div>
+                    <div class="sub-comment-list" *ngIf="comment.parentCommentVo!=null">
+                        <div class="sub-item">
+                            <div class="sub-name">{{comment.parentCommentVo.user.nickName}}:
+                                <span class="right">{{(comment.parentCommentVo.createTime) | timePipe}}</span>
+                            </div>
+                            <div class="sub-comment" [innerHtml]="transSmiles(comment.parentCommentVo.content)"></div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <span>{{(comment.createTime) | timePipe}}</span>
+                        <span class="right">
+                            <a class="praise" [ngSwitch]="comment.hasAppraised+''">
+                                <span>{{comment.awesomeCount}}</span>
+                                <img src="assets/images/praise_icon01.png" *ngSwitchCase="'false'"
+                                     (click)="thumbUpCourseComment(i)">
+                                <img src="assets/images/praise_icon02.png" *ngSwitchCase="'true'"
+                                     (click)="thumbUpCourseComment(i)">
+                            </a>
+                            <span>|</span>
+                            <a class="reply" (click)="replyInput(comment.commentId)">
+                                <img src="assets/images/reply_icon01.png">回复
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer style="position:fixed;bottom:0;" *ngIf="isShowCommentView">
+    <div style="width: 100%">
+        <comment-view #CommentView (postComment)="postComment($event)"
+                      (cancelInputComment)="cancelInputComment()"></comment-view>
+    </div>
+</ion-footer>

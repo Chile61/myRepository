@@ -1,0 +1,7 @@
+<ion-content>
+    <ion-tabs [ngSwitch]="enterpriseList.pageCode" tabsPlacement="top">
+        <ion-tab class="aa" [root]="tab1" tabTitle="任务" *ngSwitchCase="MODEL_CONFIG_COMPANY_JOB_PAGE"></ion-tab>
+        <ion-tab class="aa" [root]="tab2" tabTitle="班级" *ngSwitchCase="MODEL_CONFIG_COMPANY_CLASS_PAGE"></ion-tab>
+        <ion-tab [root]="tab3" tabTitle="资讯" *ngSwitchCase="MODEL_CONFIG_COMPANY_MESSAGE_PAGE"></ion-tab>
+    </ion-tabs>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>名师搜索</ion-title>
+    </ion-navbar>
+    <form>
+        <div class="search-box">
+            <div class="search-input-box">
+                <input id="search" type="search" placeholder="搜索关键字" #search>
+            </div>
+            <div class="search-btn-box">
+                <button id="search_btn" style="background-color: rgb(21, 139, 224);"
+                   (click)="searchTeacher(search.value)">搜索</button>
+            </div>
+        </div>
+    </form>
+    <!-- 搜索结束 -->
+    <div style="height: 25px;margin-left: 15px;margin-top: 5px">
+        共搜索到<span style="color: orangered">{{totalCount||0}}</span>个名师
+    </div>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true" *ngIf="canRefresh">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list class="tea_items" no-lines>
+        <ion-item class="tea_warp" *ngFor="let teacher of teacherList,let i = index" (click)="toTeacherDetail(teacher)">
+            <div class="tea_icon">
+                <img src="{{teacher.userhead||'assets/images/default_avatar.png'}}">
+            </div>
+            <div class="tea_info">
+                <h3 class="tea_name">{{teacher.name}}</h3>
+                <div class="tea_intro">
+                    {{teacher.description}}
+                </div>
+                <div class="tea_label">
+                    <span *ngFor="let label of labels[i]">{{label}}</span>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

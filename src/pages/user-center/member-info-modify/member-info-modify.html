@@ -1,0 +1,23 @@
+<!--
+  Generated template for the MemberInfoModify page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      修改{{modifyType == 'nickName'? "昵称":"个性签名"}}
+      <span class="save_btn" (click)="saveModifyMsg()">保存</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="form-group">
+      <input type="text" id="modify" class="block ipt" [(ngModel)]="modifyParam">
+  </div>
+</ion-content>

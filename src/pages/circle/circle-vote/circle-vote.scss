@@ -1,0 +1,117 @@
+page-circle-vote {
+    .theme ion-label {
+        color: #000 !important;
+        text-indent: 10px;
+    }
+    .borderBot10 {
+        border-bottom: 10px solid #eee;
+        margin-bottom: 0px !important;
+    }
+    .AddClass {
+        border-bottom: 1px solid #ccc;
+        height: 40px;
+        line-height: 40px;
+        display: block;
+        width: calc(100% - 50px);
+        padding: 0 10px;
+        display: inline-block;
+        float: right;
+        box-sizing: border-box;
+        margin-left: 50px;
+    }
+    .optionsDiv {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .AddBtn {
+        margin: 3px 0;
+    }
+    .OptionsIcon {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    .AddBtn span {
+        margin-left: 15px;
+        vertical-align: 10px;
+    }
+    .optionsList {
+        position: relative;
+        height: 40px;
+    }
+    .OptionsIconDiv {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        z-index: 10;
+    }
+    .AddBtn .OptionsIcon {
+        margin-left: 14px;
+    }
+    .TextSelect {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .TextSelect ion-label {
+        color: #000 !important;
+        font-size: 14px;
+    }
+    .TextSelect .select-text {
+        font-size: 14px !important;
+    }
+    .FigureCaptions {
+        position: absolute;
+        top: 7px;
+        right: 15px;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        display: block;
+    }
+    .iconURLDiv {
+        display: inline-block;
+        width: 40px;
+        margin: 10px 7px 0 7px;
+        position: relative;
+    }
+    .iconURLDiv img {
+        border-radius: 100%;
+    }
+    .classify {
+        height: 80px !important;
+        border: 0;
+    }
+    .classify div {
+        line-height: normal !important;
+    }
+    .SelectIcon {
+        opacity: 0.8;
+        z-index: 15;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+    }
+    .iconURLDiv p {
+        width: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 11px;
+        text-align: center;
+        margin-top: 3px;
+        color: #666;
+    }
+    .post {
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        font-size: 14px;
+        line-height: 23px;
+        top: 10px;
+    }
+}

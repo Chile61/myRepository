@@ -1,0 +1,42 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{TitleName}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div id="wrap">
+        <div class="box">
+            <h1><span class="line"></span>{{name}}</h1>
+            <p>{{description}}</p>
+            <ul class="list" *ngIf="objType==2 || objType==3">
+                <li class="item">
+                    <span class="icon icon-clock"></span>
+                    时间范围{{totalTime}}
+                </li>
+                <li class="item">
+                    <span class="icon icon-file"></span>
+                    及格分数{{passScore}}/{{totalScore}}分
+                <li class="item">
+                    <span class="icon icon-use"></span>
+                    已参加{{finishedUserCount}}人
+                </li>
+                <li class="item">
+                    <span class="icon icon-times"></span>
+                    已参加{{userJoinedCount}}次
+                </li>
+            </ul>
+        </div>
+
+        <div class="fixed-footer">
+            <div class="fixed-box">
+                <a class="btn btn-block" (click)="openClassExamSubjectFun()" style="background-color: rgb(21, 139, 224);">
+                    {{startBtn}}
+                </a>
+            </div>
+        </div>
+    </div>
+</ion-content>

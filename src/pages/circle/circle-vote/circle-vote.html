@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>发起投票</ion-title>
+        <span class="post" (click)=postVoteSubjectFun()>发送</span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list class="borderBot10">
+        <ion-item class="theme">
+            <ion-label>主题内容</ion-label>
+            <ion-input [(ngModel)]="theme" placeholder="请输入主题内容"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <div class="clearB"></div>
+    <div class="borderBot10 optionsDiv">
+        <div class="optionsList" *ngFor="let item of Options; let i=index">
+            <div (click)="DeleteOptions()" class="OptionsIconDiv" *ngIf="i>1">
+                <img class="OptionsIcon" src="assets/images/del.png">
+            </div>
+            <input id="options{{i}}" class="AddClass" type="text" value="" placeholder="选项{{i+1}}">
+        </div>
+        <div class="clearB"></div>
+        <div class="AddBtn" (click)="AddOptions()"><img class="OptionsIcon"
+                                                        src="assets/images/circle_icon_vote2.png"><span>添加选项</span>
+        </div>
+    </div>
+
+    <div class="TextSelect">
+        <ion-item>
+            <ion-label>投票类型</ion-label>
+            <ion-select [(ngModel)]="selectOptions" placeholder="请选择投票类型" okText="确认" cancelText="取消"
+                        interface="action-sheet">
+                <!--<ion-option value="1">-->
+                    <!--单选-->
+                <!--</ion-option>-->
+                <ion-option *ngFor="let item of Options; let i=index" value="{{i+1}}">
+                    <span *ngIf="i==0">单选</span>
+                    <span *ngIf="i>0">多选，最多{{i+1}}项</span>
+                </ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+
+    <div class="TextSelect">
+        <ion-item>
+            <ion-label>结束时间</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD,HH:mm" [(ngModel)]="myDate" doneText="确认"
+                          cancelText="取消"></ion-datetime>
+        </ion-item>
+    </div>
+    <div class="TextSelect positionR">
+        <ion-item>
+            <ion-label>投票配图</ion-label>
+        </ion-item>
+        <img class="FigureCaptions" src="assets/images/icon_addpic_unfocused.png">
+        <!--<ion-select [(ngModel)]="gender" okText="确认" cancelText="取消" interface="action-sheet">-->
+        <!--<ion-option *ngFor="let item of Options; let i=index">-->
+        <!--</ion-option>-->
+        <!--</ion-select>-->
+    </div>
+    <div class="TextSelect">
+        <ion-scroll scrollX="true" class="classify">
+            <div class="iconURLDiv" *ngFor="let item of Groups;let i = index">
+                <img class="SelectIcon" *ngIf="item.select==true" src="assets/images/circle/circle_selected.png" alt="">
+                <img (click)="SelectIconFun(i)" src={{item.iconURL}} alt="">
+                <p>{{item.name}}</p>
+            </div>
+        </ion-scroll>
+    </div>
+</ion-content>

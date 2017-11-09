@@ -1,0 +1,40 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>闯关</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul id="game_list" class="game-list">
+        <li *ngFor="let GameL of GameLs" class="item">
+            <a class="game" (click)="openGame(GameL.gameId)">
+                <div class="game-image">
+                    <img src={{GameL.gameIcon}} alt="">
+                </div>
+                <div class="game-content">
+                    <h1>{{GameL.gameName}}</h1>
+                    <p>{{GameL.description}}</p>
+                </div>
+                <div class="game-arrow">
+                    <img src="assets/images/right_arrow_icon01.png"/>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

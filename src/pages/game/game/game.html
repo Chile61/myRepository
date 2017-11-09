@@ -1,0 +1,61 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>闯关</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="game"></div>
+    <div class="game-details" style="background-color: rgb(21, 139, 224);">
+        <div class="game-name" gameid="49542">
+            {{gameName}}
+        </div>
+        <div class="game-status">
+            已通过<span class="number">{{passQuestedNum}}</span>关，
+            获得<span class="number">{{totalScore}}</span>分&nbsp;&nbsp;
+            排名:<span class="number">{{rank}}</span>名
+        </div>
+    </div>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="game-level">
+        <div *ngFor="let game of games" class="game-box">
+            <h1 class="game-title" lockflag="unlock" style="border-left-color: rgb(21, 139, 224);">
+                {{game.questName}}</h1>
+            <div class="game-list">
+
+                <div *ngFor="let smallQuestVoLs of game.smallQuestVoLs" class="item">
+                    <a class="game" (click)="openGameDetails(smallQuestVoLs.lockFlag,smallQuestVoLs.questId)">
+                        <div class="image-box">
+                            <div class="image" [style.background]="smallQuestVoLs.questPassFlag?'#2dd191':'#1b8bdf'">
+                                <img src={{smallQuestVoLs.questIcon}} alt="">
+                            </div>
+                        </div>
+                        <div class="star-box">
+                            <div class="star" [ngSwitch]="smallQuestVoLs.bestQuestStarNum">
+                                <img *ngSwitchCase="0" src="assets/images/game/zero.png"/>
+                                <img *ngSwitchCase="null" src="assets/images/game/zero.png"/>
+                                <img *ngSwitchCase="1" src="assets/images/game/one.png"/>
+                                <img *ngSwitchCase="2" src="assets/images/game/two.png"/>
+                                <img *ngSwitchCase="3" src="assets/images/game/three.png"/>
+                            </div>
+                        </div>
+                        <p class="name">{{smallQuestVoLs.questName}}</p>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</ion-content>

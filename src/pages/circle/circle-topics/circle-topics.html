@@ -1,0 +1,17 @@
+<ion-content>
+    <ion-tabs tabsLayout="icon-right" #myTabs>
+        <ion-tab [root]="tab1" tabTitle="热门话题"></ion-tab>
+        <ion-tab [root]="tab2" tabTitle="最新话题"></ion-tab>
+        <ion-tab [root]="tab3" tabTitle="我参与的" tabIcon="arrow-dropdown" md="md-arrow-dropdown"></ion-tab>
+    </ion-tabs>
+    <a class="select_topic" (click)="selectTopic($event)"></a>
+    <!-- 发帖开始 (click)="presentPopover($event)" -->
+    <ion-fab right bottom class="fab-bottom">
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="left">
+            <div style="width: 40px; height:40px;" (click)="goPostTopic()"><img src="assets/images/circle/circle_icon_topic.png" alt=""></div>
+            <div style="width: 40px; height:40px; margin-right: 20px;" (click)="openCircleVote()"><img src="assets/images/circle/circle_icon_vote.png" alt=""></div>
+        </ion-fab-list>
+    </ion-fab>
+    <!-- 发帖结束 -->
+</ion-content>

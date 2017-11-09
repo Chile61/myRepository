@@ -1,0 +1,144 @@
+page-theme-detail {
+    /******************************
+
+    ******************************/
+    .td-box {
+        margin: 0 0 10px 0;
+        background: #fff;
+    }
+    .td-img img {
+        width: 100%;
+    }
+    .td-tit {
+        padding: 12px;
+        color: #333;
+        font-size: 14px;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .td-des {
+        padding: 12px;
+        color: #999;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    /******************************
+
+    ******************************/
+    .td-s-box {
+        margin: 0;
+        background: #fff;
+        border-bottom: 10px solid #e5e5e5;
+    }
+    .td-s-tit {
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .td-s-tit img {
+        float: right;
+        line-height: 20px;
+        padding: 5px 0px;
+    }
+    .td-s-des {
+        padding: 12px;
+        color: #999;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .td-s-list .td-s-item a {
+        display: block;
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .td-s-list .td-s-item a:focus {
+        background: #f6f6f6;
+    }
+    .td-s-list .td-s-item a > div {
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    .td-s-list .td-s-item .td-s-img {
+        width: 100px;
+        height: 80px;
+    }
+    .td-s-list .td-s-item .td-s-img img {
+        width: 100%;
+        height: 100%;
+    }
+    .td-s-list .td-s-item .td-s-cnt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 0 0 108px;
+        width: 100%;
+        height: 80px;
+        box-sizing: border-box;
+    }
+    .td-c-title {
+        display: inline-block;
+    }
+    .tag-new {
+        width: 25px;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .td-c-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 0 0 108px;
+        width: 100%;
+        color: #8b8b8b;
+        font-size: 12px;
+        box-sizing: border-box;
+    }
+
+    /******************************
+        栏目标签样式
+    ******************************/
+    .td-c-bottom .price {
+        color: #ffba25;
+        background: url("../assets/images/jb_icon@3x03.png") no-repeat;
+        background-size: 13px;
+        padding-left: 15px;
+        margin-left: 3px;
+    }
+    /**************************
+    *
+    **************************/
+    .td-c-title span img {
+        width: 26px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    /**************************
+    * 头像
+    **************************/
+    .td-avaster {
+        text-align: right;
+        padding-right: 12px;
+        padding-bottom: 8px;
+    }
+    .td-avaster .avaster {
+        display: inline-block;
+        margin: 0 8px 0 0;
+        width: 24px;
+        height: 24px;
+    }
+    .avaster img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+}

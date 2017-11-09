@@ -1,0 +1,87 @@
+page-course-rank {
+    /******************************
+	tabs样式
+    ******************************/
+    .tab-box .hd {
+        padding: 12px;
+        background: #fff;
+    }
+    .tab-box .hd ul:before,
+    .tab-box .hd ul:after {
+        display: table;
+        content: "";
+    }
+    .tab-box .hd ul:after {
+        clear: both;
+    }
+    .tab-box .hd ul li {
+        float: left;
+        width: 33.33%;
+        color: #ddd;
+        text-align: center;
+        letter-spacing: 1px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .tab-box .hd ul .on {
+        color: #fff;
+        font-weight: 600;
+        /*border-bottom: 1px solid #fff;*/
+    }
+
+    /*********************************
+     *
+     *********************************/
+    .course-rank img {
+        width: 36px;
+        height: auto;
+        position: absolute;
+    }
+    .course-image {
+        position: relative;
+    }
+    .course-image .sort {
+        width: 27px;
+        height: 18px;
+        background: url("../assets/images/ranking_other.png") no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .course-image .sort div {
+        position: absolute;
+        top: -6px;
+        left: 0px;
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+    }
+    .course-image .sort[sort='first'] {
+        background: url("../assets/images/ranking_first.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    .course-image .sort[sort='second'] {
+        background: url("../assets/images/ranking_second.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    .course-image .sort[sort='third'] {
+        background: url("../assets/images/ranking_third.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    .top {
+        font-size: 14px;
+        color: #000000 !important;
+    }
+    .top-read {
+        font-size: 16px;
+        font-weight: 600;
+        color: #999999;
+    }
+
+    .rank-list {
+        vertical-align: top;
+        width: 100%;
+    }
+}

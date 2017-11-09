@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(classifyLabels.length>0)">
+    <ion-list no-lines>
+        <ion-item style="padding: 0px" *ngFor="let classifyLabel of classifyLabels">
+            <div class="title" (click)="clickClassifyLabel(classifyLabel, classifyLabel.competencyId)">
+                <span class="title-label"></span>
+                <span class="title-title">{{classifyLabel.competencyName}}</span>
+                <img class="title-link" src="assets/images/right_arrow_icon01.png"/>
+            </div>
+            <ion-grid class="label-grid">
+                <ion-row wrap>
+                    <ion-col width-50 *ngFor="let label of classifyLabel.subCompetencyVoLs" (click)="clickClassifyLabel(classifyLabel, label.competencyId)">
+                        <div>
+                            <img src="{{label.smallIcon}}">
+                            <span>{{label.competencyName}}</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            查看图片
+            <span *ngIf="isDelete"  class="delete" (click)=delete()>删除</span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-slides class="show-big-img" (ionDidChange)="onSlideChanged()" #mySlides  [options]="mySlideOptions">
+        <ion-slide *ngFor="let imgUrl of imgUrls">
+            <img src={{imgUrl}}>
+        </ion-slide>
+    </ion-slides>
+    <div *ngIf="!isDelete"  class="show-img-page" align="center">
+        <span>{{selectIndex}}/{{pages}}</span>
+    </div>
+</ion-content>

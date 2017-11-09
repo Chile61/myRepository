@@ -1,0 +1,18 @@
+<ion-header>
+    <div class="gmae-title" id="gmae-title-id">
+        <a (click)="bindOutgame()" class="gmae-title-ionic"></a>
+        <span>关卡详情</span>
+    </div>
+</ion-header>
+
+<ion-content>
+    <ion-nav #content></ion-nav>
+</ion-content>
+<ion-footer class="footer" id="footer-id">
+    <div class="game-footer">
+        <button [disabled]="num==0?'disabled':''" class="prev_btn" (click)="prevFun()">上一页</button>
+        <span>{{num+1}}/{{numTotal}}</span>
+        <button *ngIf="boolSubmit==false" class="next_btn" (click)="nextFun()">下一页</button>
+        <button *ngIf="boolSubmit==true" class="submit_btn " (click)="openGameResult()">提交</button>
+    </div>
+</ion-footer>

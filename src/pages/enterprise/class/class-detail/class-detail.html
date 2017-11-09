@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <div>
+                <div class="normal-head">班级详情</div>
+                <div class="statistic" (click)="goStatistics()">统计</div>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!-- 菜单开始 -->
+    <div class="m-wrap">
+        <div class="m-list">
+            <div class="m-item" (click)="goToSign()">
+                <a id="sign_btn">
+                    <div class="icon">
+                        <img src="assets/images/class/sign.png" alt="">
+                    </div>
+                    <div class="name">签到</div>
+                </a>
+            </div>
+            <div class="m-item" (click)="goToNotice()">
+                <a id="notice_btn">
+                    <div class="icon">
+                        <img src="assets/images/class/notice.png" alt="">
+                        <img *ngIf="noticeCount!=0" class="prompt" src="assets/images/class/cc_prompt.png">
+                        <span *ngIf="noticeCount!=0" class="prompt_text">{{noticeCount}}</span>
+                    </div>
+                    <div class="name">通知</div>
+                </a>
+            </div>
+            <div class="m-item" (click)="goToQuestion()">
+                <a id="qa_btn">
+                    <div class="icon">
+                        <img src="assets/images/class/question.png" alt="">
+                        <img *ngIf="answerCount!=0" class="prompt" src="assets/images/class/cc_prompt.png">
+                        <span *ngIf="answerCount!=0" class="prompt_text">{{answerCount}}</span>
+                    </div>
+                    <div class="name">问答</div>
+                </a>
+            </div>
+            <div class="m-item" (click)="goToIntroduction()">
+                <a id="intro_btn">
+                    <div class="icon">
+                        <img src="assets/images/class/introduction.png" alt="">
+                    </div>
+                    <div class="name">简介</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 菜单结束 -->
+
+    <!--class   course  list -->
+    <!-- 班级课程开始 -->
+    <div class="c-wrap">
+        <div class="c-list" *ngFor="let courseinfo of courseInfo;let i=index">
+
+            <div class="c-item" lock="lock">
+                <div class="name" (click)="changState(i,openState[i])">
+                    <span class="arrow"></span>{{courseinfo.courseStageName}}&nbsp;({{courseinfo.courseItemsCount}})
+                </div>
+                <a class="span" *ngIf="openState[i]==false"></a>
+                <div class="c-s-list" *ngIf="openState[i]==true">
+                    <ion-list>
+                        <ion-item tappable *ngFor="let courseitem of courseinfo.courseItems;let j=index" detail-push (click)="goDetail(i,courseitem)">
+                            <span class="type" *ngIf="courseitem.isCompulsory=='Y'">必</span>
+                            <span class="course_type" [ngClass]="bindLearnCourse(courseitem.state)" >{{courseitem.resourceName}}</span>
+                            <span class="type_1" [ngClass]="bindType(courseitem.resourceType)">{{courseitem.resourceTypeName}}</span>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 班级课程结束 -->
+</ion-content>

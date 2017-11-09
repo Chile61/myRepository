@@ -1,0 +1,40 @@
+page-class-notice{
+    .notice-list {
+	margin: 0 0 12px 0;
+	background: #fff;
+    }
+    .item {
+	padding: 12px;
+	border-bottom: 1px solid #e5e5e5;
+    }
+    .item .title {
+	margin: 0 0 10px 0;
+	color: #333;
+	font-size: 16px;
+	line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    height: 50px;
+    }
+    .item .content {
+	margin: 10px 10px 10px 10px;
+	color: #666;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: justify;
+    }
+    .item .pubtime {
+	margin: 10px 10px 10px 10px;
+	color: #999;
+	font-size: 12px;
+	line-height: 12px;
+    }
+	ion-label {
+	white-space: normal !important;
+	padding: 10px,10px,10px,10px; 
+}
+
+}

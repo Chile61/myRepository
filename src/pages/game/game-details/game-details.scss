@@ -1,0 +1,125 @@
+page-game-details {
+    /******************************
+        关卡详情样式
+    ******************************/
+    .game-level-details {
+        padding: 12px 12px 50px 12px;
+        background: #fff;
+    }
+    .game-level-details .gld-title {
+        margin: 15px 0;
+    }
+    .game-level-details .gld-title h1 {
+        color: #333;
+        font-size: 23px;
+        line-height: 29px;
+    }
+    .game-level-details .gld-img {
+        margin: 0 0 24px 0;
+    }
+    .game-level-details .gld-img img {
+        width: 100%;
+    }
+    .game-level-details .head {
+        margin: 0 0 22px 0;
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 5px;
+    }
+    .game-level-details .head span {
+        padding: 0 0 6px 0;
+        color: #eee;
+        font-size: 15px;
+        border-bottom: 1px solid #1b8bdf;
+    }
+    .game-level-details .gld-intro {
+        margin: 0 0 22px 0;
+    }
+    .game-level-details .gld-intro p {
+        color: #333;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    .game-level-details .gld-goal {
+        margin: 0 0 22px 0;
+    }
+    .game-level-details .gld-goal p {
+        color: #333;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    .game-level-details .gld-cl {
+        margin: 0 0 22px 0;
+    }
+    .game-level-details .gld-cl li {
+        margin: 0 0 14px 0;
+        color: #333;
+        font-size: 14px;
+        line-height: 15px;
+        margin-left: 10px;
+    }
+    .game-level-details .column-tag {
+        color: #f22d2d;
+        font-size: 12px;
+        border: 1px solid #f22d2d;
+        border-radius: 2px;
+        padding: 2px 3px;
+    }
+    .game-level-details .column-tag-color-1 {
+        color: #ff8200;
+        border-color: #ff8200;
+    }
+    .game-level-details .column-tag-color-2 {
+        color: #f22d2d;
+        border-color: #f22d2d;
+    }
+    .game-level-details .column-tag-color-3 {
+        color: #336bb8;
+        border-color: #336bb8;
+    }
+    .game-level-details .column-tag-color-4 {
+        color: #13bc76;
+        border-color: #13bc76;
+    }
+
+    /******************************
+        按钮样式
+    ******************************/
+    .game-btn-group:before,
+    .game-btn-group:after {
+        display: table;
+        content: "";
+    }
+    .game-btn-group:after {
+        clear: both;
+    }
+    .game-btn-wrap {
+        float: left;
+        padding: 0 5px;
+        width: 50%;
+        margin-top: 8px;
+    }
+    .game-btn-wrap a{
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .game-btn-wrap-grey a{
+        background: #fff !important;;
+        color: #666 !important;
+    }
+    .head span {
+        color: #1b8bdf !important;;
+    }
+    .fixed-box{
+        max-width: none !important;
+    }
+    .game-footer{
+        height: 55px;
+        border-top: 1px solid #e5e5e5;
+        background: #fff;
+    }
+}

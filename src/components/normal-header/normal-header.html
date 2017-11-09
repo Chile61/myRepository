@@ -1,0 +1,8 @@
+<div class="navbar" [ngStyle]="bindTitle()">
+    <img *ngIf="isHaveBack" class="header-back" (click)="clickBack($event)" src="assets/images/back-icon.png">
+    <div class="header-cancel" *ngIf="isHaveCancel" (click)="clickCancel($event)"><span>取消</span></div>
+    <span class="header-title">{{headerTitle}}</span>
+    <div *ngIf="isHaveRightString"  class="header-rightString" (click)="clickRightString($event)"><span>{{headerRightString}}</span></div>
+    <img *ngIf="isHaveHeaderMore" class="header-more" (click)="clickMore($event)" src="assets/images/circle/work_icon_more.png">
+    <img *ngIf="isHaveHeaderSearch" class="header-search" (click)="clickSearch($event)" src="assets/images/course_search.png">
+</div>

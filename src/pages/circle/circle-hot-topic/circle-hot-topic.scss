@@ -1,0 +1,390 @@
+
+page-circle-hot-topic{
+    .tab-box-1 .hd {
+	background: #e5e5e5;
+  position: relative;
+}
+.tab-box-1 .hd ul {
+	margin: 0 auto;
+	padding: 5px 12px;
+	width: 168px;
+}
+.tab-box-1 .hd ul:before,
+.tab-box-1 .hd ul:after {
+	display: table;
+	content: "";
+}
+.tab-box-1 .hd ul:after {
+	clear: both;
+}
+.tab-box-1 .hd ul li {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+.tab-box-1 .hd ul li.on{
+  border-bottom: 1px solid #fff;
+}
+.tab-box-1 .hd ul li a {
+	display: inline-block;
+	padding: 5px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+}
+/*.tab-box-1 .hd ul li.on a {
+	border-bottom: 1px solid #fff;
+}*/
+/*
+*搜索按钮样式
+*/
+a.search-btn {
+	padding: 10px 20px 10px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+}
+a.search-btn img {
+  width: 100%;
+  height: auto;
+}
+
+.topic-wrap {
+	display: block;
+}
+
+.tab-box-2 {
+	position: relative;
+}
+.tab-box-2 .hd ul {
+	padding: 0;
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
+	box-sizing: border-box;
+}
+.tab-box-2 .hd ul:before,
+.tab-box-2 .hd ul:after {
+	display: table;
+	content: "";
+}
+.tab-box-2 .hd ul:after {
+	clear: both;
+}
+.tab-box-2 .hd ul li {
+	float: left;
+	padding: 12px 0;
+	width: 33.3333%;
+	box-sizing: border-box;
+}
+.tab-box-2 .hd ul li a {
+	display: block;
+	padding: 0;
+	color: #333;
+	font-size: 15px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+}
+.tab-box-2 .hd ul li:last-child a {
+	border-right: none;
+}
+.tab-box-2 .hd ul li.on a {
+	color: #e5e5e5;
+}
+.tab-box-2 .hd ul li a .icon {
+	display: inline-block;
+	margin: 0 0 0 5px;
+	width: 14px;
+	height: 9px;
+	vertical-align: middle;
+	background: url(../images/topics_mine_arrow.png) no-repeat;
+	background-size: 14px 9px;
+	transform: rotate(180deg);
+}
+.tab-box-2 .hd ul li a.open .icon {
+	transform: rotate(0deg);
+}
+
+
+.type-wrap {
+	display: none;
+	position: absolute;
+	top: 48px;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+}
+.type-box {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 640px;
+	background: #fff;
+}
+.type-list .item {
+	border-bottom: 1px solid #e5e5e5;
+}
+.type-list .item a {
+	display: block;
+	padding: 12px;
+}
+.type-list .item a .icon {
+	display: inline-block;
+	margin: 4px 0 0 0;
+	width: 14px;
+	height: 14px;
+	background: url(../images/topics_mine.png) no-repeat;
+	background-size: 14px;
+}
+.type-list .item a.selected .icon {
+	background-image: url(../images/topics_mine_pre.png);
+}
+
+
+.circle-wrap {
+	/*display: none;*/
+}
+
+
+/******************************
+	话题列表样式
+******************************/
+.circle-topic-list {
+	margin: 0 0 12px 0;
+	width: 100%;
+}
+.item {
+	margin: 0 0 12px 0;
+	background: #fff;
+}
+.item .topic {
+	display: block;
+	padding: 12px;
+}
+.item .only-one-row p {
+	word-break: break-all;
+	word-wrap: break-word;
+	height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.item .title{
+	margin: 0 0 5px 0;
+	color: #333;
+	font-size: 16px;
+	text-align: justify;
+}
+.item .content {
+	margin: 0 0 10px 0;
+	color: #333;
+	font-size: 14px;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.item .content .content-img {
+	height: 60px;
+  width: 17%;
+  margin: 5px;
+}
+.item .bottom {
+	padding: 5px 0 0 0;
+	color: #999;
+	font-size: 11px;
+	border-top: 1px solid #e5e5e5;
+}
+.item .bottom:before,
+.item .bottom:after {
+	display: table;
+	content: "";
+}
+.item .bottom:after {
+	clear: both;
+}
+.avaster {
+	display: inline-block;
+	margin: 0 8px 0 0;
+	width: 24px;
+	height: 24px;
+}
+.avaster img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.item .bottom .name {
+	color: #333;
+}
+.item .bottom .separate {
+	margin: 0 5px;
+}
+.item .bottom .praise-icon {
+	display: inline-block;
+	margin: 0 4px 0 0;
+	width: 11px;
+	height: 11px;
+	background: url(../images/praise_icon01.png) no-repeat 0 0;
+	background-size: 11px;
+}
+.item .bottom .reply-icon {
+  display: inline-block;
+  margin: 0 4px 0 0;
+  width: 11px;
+  height: 11px;
+  background: url(../images/reply_icon01.png) no-repeat 0 0;
+  background-size: 11px;
+}
+.stickied{
+    padding: 1px 6px 1px;
+    color: #fff;
+    background: #5b99ee;
+    border-radius: 6px;
+    float: left;
+    margin-right: 10px;
+}
+
+.box {
+	margin: 0 0 15px 0;
+}
+.scroll-content{
+	top: 40px !important;
+    background: #fff;
+	margin-bottom: 0px !important;
+}
+/*
+* 显示图片
+*/
+.img-content {
+	margin: -5px 0 5px 0;
+}
+.comment-img {
+	width: 100%;
+	white-space: nowrap;
+	overflow-x: auto;
+	margin-left: 43px;
+}
+.comment-img img {
+	width: 80px;
+	height: 80px;
+	margin: 0 5px;
+	display: inline-block;
+}
+
+/**** topic ****/
+.topic-list li{
+	padding: 12px;
+	border-bottom: 10px solid #eee;
+}
+.img-wrap{
+	width: 35px;
+	height: 35px;
+}
+.img-wrap img{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.right-content {
+	padding: 5px 12px;
+}
+.right-content > span{
+	display: block;
+}
+.right-content > span{
+	display: block;
+}
+.m-date{
+	color: #999;
+	font-size: 12px;
+}
+h3.topic-title {
+	font-size: 16px;
+	margin: 6px 0;
+}
+.middle-wrap{
+	padding: 0 12px 12px 47px; 
+}
+.topic-content{
+	color:#666;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.bottom{
+	padding: 0 5px 0px 47px;
+	color:#999;
+	font-size: 12px;
+}
+.topic-type{
+	background-color: #e0e0e0; 
+	color: #fff;
+	border-radius: 50px;
+	padding: 3px 5px;
+}
+.bottom .praise-icon {
+display: inline-block;
+margin: 0 4px 0 0;
+width: 11px;
+height: 11px;
+background: url(../assets/images/praise_icon01.png) no-repeat 0 0;
+background-size: 11px;
+}
+.praise-Awesomed{
+	background: url(../assets/images/praise_icon02.png) no-repeat 0 0 !important;
+	background-size: 11px !important;
+}
+.bottom .reply-icon {
+display: inline-block;
+margin: 0 4px 0 0;
+width: 11px;
+height: 11px;
+background: url(../assets/images/reply_icon01.png) no-repeat 0 0;
+background-size: 11px;
+}
+.bottom .right > span:first-child{
+	margin-right: 20px;
+}
+
+/******************************
+	发帖样式
+******************************/
+.post-wrap {
+	position: fixed;
+	bottom: 140px;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+}
+.post1-box {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 480px;
+	text-align: right;
+}
+.post1-box a {
+	display: inline-block;
+	margin: 0 12px 0 0;
+	width: 40px;
+	height: 40px;
+}
+.post1-box a img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+
+}

@@ -1,0 +1,238 @@
+page-member-integral {
+/******************************
+	积分等级样式
+******************************/
+.integral-level {
+	padding: 12px;
+}
+.integral {
+	margin: 0 0 22px 0;
+	height: 66px;
+	line-height: 66px;
+	color: #fff;
+	font-size: 66px;
+	text-align: center;
+}
+.integral span {
+	margin-left: -15px;
+	font-size: 20px;
+}
+.level {
+	margin: 0 0 18px 0;
+}
+.level .level-text {
+	color: #fff;
+	font-size: 18px;
+	vertical-align: middle;
+	float: left;
+}
+.level .level-text .icon {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	width: 20px;
+	height: 20px;
+	background: url(../assets/images/member/Lv_icon.png) no-repeat;
+	background-size: 20px;
+}
+.level .progress-bar {
+	position: relative;
+	height: 20px;
+	text-align: center;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.2);
+	margin-left: 70px;
+}
+.level .progress-bar .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	border-radius: 10px;
+	background: #61cc26;
+} 
+.level .progress-bar .text {
+	position: relative;
+	color: #fff;
+	z-index: 1;
+}
+.list {
+    padding: 12px;
+    border-bottom: none;
+}
+/******************************
+	Tabs样式
+******************************/
+.segment-ios .segment-button{
+    height:50px;
+	line-height: 50px;
+	font-size: 16px;
+	border:none;
+    color:#666;
+	border-bottom: 1px solid #eee;
+}
+.segment-ios .segment-button.segment-activated{
+    background-color:#fff;
+    color:#387ef5;
+}		
+/******************************
+	积分奖励样式
+******************************/			 
+.reward-list{
+	background: #fff;
+}
+.reward-list .item {
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+}
+.reward-list .item a {
+	position: relative;
+	display: block;
+	height: 72px;
+}
+.reward-list .item .text {
+	margin: 0 110px 0 0;
+}
+.reward-list .item .text .reward_title {
+	font-size: 16px;
+}
+.reward-list .item .text .requirement {
+	color: #666;
+	font-size: 12px;
+	line-height: 20px;
+}
+.reward-list .item .image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	height: 70px;
+	border: 1px solid #e5e5e5;
+}
+.reward-list .item .image img {
+	width: 100%;
+	height: 100%;
+}
+
+/*.reward-left{
+	float: left;
+	width: 60%;
+}
+.reward-left h3{
+	font-style: normal;
+	font-size: 18px;
+}
+.reward-left span{
+	display: block;
+	color: #666;
+	margin-top: 10px;"
+}
+.reward-img img{
+	margin-top: 5px;
+	border: 1px solid #E0E0E0;
+	width: 100px;
+}*/
+
+
+/******************************
+	积分来源样式
+******************************/
+.left-float{
+	float: left;
+}
+.right-float{
+	float: right;
+}
+.origin-list {
+	margin: 0 0 12px 0;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: #fff;
+}
+.origin-list li{
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+}
+.origin-list tbody td {
+	padding: 12px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.origin-list tbody td:last-child {
+	text-align: right;
+}
+.origin-list .name {
+	font-size: 16px;
+	margin-bottom: 9px;
+}
+.origin-list .time {
+	color: #999;
+	font-size: 12px;
+}
+.origin-list .score {
+	color: #61cc26;
+	font-size: 18px;
+	vertical-align: -15px;
+}
+
+
+/******************************
+	等级说明样式
+******************************/
+.levels-list {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: #fff;
+}
+.levels-list thead th {
+	padding: 12px;
+	width: 33.33%;
+	color: #666;
+	font-weight: normal;
+	text-align: center;
+	border-bottom: 1px solid #d0d0d0;
+}
+.levels-list tbody td {
+	padding: 12px;
+	width: 33.33%;
+	color: #333;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+}
+.levels-list tbody td:first-child {
+	color: #168ae1;
+	font-style: italic;
+}
+
+
+/******************************
+	积分规则样式
+******************************/
+.rules-list {
+	background: #fff;
+}
+.rules-list .item {
+	line-height: 20px;
+	padding: 12px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.rules-list .item:before,
+.rules-list .item:after {
+	display: table;
+	content: "";
+}
+.rules-list .item:after {
+	clear: both;
+}
+.rules-list .item .col-1 {
+	float: left;
+	padding: 0 12px 0 0;
+	width: 30%;
+	color: #168ae1;
+	box-sizing: border-box;
+}
+.rules-list .item .col-2 {
+	float: left;
+	width: 70%;
+}
+}

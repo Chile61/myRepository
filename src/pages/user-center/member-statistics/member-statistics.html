@@ -1,0 +1,94 @@
+<!--
+  Generated template for the MemberStatistics page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>学习统计</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="page-content" *ngIf="studyStatisticsVo" >
+			<!--头像-->
+			<div class="box statistics-head">
+				<div class="member-base-info">
+					<div class="member-look">
+							<img [src]="studyStatisticsVo.avatarUrl? studyStatisticsVo.avatarUrl:'assets/images/default_avatar.png'" alt="">
+					</div>
+					<div class="member-name">
+						<h3>{{studyStatisticsVo.nickName}}&nbsp;lv.{{studyStatisticsVo.level}}</h3>
+						<p>你打败了{{studyStatisticsVo.beatingPercent}}%的人</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<!--学习统计-->
+				<div class="study-time-statistics">
+					<img src="assets/images/member/xuexishijian.png">
+					<p>你共学习{{studyStatisticsVo.daysOnCount}}天，学习时长{{studyStatisticsVo.minutesOnCount}}分钟。</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<!--学习情况统计-->
+			<div class="box">
+				<div class="statistics-col-1">
+					<div class="statistics-title">
+						<h3>课程学习</h3>
+					</div>
+					<div class="statistics-detail">
+            <div class="detail-number">{{studyStatisticsVo.courseOnCount}}</div>
+						<div class="detail-left">
+              <span class="img-wrap"><img src="assets/images/member/pinglun.png"></span>
+              <span class="detail-text">课程评论{{studyStatisticsVo.courseCommentOnCount}}条</span>
+						</div>
+						<div class="detail-right">
+              <span class="img-wrap"><img src="assets/images/member/zan.png"></span>
+              <span class="detail-text">评论被点赞{{studyStatisticsVo.courseAwasomedOnCount}}次</span>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="statistics-col-2">
+					<div class="statistics-title">
+						<h3>闯关学习</h3>
+					</div>
+					<div class="statistics-detail">
+            <div class="detail-number">{{studyStatisticsVo.questOnCount}}</div>
+						<div class="detail-left">
+              <span class="img-wrap"><img src="assets/images/member/xingxing.png"></span>
+              <span class="detail-text">获得{{studyStatisticsVo.questStarOnCount}}颗星</span>
+						</div>
+						<div class="detail-right">
+              <span class="img-wrap"><img src="assets/images/member/fenshu.png"></span>
+              <span class="detail-text">获得总分{{studyStatisticsVo.questScoreOnCount}}分</span>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="statistics-col-3">
+					<div class="statistics-title">
+						<h3>发布话题</h3>
+					</div>
+					<div class="statistics-detail">
+            <div class="detail-number">{{studyStatisticsVo.subjectOnCount}}</div>
+						<div class="detail-left">
+              <span class="img-wrap"><img src="assets/images/member/huati.png"></span>
+              <span class="detail-text">话题评论{{studyStatisticsVo.subjectCommentOnCount}}条</span>
+						</div>
+						<div class="detail-right">
+              <span class="img-wrap"><img src="assets/images/member/zan.png"></span>
+              <span class="detail-text">话题被点赞{{studyStatisticsVo.subjectAwasomedOnCount}}次</span>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+</div>
+
+</ion-content>

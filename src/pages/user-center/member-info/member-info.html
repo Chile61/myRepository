@@ -1,0 +1,127 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content *ngIf="userVo" >
+  <div class="box">
+    <ul class="info-list">
+      <li class="item">
+        <a id="member-avatar" href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name" style="line-height: 38px;">头像</div>
+            <div class="content-1">
+              <div class="avaster">
+
+                <!--<img src="{{avasterURL}}" alt="">-->
+
+                <img [src]="userVo.avasterURL? userVo.avasterURL:'assets/images/default_avatar.png'" alt="">
+              </div>
+              <span><img src="assets/images/right_arrow_icon01.png"/></span>
+            </div>
+          </div>
+        </a>
+        <input type="file" id="hidden" name="" class="hidden" value="">
+      </li>
+      <li class="item" (click)="enterMemberModify(userVo.nickName,'nickName')">
+        <a id="member-nickname" href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">昵称</div>
+            <div class="content">
+              <span id="nickname">{{userVo.nickName}}</span>
+              <span><img src="assets/images/right_arrow_icon01.png"/></span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">姓名</div>
+            <div class="content">{{userVo.realName}}</div>
+          </div>
+        </a>
+      </li>
+      <li class="item" (click)="modifyMemberGender()">
+        <a id="member-gender" href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">性别</div>
+            <div class="content" id="gender">
+              {{userVo.sex == 1? '男':'女'}}
+              <span><img src="assets/images/right_arrow_icon01.png"/></span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="item" (click)="enterMemberModify(userVo.remark,'remark')">
+        <a id="member-remark" href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">个性签名</div>
+            <div class="content">
+              <span id="remark">{{userVo.remark}}</span>
+              <span><img src="assets/images/right_arrow_icon01.png"/></span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <!--<li class="item">
+        <a id="member-psd" href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">修改密码</div>
+            <div class="content">
+              <span><img src="assets/images/right_arrow_icon01.png"/></span>
+            </div>
+          </div>
+        </a>
+      </li>-->
+    </ul>
+  </div>
+
+  <div class="box">
+    <ul class="info-list">
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">账号</div>
+            <div class="content">{{userVo.userName}}</div>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">邮箱</div>
+            <div class="content">{{userVo.email}}</div>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">公司</div>
+            <div class="content">{{userVo.orgName}}</div>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">部门</div>
+            <div class="content">{{userVo.deptName}}</div>
+          </div>
+        </a>
+      </li>
+      <li class="item">
+        <a href="javascript:void(0);">
+          <div class="item-box">
+            <div class="name">职位</div>
+            <div class="content">{{userVo.position}}</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ion-content>

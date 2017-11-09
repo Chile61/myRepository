@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>班级统计</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="title">
+        <!--全员签到统计-->
+        <div *ngIf="classSigns.length>0">
+            <span class="c-title"><span class="c-line"></span>全员签到统计</span>
+        </div>
+        <div>
+            <ion-list>
+                <ion-item tappable *ngFor="let sign of classSigns" detail-push (click)="goSignStatistics(sign.id)">
+                    {{sign.name}}<br/>
+                    <span>时间：{{sign.beginTime | date:'yyyy/MM/dd HH:mm'}}~{{sign.endTime | date:'yyyy/MM/dd HH:mm'}}</span><br/>
+                    <span>迟到：{{sign.lateCount}}人</span><br/>
+                    <div class="progress">
+                        <span>已签：</span>
+                        <div class="stage-progress-bar">
+                            <div class="sign-stage-progress" [ngStyle]="bindSignStytle(sign.signCount,sign.unSignCount)"></div>
+                            <div class="signCount">{{sign.signCount}}人</div>
+                        </div>
+                    </div><br/>
+                    <div>
+                        <span>未签：</span>
+                        <div class="stage-progress-bar">
+                            <div class="unsign-stage-progress" [ngStyle]="bindUnSignStytle(sign.signCount,sign.unSignCount)"></div>{{sign.unSignCount}}人
+                        </div>
+                    </div><br/>
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--全员阶段学习统计-->
+        <div *ngIf="classStages">
+            <span class="c-title"><span class="c-line"></span>全员阶段学习统计</span>
+        </div>
+
+        <div>
+            <ion-list>
+                <ion-item *ngFor="let stage of classStages">
+
+                    <div>{{stage.stageName}}</div>
+                    <div class="circle">
+                        <div id="pinkcircle" class="small img_circle c100 green " [ngClass]="bindCirclePercents(stage.noCompulsoryCompleteRate)">
+                            <span>{{stage.noCompulsoryCompleteRate | percent:'1.0-1'}}</span>
+                            <div class="slice">
+                                <div class="bar" [ngStyle]="bindCircle(stage.noCompulsoryCompleteRate)"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                        <span>选修课完成率</span>
+                    </div>
+
+                    <div class="circle">
+                        <div id="pinkcircle" class="small img_circle c100 green " [ngClass]="bindCirclePercents(stage.compulsoryCompleteRate)">
+                            <span>{{stage.compulsoryCompleteRate | percent:'1.0-1'}}</span>
+                            <div class="slice">
+                                <div class="bar" [ngStyle]="bindCircle(stage.compulsoryCompleteRate)"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                        <span>必修课完成率</span>
+                    </div>
+
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,29 @@
+page-show-ppt {
+    .show-ppt {
+        width: 100%;
+        height: 100%;
+        background: #e5e5e5;
+    }
+
+    .show-ppt slide ion-img {
+        width: 100%;
+    }
+
+    .show-ppt-page {
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        background: #5e5e5e;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        z-index: 100;
+    }
+
+    .show-ppt-page span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+}

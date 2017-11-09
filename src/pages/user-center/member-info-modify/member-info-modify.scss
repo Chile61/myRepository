@@ -1,0 +1,25 @@
+page-member-info-modify {
+  .ipt {
+    padding-left: 12px;
+    width: 100%;
+    height: 38px;
+    color: #333;
+    font-size: 15px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: 0 !important;
+  }
+  .scroll-content {
+    background: #eee !important;
+ }
+ .form-group{
+     margin:12px 0;
+ }
+ .save_btn{
+    display: inline-block;
+    position: absolute;
+    right: 12px;
+    font-size: 14px;
+    line-height: 23px;
+ }
+}

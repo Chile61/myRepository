@@ -1,0 +1,148 @@
+
+
+
+page-class-introduction{
+    .in_item{
+  padding: 12px 15px;
+  border-bottom: 10px solid #e5e5e5;
+  position: relative;
+}
+.c_intro{
+  padding: 12px 15px 0 15px;
+}
+.left_color{
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 7px;
+  height: 16px;
+  background-color: #1b8bdf;
+}
+.c_title{
+  color: #333;
+  font-size: 16px;
+  font-weight: bolder;
+}
+.c_time{
+  color: #666;
+  padding-top: 8px;
+  font-size: 13px;
+}
+.in_title{
+  font-size: 16px;
+  font-weight: normal;
+  padding-bottom: 4px;
+}
+.teacher{
+  color: #333;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.in_content{
+  color: #666;
+  font-size: 14px;
+}
+.spacing{
+  height: 10px;
+}
+.in_label{
+  padding-top: 10px;
+}
+.in_label span{
+  font-size: 10px;
+  color: #fff;
+  background-color: #ff8c00;
+  padding: 4px 6px;
+  margin-right: 5px;
+  border-radius: 11px;
+}
+.c_num,.c_add{
+  font-size: 15px;
+  color: #333;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.c_num{
+  position: relative;
+}
+.c_num span{
+  font-size: 14px;
+  position: absolute;
+  right: 15px;
+  padding: 5px;
+  color: #1b8bdf;
+  border: 1px solid #1b8bdf;
+  border-radius: 6px;
+}
+.qcode{
+  width: 170px;
+  margin: 18px auto;
+}
+.qcode img{
+  width: 100%;
+  height: 170px;
+}
+.qcode .c_qcode{
+  color: #333;
+  text-align: center;
+  padding-top: 8px;
+}
+.qcode .enjoy{
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 8px;
+}
+.fixed-box{
+  border: 0;
+}
+.btn{
+  width: 85%;
+  margin: 0 auto;
+  background-color: #1b8bdf;
+}
+.page{
+  padding-bottom: 18px;
+}
+body{
+  background-color: #fff;
+}
+.title {
+    padding: 8px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.type_1{
+	position:absolute;
+	padding:6px;
+	font-size:12px;
+	line-height:18px;
+	border-radius:10px;
+	color:#fff;
+	right:15px;
+	letter-spacing:1px;
+}
+.joinClassStyle{
+    width: 100%;
+    padding: 8px 6px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    background-color: #1b8bdf;
+    
+}
+.reviewState{
+    background-color: #e5e5e5;
+}
+.unJoinState{
+    background-color: #1b8bdf;
+}
+.instroduction-list li{
+	padding: 12px;
+	border-bottom: 10px solid #eee;
+}
+
+}

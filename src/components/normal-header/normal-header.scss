@@ -1,0 +1,52 @@
+
+normal-header{
+    .navbar{
+        height: 50px;
+        width: 100%;
+        //background: #158be0;
+    }
+    .header-cancel{
+        font-size: 15px;
+        color: #fff;
+        width: 40px;
+        height: 50px;
+        float: left;
+        padding-top: 14px;
+        padding-left: 10px;
+    }
+    .header-back{
+        width: 40px;
+        height: 50px;
+        padding: 15px;
+    }
+    .header-title{
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        width: calc(100% - 100px);
+        position: absolute;
+        padding-top: 14px;
+    }
+    .header-rightString{
+        font-size: 10px;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        float: right;
+        padding-top: 14px;
+        padding-left: 10px;
+    }
+    .header-more{
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin-right: 10px;
+    }
+    .header-search{
+        width: 50px;
+        height: 50px;
+        float: right;
+        padding: 10px;
+    }
+    
+}

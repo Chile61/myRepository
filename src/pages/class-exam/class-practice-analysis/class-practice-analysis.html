@@ -1,0 +1,57 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{TitleName}}结果</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="questions2-top">
+        <div class="top-fixed">
+            <img class="questions2-default-img" src="assets/images/class/person-flat.png">
+            <span>共有<b>{{finishedUserCount+1}}</b>人参与本次{{TitleName}}</span>
+        </div>
+    </div>
+
+    <div class="item exam" style="display: block; margin-top: 80px;">
+        <ul class="subject-list">
+            <li class="subject-item" *ngFor="let item of questionsVosArr; let k=index">
+                <div class="question" questiontypeid="2" [ngSwitch]="item.examQuestionVo.questionTypeId">
+                    {{item.orderSeq+1}}、
+                    <span [innerHtml]="isFill(item.examQuestionVo.content,item.examQuestionVo.result)"></span>
+                    <div class="subject-list-Img" *ngIf="item.examQuestionVo.url"><img src={{item.examQuestionVo.url}}>
+                    </div>
+                </div>
+                <ul class="options2-list" *ngIf="item.examQuestionVo.questionTypeId==1||item.examQuestionVo.questionTypeId==2">
+                    <li class="item" *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                        <div class="option">
+                            <span>{{conversionFun(i)}}</span>
+                            {{examQuestionOptionVo.content}}
+                        </div>
+                        <div class="condition">
+                            <div class="progress-box">
+                                <div class="progress-bar">
+                                    <div class="progress" [ngStyle]="bindShowNumPercentage(examQuestionOptionVo.absPercent)"></div>
+                                </div>
+                            </div>
+                            <div class="vote-num">
+                                {{examQuestionOptionVo.answerCount?examQuestionOptionVo.answerCount:0}}
+                                票
+                            </div>
+                            <div class="number-box">{{(examQuestionOptionVo.absPercent*100).toFixed(0)}}%</div>
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="paddingBot" *ngIf="item.examQuestionVo.questionTypeId==4">
+                    {{item.examQuestionVo.result}}
+                </div>
+
+
+            </li>
+        </ul>
+    </div>
+
+</ion-content>

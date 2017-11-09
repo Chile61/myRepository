@@ -1,0 +1,176 @@
+
+
+page-circle-detail{
+    .tab-box .hd-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+}
+.tab-box .hd {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 640px;
+	background: #fff;
+}
+.circle-info-wrap {
+	position: relative;
+	height: 89px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.a {
+	display: block;
+	padding: 12px;
+}
+.circle-info-wrap .status-btn {
+	display: inline-block;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 99;
+	padding: 2px 10px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 4px;
+	background: #10B473;
+	cursor: pointer;
+}
+.circle-info-wrap .status-txt {
+	color: #999;
+	background: #fff;
+}
+.circle-info-wrap .circle-info-box {
+	position: relative;
+}
+.circle-info-wrap .icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 65px;
+	height: 65px;
+}
+ .circle-info-wrap .icon img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.circle-info-wrap .content {
+	margin: 0 0 0 77px;
+}
+.circle-info-wrap .content .name {
+	color: #333;
+	font-size: 16px;
+}
+.circle-info-wrap .content .information {
+	color: #999;
+	font-size: 13px;
+}
+ .circle-info-wrap .content .information span {
+	color: #ff7a21;
+}
+ .circle-info-wrap .content .information span:last-child {
+	margin: 0 0 0 10px;
+}
+ .circle-info-wrap .content .introduction {
+	color: #999;
+	font-size: 13px;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+}
+.tab-box .hd ul {
+	border-bottom: 1px solid #e5e5e5;
+}
+.tab-box .hd ul:before,
+.tab-box .hd ul:after {
+	display: table;
+	content: "";
+}
+.tab-box .hd ul:after {
+	clear: both;
+}
+.tab-box .hd ul li {
+	float: left;
+	width: 50%;
+	padding: 12px;
+	box-sizing: border-box;
+}
+.tab-box .hd ul li:first-child {
+	padding-right: 0;
+}
+.tab-box .hd ul li:last-child {
+	padding-left: 0;
+}
+.tab-box .hd ul li a {
+	display: block;
+	color: #333;
+	font-size: 15px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+}
+.tab-box .hd ul li:last-child a {
+	border-right: none;
+}
+.tab-box .hd ul li.on a {
+	color: #e5e5e5;
+}
+.tab-box .tempWrap {
+	padding: 0 0 0 0;
+}
+.joinStatus{
+	float: right;
+	width: 60px;
+    height: 20px;
+	font-size: 13px;
+}
+/******************************
+	发帖
+******************************/
+.post-wrap {
+	position: fixed;
+	bottom: 140px;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+}
+.post1-box {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 480px;
+	text-align: right;
+}
+.post1-box a {
+	display: inline-block;
+	margin: 0 12px 0 0;
+	width: 40px;
+	height: 40px;
+}
+.post1-box a img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+//最新、最热
+.tabs .tabbar{
+    position: relative !important;
+    height: 40px;
+    opacity: 1;
+    }
+.circle-info-wrap{
+	z-index: 1;
+}
+.bd {
+	width: 100%;
+	height: 100%;
+    }
+.fab-bottom {
+	bottom: 100px;
+}
+// .tabClass{
+// 	z-index: 10 !important;
+// }
+// .tabbar.show-tabbar{
+// 	z-index: 0;
+// }
+}

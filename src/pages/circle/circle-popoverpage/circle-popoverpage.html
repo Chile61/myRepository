@@ -1,0 +1,20 @@
+<ion-content class="popover-content">
+    <ion-list radio-group>
+        <ion-item>
+            <ion-label>我参与的(全部)</ion-label>
+            <ion-radio checked="{{attendChecked?'true':'false'}}" value="我参与的(全部)" (click)="topicType(1)"></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>我发起的</ion-label>
+            <ion-radio checked="{{postChecked?'true':'false'}}" value=">我发起的" (click)="topicType(2)"></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>我回复的</ion-label>
+            <ion-radio checked="{{replyChecked?'true':'false'}}" value="Iowan" (click)="topicType(3)"></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>@我的</ion-label>
+            <ion-radio checked="{{inviteChecked?'true':'false'}}" value="@我的" (click)="topicType(4)"></ion-radio>
+        </ion-item>
+    </ion-list>
+</ion-content>

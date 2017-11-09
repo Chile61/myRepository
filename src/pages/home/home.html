@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      资料
+    </ion-list-header>
+    <a ion-item (click)="openModal({charNum: 0})">
+      信息1
+    </a>
+    <a ion-item (click)="openModal({charNum: 1})">
+      信息2
+    </a>
+    <a ion-item (click)="openModal({charNum: 2})">
+      信息3
+    </a>
+  </ion-list>
+	<ion-list>
+    <ion-list-header>
+      所有课程
+    </ion-list-header>
+    <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-left>
+      <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-left></ion-icon>
+      {{ item.title }}
+    </button>
+  </ion-list>
+</ion-content>

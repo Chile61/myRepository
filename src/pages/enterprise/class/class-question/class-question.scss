@@ -1,0 +1,116 @@
+
+
+page-class-question{
+	.topic-list li{
+		padding: 12px;
+		border-bottom: 10px solid #eee;
+	}
+	.img-wrap{
+		width: 35px;
+		height: 35px;
+	}
+	.img-wrap img{
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+	}
+	.left{
+		float: left;
+	}
+	.right{
+		float: right;
+	}
+	.right-content {
+		padding: 5px 12px;
+	}
+	.right-content > span{
+		display: block;
+	}
+	.right-content > span{
+		display: block;
+	}
+	.m-date{
+		color: #999;
+		font-size: 12px;
+	}
+	h3.topic-title {
+		font-size: 16px;
+		margin: 6px 0;
+	}
+	.middle-wrap{
+		padding: 0 12px 12px 47px; 
+	}
+	.topic-content{
+		color:#666;
+		font-size: 14px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		text-align: justify;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	.bottom{
+		padding: 0 5px 0px 47px;
+		color:#999;
+		font-size: 12px;
+	}
+	.topic-type{
+		background-color: #e0e0e0; 
+		color: #fff;
+		border-radius: 50px;
+		padding: 3px 5px;
+	}
+	.bottom .praise-icon {
+		display: inline-block;
+		margin: 0 4px 0 0;
+		width: 11px;
+		height: 11px;
+		background: url(../assets/images/praise_icon01.png) no-repeat 0 0;
+		background-size: 11px;
+	}
+	.praise-Awesomed{
+		background: url(../assets/images/praise_icon02.png) no-repeat 0 0 !important;
+		background-size: 11px !important;
+	}
+	.bottom .reply-icon {
+		display: inline-block;
+		margin: 0 4px 0 0;
+		width: 11px;
+		height: 11px;
+		background: url(../assets/images/reply_icon01.png) no-repeat 0 0;
+		background-size: 11px;
+	}
+	.bottom .right > span:first-child{
+		margin-right: 20px;
+	}
+	/*
+	* 显示图片
+	*/
+	.img-content {
+		margin: -5px 0 5px 0;
+	}
+	.comment-img {
+		width: 100%;
+		white-space: nowrap;
+		overflow-x: auto;
+		margin-left: 43px;
+	}
+	.comment-img img {
+		width: 80px;
+		height: 80px;
+		margin: 0 5px;
+		display: inline-block;
+	}
+	.fab-bottom {
+        bottom: 100px;
+		position: fixed;
+		right: 20px;
+    }
+	.topic_img{
+		width: 40px;
+		height: 40px;
+	}
+}

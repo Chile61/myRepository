@@ -1,0 +1,198 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+    <div class="hd" tab="0">
+        <div class="teacher-top">
+            <div class="teacher-img">
+                <img src="{{teacherDetail.userhead||'assets/images/default_avatar.png'}}">
+            </div>
+            <div class="name">{{teacherDetail.name}}</div>
+            <!--<div class="teacher-label">-->
+            <!--<ion-grid>-->
+            <!--<ion-row wrap>-->
+            <!--<ion-col width-25 *ngFor="let label of labels">-->
+            <!--<span>{{label}}</span>-->
+            <!--</ion-col>-->
+            <!--</ion-row>-->
+            <!--</ion-grid>-->
+            <!--</div>-->
+            <div class="teacher-label">
+                <span *ngFor="let label of labels">{{label}}</span>
+            </div>
+        </div>
+        <ul class="slide_Btn">
+            <li class="{{selectTabNum==0?'on':''}} {{isShowColumn?'li-width-25':'li-width-33'}}" (click)="selectTab(0)">
+                基本信息
+            </li>
+            <li class="{{selectTabNum==1?'on':''}} {{isShowColumn?'li-width-25':'li-width-33'}}" (click)="selectTab(1)">
+                课程
+            </li>
+            <li class="{{selectTabNum==2?'on':''}} {{isShowColumn?'li-width-25':'li-width-33'}}" (click)="selectTab(2)"
+                *ngIf="isShowColumn">专栏
+            </li>
+            <li class="{{selectTabNum==3?'on':''}} {{isShowColumn?'li-width-25':'li-width-33'}}" (click)="selectTab(3)">
+                留言
+            </li>
+        </ul>
+    </div>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true" *ngIf="canRefresh">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="bd" id="toTop">
+        <!--<ion-slides class="teacher-slides" #Slides (ionDidChange)="onSlideChanged()">-->
+        <!--<ion-slide>-->
+        <div id="item_1" *ngIf="selectTabNum==0">
+            <div class="title">
+                <span class="title-label"></span>
+                <span class="title-title">名师介绍</span>
+            </div>
+            <div class="teacher-intro">
+                <div>简介：</div>
+                <div>{{teacherDetail.description}}</div>
+            </div>
+        </div>
+        <!--</ion-slide>-->
+        <!--<ion-slide>-->
+        <div id="item_2" *ngIf="selectTabNum==1">
+            <div class="title">
+                <span class="title-label"></span>
+                <span class="title-title">全部课程({{courseTotalCount}})</span>
+            </div>
+            <ion-list class="course-list" no-lines>
+                <ion-item *ngFor="let course of courseList;let i = index" style="padding: 0px"
+                          (click)="toCourseDetail(i)">
+                    <div class="course">
+                        <div class="{{course.isRead==true?'course-title-read':'course-title'}}">{{course.title}}<span
+                            class="pub-time">{{(course.pubTime||course.modTime) | timePipe}}</span></div>
+                        <div class="course-content">
+                            <div class="course-image">
+                                <img src="{{course.smallIcon}}">
+                            </div>
+                            <div class="course-description">
+                                <div class="top">{{course.description}}</div>
+                                <div class="bottom">
+                                            <span class="{{getCategoryCss(course.columnName)}}"
+                                                  *ngIf="course.columnName">{{course.columnName}}</span>
+                                    <span class="tags">{{course.competencyName}}</span>
+                                    <!--趣味币-->
+                                    <span class="price"
+                                          *ngIf="course.price2Str&&(course.price2Str>0)">{{course.price2Str}}</span>
+                                    <span class="comment-number"><span>{{course.commentNum}}</span><span
+                                        class="icon-reply"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--</ion-slide>-->
+        <!--<ion-slide *ngIf="isShowColumn">-->
+        <div id="item_3" *ngIf="selectTabNum==2&&isShowColumn">
+            <div class="title">
+                <span class="title-label"></span>
+                <span class="title-title">全部专栏({{columnTotalCount}})</span>
+            </div>
+            <ion-refresher (ionRefresh)="doRefreshColumn($event, true)" enabled="true">
+                <ion-refresher-content
+                    pullingText="下拉刷新"
+                    refreshingSpinner="circles"
+                    refreshingText="正在加载...">
+                </ion-refresher-content>
+            </ion-refresher>
+            <ion-grid margin-bottom="5px">
+                <ion-row wrap>
+                    <ion-col width-50 *ngFor="let themeVo of columnList"
+                             (click)="toColumnOrThemeDetail(themeVo)">
+                        <div class="column-theme">
+                            <img src={{themeVo.iconUrl}}>
+                            <div>{{themeVo.topicalName}}</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-infinite-scroll (ionInfinite)="doRefreshColumn($event, false)" enabled="true"
+                                 *ngIf="columnCanLoadMore">
+                <ion-infinite-scroll-content
+                    loadingSpinner="bubbles"
+                    loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+        <!--</ion-slide>-->
+        <!--<ion-slide>-->
+        <div id="item_4" class="item_4" *ngIf="selectTabNum==3">
+            <div class="title">
+                <span class="title-label"></span>
+                <span class="title-title">全部留言({{messageTotalCount}})</span>
+            </div>
+            <ion-list class="message-list" no-lines>
+                <ion-item *ngFor="let message of messageList" class="word-item">
+                    <div class="word-warp">
+                        <div class="word-icon">
+                            <img src="{{message.user.avatarUrl || 'assets/images/default_avatar.png'}}">
+                        </div>
+                        <div class="word-description">
+                            <div class="word-name">
+                                <span class="nickname">{{message.user.nickName}}</span>
+                                <span class="level">lv{{message.user.level||0}}</span>
+                                <span class="isTeacher"
+                                      *ngIf="message.user.position">{{message.user.position}}</span>
+                            </div>
+                            <div class="word-content" [innerHtml]="transSmiles(message.content)"></div>
+                            <div class="img-content" *ngIf="message.imgURLs">
+                                <div class="comment-img">
+                                    <img *ngFor="let imgUrl of message.imgURLs,let i=index" src="{{imgUrl}}"
+                                         (click)="showBigImage(message.imgURLs,i)">
+                                </div>
+                            </div>
+                            <ul class="word-comment" *ngIf="message.followingComments">
+                                <li *ngFor="let commentReply of message.followingComments">
+                                    <div>
+                                        <div class="comment-top">
+                                            <span class="nickname">{{commentReply.user.nickName}}</span>
+                                            <span class="level">lv{{commentReply.user.level||0}}</span>
+                                            <span class="isTeacher" *ngIf="commentReply.user.position">{{commentReply.user.position}}</span>
+                                            <span>{{commentReply.replyTime | timePipe}}</span>
+                                        </div>
+                                        <div class="comment-bottom"
+                                             [innerHtml]="transSmiles(commentReply.content)"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="word-bottom">
+                                <span>{{message.replyTime | timePipe}}</span>
+                                <a class="reply" (click)="replyInput(message.commentId)">
+                                    <img src="assets/images/reply_icon01.png">
+                                    <span>回复</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--</ion-slide>-->
+        <!--</ion-slides>-->
+    </div>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true"
+                         *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer style="position:fixed;bottom:0;">
+    <div style="width: 100%" *ngIf="selectTabNum==3">
+        <comment-view #CommentView (postComment)="postComment($event)"
+                      (cancelInputComment)="cancelInputComment()" [isShowImage]="true"></comment-view>
+    </div>
+</ion-footer>

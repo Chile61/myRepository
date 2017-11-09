@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{pageTitle}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-slides class="show-ppt" *ngIf="imageResUrl" (ionDidChange)="onSlideChanged()" #mySlideOptions>
+        <ion-slide *ngFor="let imgUrl of imageResUrl;let i = index">
+            <ion-img src={{imgUrl}} *ngIf="selectIndex-3 < i+1 && selectIndex+3 > i+1"></ion-img>
+        </ion-slide>
+    </ion-slides>
+    <div class="show-ppt-page" align="center">
+        <span>{{selectIndex}}/{{pages}}</span>
+    </div>
+</ion-content>

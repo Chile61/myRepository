@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>关卡讨论</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div class="quest-info-wrap">
+        <div class="quest-name">{{questName}}</div>
+        <div class="quest-desc">{{questDesc}}</div>
+    </div>
+    <div class="NewTitle">最新评论</div>
+    <ion-list class="comment-list" no-lines>
+        <ion-item class="item" *ngFor="let comment of gameComments;let i = index">
+            <div class="item-box">
+                <div class="avatar">
+                    <img src="{{comment.user.avatarUrl||'assets/images/default_avatar.png'}}">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span class="nickname">{{comment.user.nickName}}</span>
+                        <span class="level">lv{{comment.user.level || 0}}</span>
+                    </div>
+                    <div class="comment" [innerHtml]="transSmils(comment.content)"></div>
+                    <div class="sub-comment-list" *ngIf="comment.parentCommentVo!=null">
+                        <div class="sub-item">
+                            <div class="sub-name">{{comment.parentCommentVo.user.nickName}}:
+                                <span class="right">{{(comment.parentCommentVo.createTime) | timePipe}}</span>
+                            </div>
+                            <div class="sub-comment" [innerHtml]="transSmils(comment.parentCommentVo.content)"></div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <span>{{(comment.createTime) | timePipe}}</span>
+                        <span class="right">
+                            <a class="praise" [ngSwitch]="comment.hasAppraised+''">
+                                <span>{{comment.awesomeCount}}</span>
+                                <img src="assets/images/praise_icon01.png" *ngSwitchCase="'false'"
+                                     (click)="thumbUpCourseComment(i)">
+                                <img src="assets/images/praise_icon02.png" *ngSwitchCase="'true'">
+                            </a>
+                            <span>|</span>
+                            <a class="reply" (click)="replyInput(comment.commentId)">
+                                <img src="assets/images/reply_icon01.png">回复
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>
+<ion-footer style="position:fixed;bottom:0;">
+    <div style="width: 100%">
+        <comment-view #CommentView (postComment)="postComment($event)"
+                      (cancelInputComment)="cancelInputComment()"></comment-view>
+    </div>
+</ion-footer>

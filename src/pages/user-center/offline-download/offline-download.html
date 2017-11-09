@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>离线下载</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-toolbar toolbar-ios>
+        <ion-segment [(ngModel)]="downloadState">
+            <ion-segment-button value="downloaded">
+                已下载
+            </ion-segment-button>
+            <ion-segment-button value="downloading">
+                下载中
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    <div [ngSwitch]="downloadState">
+        <div *ngSwitchCase="'downloaded'">
+            <ion-list>
+                <ion-item-sliding *ngFor="let course of courseList;let i = index" (click)="toCourseDetail(i)">
+                    <ion-item>
+                        <div class="cd-header">
+                            <h1>{{course.title}}</h1>
+                            <div>
+                                <span class="{{getCategoryCss(course.columnName)}}" *ngIf="course.columnName">{{course.columnName}}</span>
+                                <span class="com-tag-2">{{course.competencyName}}</span>
+                            </div>
+                        </div>
+                    </ion-item>
+                    <ion-item-options side="right">
+                        <div style="width: 40px;background-color: red" (click)="deleteDownloaded(i)">
+                            <img src="assets/images/download_btn_delete.png" style="padding: 4px">
+                        </div>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+        </div>
+        <div *ngSwitchCase="'downloading'">
+            <ion-list>
+                <ion-item *ngFor="let downloading of downloadingCourseList">
+                    <span style="font-size: 15px">{{downloading.courseDetail.title}}</span>
+                    <span style="color: #2ec95c;float: right">已下载:{{(downloading.progress.loaded/downloading.progress.total*100).toFixed(2)}}%</span>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

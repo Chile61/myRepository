@@ -1,0 +1,62 @@
+page-more-home {
+/******************************
+
+******************************/
+.m-list-2 {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	background: #fff;
+}
+.m-list-2 a {
+	display: block;
+	padding-left: 49px;
+	height: 40px;
+	line-height: 40px;
+	color: #333;
+	font-size: 15px;
+	background: #fff no-repeat 18px 12px;
+	background-size: 15px 15px;
+}
+.m-list-2 a:focus {
+	background-color: #dfdfdf;
+}
+.m-list-2 .morephone {
+	background-image: url(../assets/images/member/more_icon_phone.png);
+}
+.m-list-2 .morePwd {
+	background-image: url(../assets/images/member/more_icon_password.png);
+}
+.m-list-2 .moreHelp {
+	background-image: url(../assets/images/member/more_icon_help.png);
+}
+.m-list-2 .moreIntroduce{
+ background-image: url(../assets/images/member/more_icon_function.png);
+}
+.m-list-2 .moreAbout{
+ background-image: url(../assets/images/member/more_icon_aboutus.png);
+
+
+}
+.m-list-2 p {
+	padding-right: 18px;
+	border-top: 1px solid #eee;
+}
+.m-list-2 li:first-child p {
+	border-top-color: #fff;
+}
+.m-list-2 .r-arrow {
+	display: inline-block;
+	float: right;
+	margin-top: 12px;
+	width: 15px;
+	height: 15px;
+	background: url(../assets/images/right_arrow_icon01.png) no-repeat 0 0;
+	background-size: 15px auto;
+}
+/*** **/
+.tel-txt{
+    position: absolute;
+    top: 2px;
+    right: 42px;
+}
+}

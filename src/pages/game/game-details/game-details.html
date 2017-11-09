@@ -1,0 +1,72 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{questName}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div class="game-level-details">
+        <!--<div class="gld-title">-->
+            <!--<h1>{{questName}}</h1>-->
+        <!--</div>-->
+        <div *ngIf="questImage" class="gld-img">
+            <img src={{questImage}} alt="">
+        </div>
+
+        <div *ngIf="questDesc" class="gld-intro">
+            <div class="head">
+                <span>关卡说明</span>
+            </div>
+            <p>{{questDesc}}</p>
+        </div>
+
+        <div *ngIf="questTarget" class="gld-goal">
+            <div class="head">
+                <span>关卡目标</span>
+            </div>
+            <p>{{questTarget}}</p>
+        </div>
+
+        <div class="gld-cl" *ngIf="questCourseLss">
+            <div class="head">
+                <span>课程列表</span>
+            </div>
+            <ul>
+                <li *ngFor="let questCourseLs of questCourseLss">
+                    {{questCourseLs.title}}
+                    <span class="column-tag FloatR" *ngIf="questCourseLs.columnName">
+                        {{questCourseLs.columnName}}
+					</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ion-content>
+<ion-footer class="footer">
+    <div class="game-footer">
+        <div class="game-btn-group">
+            <div [style.width]="questPassFlag?'33.3333%':'50%'" class="game-btn-wrap">
+                <a *ngIf="questPassFlag==false" class="btn btn-blue btn-block" (click)="openGameCourse()">
+                    开始闯关
+                </a>
+                <a *ngIf="questPassFlag==true" class="btn btn-blue btn-block" (click)="openGameCourse()">
+                    重新闯关
+                </a>
+            </div>
+            <div [style.width]="questPassFlag?'33.3333%':'50%'" class="game-btn-wrap game-btn-wrap-grey">
+                <a (click)="openGameComment()" class="btn btn-default btn-block">
+                    关卡讨论(<span id="comment_num">{{objType}}</span>)
+                </a>
+            </div>
+            <div style="width:33.3333%" *ngIf="questPassFlag==true" class="game-btn-wrap">
+                <a class="btn btn-blue btn-block" (click)="openGameResult()">
+                    结果查询
+                </a>
+            </div>
+        </div>
+    </div>
+</ion-footer>

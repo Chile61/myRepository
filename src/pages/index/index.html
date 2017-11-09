@@ -1,0 +1,28 @@
+<!--
+  Generated template for the Index page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar no-border-bottom>
+    <ion-title>输入企业ID</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <section class="log-section">
+		
+					<div class="form-group">
+						<input type="text" id="orgCode" class="block ipt" placeholder="企业ID号" autofocus [(ngModel)]="orgCodeVal">
+					</div>
+
+					<div class="form-group">
+						<a id="next_btn" class="btn btn-block" href="javascript:void(0);" (click)="bindBtnLogin()">下一步</a>
+					</div>
+
+			</section>
+</ion-content>

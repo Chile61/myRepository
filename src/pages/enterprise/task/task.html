@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar toolbar-ios>
+    <ion-segment [(ngModel)]="taskTab">
+      <ion-segment-button value="unfinished" (click)="getMyTask(1)">
+        待办任务
+      </ion-segment-button>
+      <ion-segment-button value="done" (click)="getMyTask(2)">
+        已办任务
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+  <!-- Main -->
+  <div [ngSwitch]="taskTab">
+    <div *ngSwitchCase="'unfinished'">
+      <ul class="event_list">
+        <li *ngFor="let i of unfinishedLists" (click)="toTaskItem(i.taskId,i.title)">
+          <div class="content-wrap">
+            <span class="content_span">
+								<a class="task" href="javascript:void(0);">
+										<div class="task_title"  [ngStyle]="bindOutOfDateColor(i.endTime)">{{i.title}} </div>
+										<div class="time">时间 : {{i.beginTime | date:'MM.dd HH:mm'}} - {{i.endTime | date:'MM.dd HH:mm'}}</div>
+										<div class="cm" *ngIf="(today - i.endTime) > 0 " [ngStyle]="bindOutOfDateColor(i.endTime)">已过期</div>
+                    <div class="cm" *ngIf="(today - i.endTime) <= 0 ">{{leftTime(i.endTime)}}</div>
+										<div class="circle">
+											<div id="pinkcircle" class="small img_circle c100 green " [ngClass]="bindCirclePercents(i.taskItemFinishedCount,i.taskItemCount,i.endTime)">
+                      <span>{{i.taskItemFinishedCount/i.taskItemCount | percent:'1.0-1'}}</span>
+                      <div class="slice">
+                          <div class="bar" [ngStyle]="bindCircle(i.taskItemFinishedCount,i.taskItemCount)"></div>
+                          <div class="fill"></div>
+                      </div>
+                      </div>
+                    </div>
+                </a>
+            </span>
+          </div>
+       </li>
+      </ul>
+      <div class="blank_wrap" *ngIf="unfinishedLists.length == 0"><img src="assets/images/task/null.png"></div>
+    </div>
+
+  <div *ngSwitchCase="'done'">
+    <ul class="event_list">
+      <li *ngFor="let i of doneLists" (click)="toTaskItem(i.taskId,i.title)">
+        <div class="content-wrap">
+          <span class="content_span">
+             <a class="task" href="javascript:void(0);">
+								<div class="task_title" >{{i.title}} </div>
+								<div class="time">时间 : {{i.beginTime | date:'MM.dd HH:mm'}} - {{i.endTime | date:'MM.dd HH:mm'}}</div>
+								<div class="cm cm1">{{i.state==2? '已完成':'超时完成'}}</div>
+								<div class="circle">
+									<div id="pinkcircle" class="small img_circle c100 green " [ngClass]="bindCirclePercents(i.taskItemFinishedCount,i.taskItemCount)">
+                      <span>{{i.taskItemFinishedCount/i.taskItemCount | percent:'1.0-1'}}</span>
+                      <div class="slice">
+                          <div class="bar" [ngStyle]="bindCircle(i.taskItemFinishedCount,i.taskItemCount)"></div>
+                          <div class="fill"></div>
+                      </div>
+                  </div>
+                </div>
+             </a>
+          </span>
+        </div>
+      </li>
+    </ul>
+    <div class="blank_wrap" *ngIf="doneLists.length == 0"><img src="assets/images/task/null.png"></div>
+  </div>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

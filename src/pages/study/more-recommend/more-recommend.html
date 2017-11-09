@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{pageTitle}}
+        </ion-title>
+    </ion-navbar>
+    <div class="result-number">共<span>{{totalCount||0}}</span>个结果</div>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(columnThemes.length>0)">
+    <ion-list class="h-list" no-lines>
+        <ion-item class="h-item" *ngFor="let suggestTopic of columnThemes" (click)="toColumnOrThemeDetail(suggestTopic)">
+            <a class="topic">
+                <div>
+                    <img class="column-img" src="{{suggestTopic.iconUrl}}">
+                    <p><span>{{suggestTopic.topicalName}}</span></p>
+                </div>
+            </a>
+            <span class="td-avaster" *ngIf="suggestTopic.topicTeacherVo">
+              <a>
+                <span class="avaster">
+                  <img src="{{suggestTopic.topicTeacherVo.teacherHead}}">
+                </span>
+                <span>{{suggestTopic.topicTeacherVo.teacherName}}</span>
+              </a>
+            </span>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

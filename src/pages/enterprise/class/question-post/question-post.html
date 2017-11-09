@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <div>
+                <div class="normal-head">发布问答</div>
+                <span class="post" (click)=checkTopic()>发送</span>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="title">
+        <ion-label color="primary">标题</ion-label>
+        <ion-input placeholder="请填写问答标题" type="text" [(ngModel)]="classTitle"></ion-input>
+    </ion-item>
+
+    <div class="post-content">
+        <div class="input-comment" contenteditable="true" id="commentInput"></div>
+    </div>
+    <!--底部-->
+    <div class="bottom">
+        <div class="post-bottom">
+            <div>
+                <div class="comment-options">
+                    <a class="emotion">
+                        <span class="{{isShowEmoji?'face-icon-show':'face-icon'}}" (click)="showEmoji()"></span>
+                    </a>
+                </div>
+                <div class="comment-accessory" *ngIf="isShowEmoji">
+                    <div class="face-wrap">
+                        <ion-slides *ngIf="isShowEmoji" [options]="emojiSlides">
+                            <ion-slide *ngFor="let emojiItem of emojiList;let i = index">
+                                <ion-grid>
+                                    <ion-row wrap>
+                                        <ion-col class="emoji-width" *ngFor="let emoji of emojiItem;let j = index">
+                                            <div>
+                                                <img src={{emoji}} (click)="selectEmoji(i,j)">
+                                            </div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-slide>
+                        </ion-slides>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 选择的图片 -->
+    <div class="img-wrap" *ngIf="selectedImg.length>0">
+        <img src="{{selectedImg[selectedImg.length-1]}}" (click)=editPicture(selectedImg)>
+        <img class="prompt" src="assets/images/class/cc_prompt.png">
+        <span class="prompt_text">{{selectedImg.length}}</span>
+    </div>
+
+    <!-- 添加图片开始 -->
+    <div class="post-wrap">
+        <div class="post1-box">
+            <a id="post_btn">
+                <img src="assets/images/circle/circle_icon_imgadd.png" alt="" (click)="addPicture()">
+            </a>
+        </div>
+    </div>
+    <!-- 添加图片结束 -->
+</ion-content>

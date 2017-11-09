@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+    <!-- 搜索开始 -->
+    <form>
+        <div class="search-box">
+            <div class="search-input-box">
+                <input id="search" type="search" placeholder="搜索关键字" [value]="searchKey" #search>
+            </div>
+            <div class="search-btn-box">
+                <button id="search_btn" style="background-color: rgb(21, 139, 224);"
+                        (click)="clickSearch(search.value)">搜索
+                </button>
+            </div>
+        </div>
+    </form>
+    <!-- 搜索结束 -->
+    <div style="height: 25px;margin-left: 15px;margin-top: 5px">
+        共<span style="color: orangered">{{totalCount||0}}</span>个结果
+    </div>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true" *ngIf="canRefresh">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(studyTopics.length>0)">
+    <ion-list class="h-list" style="display: block;" no-lines>
+        <ion-item class="h-item" *ngFor="let studyTopic of studyTopics" (click)="toDetail(studyTopic)">
+            <a class="topic">
+                <div>
+                    <img class="column-img" src="{{studyTopic.iconUrl}}">
+                    <div class="column-name">
+                        <div>{{studyTopic.topicalName}}</div>
+                    </div>
+                </div>
+            </a>
+            <span class="td-avaster" *ngIf="studyTopic.topicTeacherVo">
+              <a>
+                <span class="avaster">
+                  <img src="{{studyTopic.topicTeacherVo.teacherHead}}">
+                </span>
+                <span>{{studyTopic.topicTeacherVo.teacherName}}</span>
+              </a>
+          </span>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

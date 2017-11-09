@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+    <!-- 搜索开始 -->
+    <form>
+        <div class="search-box">
+            <div class="search-input-box">
+                <input id="search" type="search" placeholder="搜索主题" #search>
+            </div>
+            <div class="search-btn-box">
+                <button id="search_btn" style="background-color: rgb(21, 139, 224);"
+                        (click)="searchTheme(search.value)">搜索
+                </button>
+            </div>
+        </div>
+    </form>
+    <!-- 搜索结束 -->
+    <!-- 子标签开始 -->
+    <div>
+        <ion-scroll scrollX="true" class="classify" *ngIf="hasClassifyLs">
+            <div>
+                <span *ngFor="let classify of themeClassifyLs" (click)="selectClassify(classify.seriesId)"
+                      class="{{classify.seriesId==selectClassifyId?'on':''}}">{{classify.seriesName}}</span>
+            </div>
+        </ion-scroll>
+    </div>
+    <!-- 子标签结束 -->
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(themeClassifyList.length>0)">
+    <ion-list no-lines class="theme-list">
+        <ion-item *ngFor="let themeClassify of themeClassifyList" style="padding: 0px">
+            <div class="title" *ngIf="themeClassify.seriesName">
+                <div>
+                    <span class="title-label"></span>
+                    <span class="title-title">{{themeClassify.seriesName}}</span>
+                </div>
+            </div>
+            <ion-list class="h-list" no-lines>
+                <ion-item class="h-item" *ngFor="let themeSeries of themeClassify.studyTopicVoLs"
+                          (click)="toThemeDetail(themeSeries)">
+                    <a class="topic">
+                        <div>
+                            <img class="column-img" src="{{themeSeries.iconUrl}}">
+                            <div class="column-name">
+                                <div>{{themeSeries.topicalName}}</div>
+                            </div>
+                        </div>
+                    </a>
+                    <span class="td-avaster" *ngIf="themeSeries.topicTeacherVo">
+                        <a>
+                            <span class="avaster">
+                              <img src="{{themeSeries.topicTeacherVo.teacherHead}}">
+                            </span>
+                            <span>{{themeSeries.topicTeacherVo.teacherName}}</span>
+                        </a>
+                    </span>
+                </ion-item>
+            </ion-list>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

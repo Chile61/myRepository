@@ -1,0 +1,65 @@
+
+page-circle-topics {
+    //最新、最热
+    .tabs .tabbar {
+        position: relative !important;
+        top: 0px !important;
+        opacity: 1;
+        height: 40px !important;
+    }
+    .scroll-content {
+        margin-top: 0px !important;
+        top: 48px !important;
+        background: #fff;
+    }
+    /******************************
+        发帖样式
+    ******************************/
+    .post-wrap {
+        position: fixed;
+        bottom: 140px;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+    }
+    .post1-box {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 480px;
+        text-align: right;
+    }
+    .post1-box a {
+        display: inline-block;
+        margin: 0 12px 0 0;
+        width: 40px;
+        height: 40px;
+    }
+    .post1-box a img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .rank-sort-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0);
+        z-index: 9;
+    }
+    .marginR20{
+        margin-right: 20px;
+    }
+    .select_topic{
+        width: 30%;
+        height: 49px;
+        position: absolute;
+        right: 0px;
+    }
+    .fab-bottom {
+        bottom: 100px;
+    }
+   
+    
+}

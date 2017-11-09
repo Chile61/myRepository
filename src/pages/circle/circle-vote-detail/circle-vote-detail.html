@@ -1,0 +1,189 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>投票详情</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-bottom: 50px;">
+    <div (click)="openCircleDetail()" class="VoteTitle">来自 {{groupName}}</div>
+    <div class="VoteNameDiv">
+        <span class="VoteName">{{title}}</span>
+        <div class="VoteNameBot">
+
+            <img class="VoteNameIcon" src={{avatarUrl}}>
+
+            <span class="Account">{{nickName}}</span>
+            <span class="VoteNameTime">{{createDate | timePipe}}</span>
+            <div class="clearB"></div>
+            <div class="Option" *ngIf="SelectobjType==1">单选</div>
+            <div class="Option" *ngIf="SelectobjType==2">多选</div>
+        </div>
+    </div>
+    <div class="VoteNameIcm"><img src="assets/images/weiSignImages/sign_banner.png"></div>
+
+    <!--未投票-->
+    <div class="subject-item" *ngIf="finishFlag==false">
+        <ul class="subject-list">
+            <li *ngFor="let item of questionsVos; let i=index">
+                <div [ngSwitch]="item.examQuestionVo.questionTypeId">
+                    <!--单选题-->
+                    <div *ngSwitchCase="1" class="options-list">
+                        <ion-list radio-group (ionChange)="getRadion(item.probId,$event)">
+                            <ion-item text-wrap
+                                      *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                                <ion-radio value="{{examQuestionOptionVo.id}}"
+                                           checked="{{examQuestionOptionVo.select}}"></ion-radio>
+                                <ion-label>
+                                    <span *ngIf="!examQuestionOptionVo.type||examQuestionOptionVo.type==1">
+                                        <span class="letter">{{conversionFun(i)}}</span>{{examQuestionOptionVo.content}}
+                                    </span>
+                                    <span *ngIf="examQuestionOptionVo.type==2">
+                                         <span class="letter">{{conversionFun(i)}}</span><img class="question_img"
+                                                                                              src={{examQuestionOptionVo.remark}}
+                                                                                              alt="">
+                                    </span>
+                                </ion-label>
+
+                            </ion-item>
+
+                        </ion-list>
+                    </div>
+                    <!--多选题-->
+                    <div *ngSwitchCase="2" class="options-list">
+                        <ion-list>
+                            <ion-item text-wrap
+                                      *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                                <ion-label>
+                                    <span *ngIf="examQuestionOptionVo.type==1">
+                                        {{conversionFun(i)}}、{{examQuestionOptionVo.content}}
+                                    </span>
+                                    <span *ngIf="examQuestionOptionVo.type==2">
+                                         {{conversionFun(i)}}、<img class="question_img" src={{examQuestionOptionVo.remark}} alt="">
+                                    </span>
+                                </ion-label>
+                                <ion-checkbox checked="{{examQuestionOptionVo.select}}"
+                                              (ionChange)="getCheckbox(examQuestionOptionVo.probId,examQuestionOptionVo.id)"></ion-checkbox>
+
+
+                            </ion-item>
+
+                        </ion-list>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <button (click)="finishVoteSubjectFun()" class="submitBtn marginBot50">提交</button>
+    </div>
+
+    <!--已投票-->
+    <div class="subject-item marginBot50" *ngIf="finishFlag==true">
+        <li class="subject-list" *ngFor="let item of questionsVosArr; let k=index">
+            <ul class="options2-list"
+                *ngIf="item.examQuestionVo.questionTypeId==1||item.examQuestionVo.questionTypeId==2">
+                <li class="item"
+                    *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                    <div class="option">
+                        <span>{{conversionFun(i)}}:</span>
+                        {{examQuestionOptionVo.content}}
+                    </div>
+                    <div class="condition">
+                        <div class="progress-box">
+                            <div class="progress-bar">
+                                <div class="progress"
+                                     [ngStyle]="bindShowNumPercentage(examQuestionOptionVo.absPercent)"></div>
+                            </div>
+                        </div>
+                        <div class="vote-num">
+                            {{examQuestionOptionVo.answerCount?examQuestionOptionVo.answerCount:0}}
+                            票
+                        </div>
+                        <div class="number-box">{{(examQuestionOptionVo.absPercent*100).toFixed(0)}}%</div>
+
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </div>
+
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!--评论头部-->
+    <div class="tab-box" *ngIf="courseComments.length > 0">
+        <div class="hd">
+            <h1 class="c-title"><span class="c-line"></span>投票评论({{courseComments.length}})</h1>
+            <ul>
+                <li class="{{commentType==02?'on':''}}">
+                    <a commenttype="2" (click)="selectCommentType(02)">最热</a>
+                </li>
+                <li class="{{commentType==02?'':'on'}}">
+                    <a commenttype="1" (click)="selectCommentType(01)">最新</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ion-list class="comment-list" no-lines>
+        <ion-item class="item" *ngFor="let comment of gameComments;let i = index">
+            <div class="item-box">
+                <div class="avatar">
+                    <img src="{{comment.user.avatarUrl||'assets/images/default_avatar.png'}}">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span class="nickname">{{comment.user.nickName}}</span>
+                        <span class="level">lv{{comment.user.level || 0}}</span>
+                    </div>
+                    <div class="comment" [innerHtml]="transSmils(comment.content)"></div>
+
+
+                    <div class="sub-comment-list" *ngIf="comment.followingComments!=null">
+                        <div *ngFor="let followingComment of comment.followingComments">
+
+                            <div class="sub-item">
+                                <div class="sub-name">{{followingComment.user.nickName}}:
+                                    <span class="right">{{(followingComment.replyTime) | timePipe}}</span>
+                                </div>
+                                <div class="sub-comment"
+                                     [innerHtml]="transSmils(followingComment.content)"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <span>{{(comment.replyTime) | timePipe}}</span>
+                        <span class="right">
+                            <a class="praise" [ngSwitch]="comment.hasAppraised+''">
+                                <span>{{comment.awesomeCount}}</span>
+                                <img src="assets/images/praise_icon01.png" *ngSwitchCase="'false'"
+                                     (click)="thumbUpCourseComment(i)">
+                                <img src="assets/images/praise_icon02.png" *ngSwitchCase="'true'">
+                            </a>
+                            <span>|</span>
+                            <a class="reply" (click)="replyInput(comment.commentId)">
+                                <img src="assets/images/reply_icon01.png">回复
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer style="position:fixed;bottom:40px;">
+    <div style="width: 100%">
+        <comment-view #CommentView (postComment)="postComment($event)"
+                      (cancelInputComment)="cancelInputComment()"></comment-view>
+    </div>
+</ion-footer>

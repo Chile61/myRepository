@@ -1,0 +1,60 @@
+<!--
+  Generated template for the Help page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>帮助中心</ion-title>
+  </ion-navbar>
+  <div>
+        <ion-scroll scrollX="true" class="classify" *ngIf="qnaTitleList" >
+            <div>
+              <span *ngFor="let qnaItem of qnaTitleList" (click)="selectQnaItem(qnaItem.value)" class="{{qnaItem.value == qnaCurrentItem ? 'on':''}}">{{qnaItem.name}}</span>
+            </div>
+        </ion-scroll>
+  </div>
+</ion-header>
+
+
+<ion-content >
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <div *ngIf="qnaTypeList" class="qna_wrap">
+			<ul class="qna_list">
+      <!--(click)="{{typeItem.id}}"-->
+      <a class="qna_href" href="javascript:void(0);" *ngFor="let typeItem of qnaTypeList">
+      	<li (click)="enterQnaDetail(typeItem.id)">
+					<div class="qna_content">
+						<div class="qna_title">
+              <div class="questionContent">
+                <div class="stickied" *ngIf="typeItem.isTop == 1" >置顶</div>
+                {{typeItem.questionContent}}
+              </div>
+            </div>
+						<div class="answer_content">
+                 <div class="answerContent">{{typeItem.answerContent}}</div>
+            </div>
+						<div class="bottom">{{typeItem.questionDate | timePipe}}</div>
+					 </div>
+				</li>
+			</a>
+			</ul>
+    </div>
+    <div class="blank_wrap" *ngIf="qnaTypeList.length == 0"><img src="assets/images/task/null.png"></div>
+
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

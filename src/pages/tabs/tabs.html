@@ -1,0 +1,6 @@
+<ion-tabs class="navTab" [ngSwitch]="configModules.moduleCode">
+  <ion-tab  [root]="tab1" tabTitle="学习" *ngSwitchCase="MODEL_CONFIG_STUDY"></ion-tab>
+  <ion-tab  [root]="tab2" tabTitle="圈子" *ngSwitchCase="MODEL_CONFIG_COMMUNITY"></ion-tab>
+  <ion-tab  [root]="tab3" tabTitle="企业" *ngSwitchCase="MODEL_CONFIG_COMPANY"></ion-tab>
+  <ion-tab  [root]="tab4" tabTitle="我的" *ngSwitchCase="MODEL_CONFIG_MINE"></ion-tab>
+</ion-tabs>

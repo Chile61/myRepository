@@ -1,0 +1,14 @@
+<ion-slides [options]="mySlideOptions" pager>
+  <ion-slide *ngFor="let page of introducePages;let i = index" >
+    <img src="{{page}}">
+    <button *ngIf="i == (introducePages.length-1)"  padding ion-button color="secondary" style="width:250px;" (click)="enterLogin()">立即体验</button>
+  </ion-slide>
+  <!--<ion-slide style="background-color:#fff;">
+    <img src="assets/images/indexSlider/ica-slidebox-img-3.png">
+  </ion-slide>
+  <ion-slide style="background-color:#fff;">
+    <img src="assets/images/indexSlider/ica-slidebox-img-2.png">
+    <button padding ion-button color="secondary" style="width:250px;" (click)="enterLogin()">立即体验</button>
+  </ion-slide>-->
+
+</ion-slides>

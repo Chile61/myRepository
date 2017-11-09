@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>我的课程收藏</ion-title>
+        <span class="header-right-text" *ngIf="isSelectCourse" (click)="selectCourseComplete()">确定</span>
+    </ion-navbar>
+    <div style="height: 25px;margin-left: 15px;margin-top: 5px">
+        共收藏了<span style="color: #7cfc66">{{totalCount||0}}</span>个课程
+    </div>
+</ion-header>
+<ion-content #CourseCollectionContent>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(courseList.length>0)">
+    <ion-list class="course-list" no-lines>
+        <ion-item class="item" *ngFor="let course of courseList;let i = index" style="padding: 0px"
+                  (click)="isSelectCourse?selectCourse(i):toCourseDetail(i)">
+            <a class="course">
+                <div class="{{course.isRead==true?'course-title-read':'course-title'}}">{{course.title}}
+                    <div class="pub-time">
+                        <span class="time">{{(course.pubTime || course.modTime) | timePipe}}</span>
+                        <img class="select" *ngIf="isSelectCourse"
+                             src="{{course.isSelecter?'assets/images/icon_data_select.png':'assets/images/icon_data_noselect.png'}}">
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-image">
+                        <img src="{{course.smallIcon}}">
+                    </div>
+                    <div class="course-description">
+                        <div class="top">{{course.description}}</div>
+                        <div class="bottom">
+                            <span class="{{getCategoryCss(course.columnName)}}" *ngIf="course.columnName">{{course.columnName}}</span>
+                            <span class="tags">{{course.competencyName}}</span>
+                            <span class="comment-number">
+                                <span>{{course.commentNum}}</span>
+                                <span class="icon-reply"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<button class="top-button" (click)="toTop()"></button>

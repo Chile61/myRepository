@@ -1,0 +1,40 @@
+<!--
+  Generated template for the TaskItem page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+  <ul>
+    <li *ngFor="let item of taskItem">
+      <!--[(ngModel)]="item."-->
+      <a class="resource" (click)="openClassExam(item)">
+        <span class="type_1" [ngClass]="bindTaskType(item.objType)">{{item.objTypeName}}</span>
+        <div class="item_title" [ngStyle]="bindFinishedColor(item.state)" >{{item.objName}}</div>
+        <span class="type" *ngIf="item.requireLevel==1" >必</span>
+      </a>
+    </li>
+  </ul>
+  <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

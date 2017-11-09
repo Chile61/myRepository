@@ -1,0 +1,30 @@
+
+page-enterprise-home{
+    .enterprise ion-segment-button.segment-button {
+        border: none !important;
+    }
+    .enterprise ion-segment-button.segment-button.segment-activated {
+        background: transparent !important;
+        color: #387ef5 !important;
+        border-bottom: 2px solid #387ef5 !important;
+        border-radius: 0 !important;
+    }
+    .aa .ion-page{
+        top:67px !important;
+        padding-bottom:50px !important;
+        overflow-y:auto !important;
+        background: #fff;
+        overflow: scroll !important;
+
+    }
+    .ion-page{
+        background: #fff !important;
+    }
+    .tabbar{
+        top: 0px !important;
+        opacity: 1;
+    }
+    .tabbar.show-tabbar {
+    opacity: 1 !important;
+    }
+}

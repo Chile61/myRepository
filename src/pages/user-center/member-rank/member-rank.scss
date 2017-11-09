@@ -1,0 +1,137 @@
+page-member-rank {
+.rank-sort-icon{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.rank-sort-icon img{
+    width: 100%;
+    height: 100%;
+}
+.rank-header{
+    border-bottom: 1px solid #d0d0d0;
+    padding-top: 4px;
+}
+.rank-sort-wrap{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0);
+    z-index: 9;
+}
+.select-text,.select-ios .select-icon{
+    display: none;
+}
+/****覆盖头部样式***/
+.segment-ios .segment-button{
+    color: #999;
+    border:none;
+}
+.segment-ios .segment-button.segment-activated {
+    color: #387ef5;
+    background-color: #fff; 
+}
+/***覆盖底部样式****/
+ion-footer.footer.footer-ios {
+    padding:8px 15px;
+    border-top: 1px solid #d0d0d0;
+    background: #fff;
+}
+
+.rank-footer-left{
+    float: left;   
+}
+.rank-footer-right{
+    float: right;   
+}
+.rank-statement{
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+/***/
+.list {
+  border: none;
+}
+.rank-list {
+    border-top: 1px solid #eee;
+	margin: 0 0 53px 0;
+	background: #fff;
+}
+.rank-list .item {
+	padding: 10px 30px 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+.rank-list .item:before,
+.rank-list .item:after {
+	display: table;
+	content: "";
+}
+.rank-list .item:after {
+	clear: both;
+}
+.rank-list .item .item-col {
+	float: left;
+	width: 35%;
+    box-sizing: border-box;
+}
+.rank-list .item .item-col:first-child {
+	//float: left;
+	width: 30%;
+    box-sizing: border-box;
+}
+.rank-list .item .rank {
+	height: 32px;
+	line-height: 32px;
+}
+.rank-list .item .rank span {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+}
+.rank-list .item .rank span.ranking-tgm {
+	background: url(../assets/images/member/ranking_tgm.png) no-repeat;
+	background-size: 24px;
+}
+.rank-list .item .rank span.ranking-tsm {
+	background: url(../assets/images/member/ranking_tsm.png) no-repeat;
+	background-size: 24px;
+}
+.rank-list .item .rank span.ranking-tsb {
+	background: url(../assets/images/member/ranking_tsb.png) no-repeat;
+	background-size: 24px;
+}
+.rank-list .item .rank span.text {
+	color: #168ae1;
+}
+.rank-list .item .avatar-name {
+	position: relative;
+}
+.rank-list .item .avatar-name .avatar {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+}
+.rank-list .item .avatar-name .avatar img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+.rank-list .item .avatar-name .name {
+	display: inline-block;
+    width: calc(100% - 37px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.rank-list .item .integral {
+	height: 32px;
+	line-height: 32px;
+	text-align: right;
+}
+
+}

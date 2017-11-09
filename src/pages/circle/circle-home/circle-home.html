@@ -1,0 +1,4 @@
+<ion-tabs class="theme" [ngClass]="setTheme()"  [ngSwitch]="circleList.pageCode" tabsPlacement="top">
+  <ion-tab class="aa" (ionChange)="changeTabs()" [root]="tab1" tabTitle="圈子" *ngSwitchCase="MODEL_CONFIG_COMMUNITY_PAGE"></ion-tab>
+  <ion-tab class="tab2" (ionChange)="changeTabs()" [root]="tab2" tabTitle="话题" *ngSwitchCase="MODEL_CONFIG_COMMUNITY_TOPIC_PAGE"></ion-tab>
+</ion-tabs>

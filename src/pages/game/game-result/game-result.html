@@ -1,0 +1,89 @@
+<ion-header>
+    <div *ngIf="showHead==true" class="gmae-title">
+        <a (click)="openGameDetails()" class="gmae-title-ionic"></a>
+        <span>闯关结果</span>
+    </div>
+</ion-header>
+<ion-header *ngIf="showHead==false">
+    <ion-navbar>
+        <ion-title>闯关结果</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="quest-name">挑战关卡：{{bigQuestName}}</div>
+    <div class="quest-result">
+        <div class="result-box">
+            <div *ngIf="isPass==true" class="result-image">
+                <img src="assets/images/game/result_bg.png" alt=""/>
+                <div class="StarNumClass" [ngSwitch]="starNum">
+
+                        <span *ngSwitchCase="1">
+                            <img src="assets/images/game/star_full.png">
+                            <img src="assets/images/game/star_empty.png">
+                            <img src="assets/images/game/star_empty.png">
+                            <div class="clearB"></div>
+                        </span>
+                    <span *ngSwitchCase="2">
+                            <img src="assets/images/game/star_full.png">
+                            <img src="assets/images/game/star_full.png">
+                            <img src="assets/images/game/star_empty.png">
+                            <div class="clearB"></div>
+                        </span>
+                    <span *ngSwitchCase="3">
+                            <img src="assets/images/game/star_full.png">
+                            <img src="assets/images/game/star_full.png">
+                            <img src="assets/images/game/star_full.png">
+                            <div class="clearB"></div>
+                        </span>
+                </div>
+            </div>
+            <div *ngIf="isPass==false" class="result-image">
+                <img src="assets/images/game/fail.png" alt=""/>
+            </div>
+
+            <p *ngIf="isPass==true" class="result-desc">恭喜闯关成功！表现得很不错哦！</p>
+            <p *ngIf="isPass==false" class="result-desc">很可惜，闯关失败了~！</p>
+
+            <div class="star-box">
+                <div class="result-condi">
+                    <p>本次成绩：<span class="curr-score">{{currScore}}</span>分　　最佳成绩：{{bestScore}} 分
+                    </p>
+                    <p>本次答对：{{currCorrectNum}} 道题　　最佳答题：{{bestCorrectNum}} 道题</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="exam-box">
+        <div class="exam" *ngFor="let answerAnalysis of answerAnalysisList;let j=index">
+            <div class="exam-name">{{answerAnalysis.examActivityVo.name}}</div>
+            <ul class="subject-list">
+                <li class="item" *ngFor="let questionsVo of answerAnalysis.questionsVos;let i=index">
+                    <a (click)="openGameAnalysisFun(j)" class="subject">
+                            <span
+                                class="{{questionsVo.examQuestionVo.questionTypeId==4?'ball-gray':(questionsVo.examQuestionVo.userScore==0?'ball-red':'ball-green')}} ball">{{i+1}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p class="note">
+            <span class="green">“绿圈”</span>为正确，<span class="red">“红圈”</span>为错误，<span class="gray">“灰圈”</span>为主观题，点击可看答题情况
+        </p>
+    </div>
+
+
+
+</ion-content>
+<ion-footer>
+    <div class="fixed-box">
+        <div class="btn-group">
+            <a (click)="openGameDetails()" class="again-btn">
+                <span class="icon-again"></span>重闯本关
+            </a>
+            <a (click)="getNextQuestFun()" class="next-btn">
+                <span class="icon-next"></span>下一关
+            </a>
+            <div class="clearB"></div>
+        </div>
+    </div>
+</ion-footer>

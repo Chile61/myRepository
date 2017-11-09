@@ -1,0 +1,136 @@
+page-member-statistics {
+/**
+ * 学习统计页面样式
+ */
+
+/******************************
+ * 头像
+ ******************************/
+.statistics-head{
+	border-bottom: 10px solid #eee;
+}
+.member-look{
+    float: left;
+}
+.member-look img{
+	width: 56px;
+	height: 56px;
+	margin: 15px 10px 10px 10px;
+	border-radius: 50%;
+	border: 2px solid #cdcdcd;
+	vertical-align: middle;
+	
+}
+.member-name {
+	display: inline-block;
+	margin-top: 24px;
+	line-height: 1.8em;
+    padding: 0 !important;
+}
+.member-name h3{
+	font-size: 16px;
+	color: #333333;
+	font-weight: bold;
+}
+.member-name p{
+	font-size: 13px;
+	color: #666666;
+    padding-left: 0px;
+}
+
+/*****************************
+ * 学习时间统计
+ *****************************/
+.study-time-statistics{
+	background: #F6F6F6;
+	height: 50px;
+	margin-bottom: 10px;
+}
+.study-time-statistics img{
+	padding-top: 10px;
+	margin-left: 25px;
+	margin-right: 10px;
+	width: 30px;
+	float: left;
+}
+.study-time-statistics p{
+	font-size: 13px;
+	color: #666666;
+	float: left;
+	padding-top: 15px;
+    padding-left: 10px;
+}
+
+/*****************************
+ * 学习情况统计
+ *****************************/
+.statistics-title{
+	padding-top: 20px;
+	padding-left: 12px;
+	padding-bottom: 15px;
+}
+.statistics-title h3{
+	font-size: 13px;
+	color: #333333;
+}
+.statistics-detail{
+
+	height: 50px;
+}
+.detail-left, .detail-right {
+	float: left;
+}
+.detail-left img, .detail-right img{
+	width: 24px;
+	height: 24px;
+	// margin-left: 26px;
+	margin-top: 8px;
+	display: inline-block;
+}
+
+.details{
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 9px;
+}
+.details p{
+	font-size: 13px;
+	color: #666666;
+}
+
+/** 新版 **/
+.statistics-col-1,.statistics-col-2,.statistics-col-3{
+    border-bottom: 10px solid #eee;
+}
+.img-wrap{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+}
+.img-wrap img{
+    width: 100%;
+    height: 100%;
+}
+.detail-text{
+    vertical-align: 4px;
+}
+.detail-left{
+    float: left;
+}
+.detail-right{
+    float: right;
+}
+.detail-left,.detail-right{
+    padding: 10px 20px;
+    max-width: 50%;
+}
+.detail-number{
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: #666;
+}
+.clear{
+    clear: both;
+}
+}

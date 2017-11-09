@@ -1,0 +1,68 @@
+page-member-comments {
+.comment-list-2 .item{
+    padding: 12px;
+    border-bottom: 10px solid #eee;
+}
+.comment-list-2 .item-box{
+    position: relative;
+}
+.comment-list-2 .item .avatar {
+    width: 40px;
+    height: 40px;
+}
+.comment-list-2 .item .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.comment-list-2 .item .name{
+    font-weight: bold;
+    padding: 10px;
+}
+.comment-list-2 .item .avatar ,.comment-list-2 .item .name{
+    float: left;
+}
+.comment-list-2 .item .publish-time{
+    padding:10px 0;
+    float: right;
+}
+.comment{
+    margin: 10px 0;
+}
+.course-wrap{
+    height: 60px;
+}
+.target-course img{
+    width: 100%;
+    height: 100%;
+}
+.target-course .title{
+    height: 60px;
+    line-height: 50px;
+    margin-left: 60px;
+    background: #eee;
+    border-bottom:none;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+}
+.target-course .top{
+    position: relative;
+}
+.target-course .image{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.comment-title{
+    padding: 12px 10px;
+    background: #eee;
+    border-bottom:none;
+}
+}

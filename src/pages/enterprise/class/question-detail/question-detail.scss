@@ -1,0 +1,301 @@
+
+page-question-detail{
+    //问答详情
+    .topic-wrap {
+        margin: 0 0 12px 0;
+        padding: 12px;
+        background: #fff;
+    }
+    .topic-wrap .head {
+        margin: 0 0 15px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .topic-wrap .head .title {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 14px;
+        line-height: 28px;
+        text-align: justify;
+    }
+    .topic-wrap .head .info {
+        position: relative;
+        margin: 0 0 12px 0;
+        height: 35px;
+    }
+    .topic-wrap .head .info .avaster {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+    }
+    .topic-wrap .head .info .avaster img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .topic-wrap .head .info .content {
+        margin: 0 0 0 45px;
+        height: 35px;
+    }
+    .topic-wrap .head .info .content .name {
+        margin: 0 0 10px 0;
+        height: 13px;
+        line-height: 13px;
+        color: #333;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+    .topic-wrap .head .info .content .publish-time {
+        display: inline-block;
+        height: 13px;
+        line-height: 13px;
+        color: #999;
+        font-size: 11px;
+        float: right;
+    }
+    .group {
+        height: 11px;
+        line-height: 11px;
+        color: #999;
+        font-size: 11px;
+        padding-left: 10px;
+    }
+    .topic-wrap .cont {
+        margin: 0 0 15px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .topic-wrap .cont .text {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .topic-wrap .cont .text .friend{
+        color: #387ef5;
+    }
+    .topic-wrap .foot .action-list .item {
+        text-align: center;
+    }
+    .topic-wrap .foot .action-list .item a {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .topic-wrap .foot .action-list .item .praise_icon {
+        margin: 0 0 5px 0;
+    }
+    .topic-wrap .foot .action-list .item .praise_icon img {
+        width: 40px;
+        height: 40px;
+    }
+    .topic-wrap .foot .action-list .item .text {
+        text-align: center;
+        font-size: 13px;
+    }
+    .topic-wrap .foot .action-list .item .coin[doYouOffered=false] {
+        margin: 0 0 5px 0;
+        background-color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+    }
+    .topic-wrap .foot .action-list .item .coin[doYouOffered=true] {
+        margin: 0 0 5px 0;
+        background-color: #ffba25;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .topic-wrap .foot .action-list .item .coin[doYouOffered=false] img {
+        width: 24px;
+        height: 24px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        margin: 7px;
+    }
+    .topic-wrap .foot .action-list .item .coin[doYouOffered=true] img {
+        width: 24px;
+        height: 24px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        margin: 8px;
+    }
+    /*话题评论列表*/
+    .tab-box .hd {
+        position: relative;
+    }
+    .tab-box .hd ul {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px 12px;
+    }
+    .tab-box .hd ul:before,
+    .tab-box .hd ul:after {
+        display: table;
+        content: "";
+    }
+    .tab-box .hd ul:after {
+        clear: both;
+    }
+    .tab-box .hd ul li {
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    .tab-box .hd ul li a {
+        display: inline-block;
+        padding: 0 1px 1px;
+        text-align: center;
+    }
+    .tab-box .hd ul li.on a {
+        color: #5b99ee;
+        border-bottom: 3px solid #5b99ee;
+    }
+
+
+    .c-title {
+        padding: 12px;
+        color: #333;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .c-title .c-line {
+        display: inline-block;
+        margin: 0 8px 0 0;
+        width: 3px;
+        height: 16px;
+        border-radius: 1px;
+        background: #5b99ee;
+    }
+
+    .comment-list {
+        margin: 0 0 12px 0;
+        background: #fff;
+    }
+    .comment-list .item {
+        padding: 12px;
+        word-break: break-all;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .comment-list .item-box {
+        position: relative;
+        min-height: 35px;
+    }
+    .comment-list .avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+    }
+    .comment-list .avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .comment-list .content {
+        margin: 0 0 0 45px;
+    }
+    .comment-list .content .name {
+        margin: 0 0 5px 0;
+        color: #999;
+        font-size: 12px;
+    }
+    .comment-list .content .name .nickname {
+        max-width: 90%;
+        line-height: 35px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .comment-list .content .name .level {
+        margin: 0 0 0 5px;
+        display: inline-block;
+        vertical-align: 14px;
+    }
+    .comment-list .content .comment {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .comment-list .content .bottom {
+        height: 13px;
+        line-height: 13px;
+        color: #999;
+        font-size: 11px;
+        width: 100%;
+    }
+    .comment-list .content .bottom a {
+        display: inline-block;
+        color: #999;
+        font-size: 11px;
+    }
+    .comment-list .content .bottom img {
+        margin: 0 5px;
+        width: 11px;
+        height: 11px;
+    }
+    .sub-comment-list {
+        margin: 0 0 15px 0;
+        border: 1px solid #e5e5e5;
+    }
+    .sub-comment-list .sub-item {
+        padding: 10px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .sub-comment-list .sub-item:last-child {
+        border-bottom: none;
+    }
+    .sub-comment-list .sub-item .sub-name {
+        margin: 0 0 5px 0;
+        color: #999;
+        font-size: 12px;
+    }
+    .sub-comment-list .sub-item .sub-comment {
+        color: #333;
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .right {
+        float: right;
+    }
+
+    .fromGroup {
+        height: 35px;
+        padding-top: 10px;
+    }
+    .arrow {
+        height: 13px;
+        float: right;
+    }
+    /*
+    * 显示图片
+    */
+    .img-content {
+        margin: -5px 0 5px 0;
+    }
+    .comment-img {
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    .comment-img img {
+        width: 80px;
+        height: 80px;
+        margin: 0 5px;
+        display: inline-block;
+    }
+}

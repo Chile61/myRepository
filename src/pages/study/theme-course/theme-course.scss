@@ -1,0 +1,36 @@
+page-theme-course{
+    /*******************************
+	主题样式
+    *******************************/
+    .theme-list {
+        background-color: #ffffff;
+        margin: 0 !important;
+    }
+    div#contentInfo_title {
+        margin-bottom: 12px;
+    }
+    .label-wrap {
+        background-color: #fff;
+    }
+    .label-header {
+        margin: 0;
+        padding: 0;
+        height: 53px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .label-header li {
+        position: relative;
+        padding: 15px 0px;
+        margin: 0 10px;
+        text-align: center;
+        float: left;
+        width: 20%;
+        color: #999;
+        font-size: 14px;
+        background-color: #fff;
+    }
+    .title {
+        border-bottom: 0px;
+    }
+}

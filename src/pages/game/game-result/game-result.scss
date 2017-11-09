@@ -1,0 +1,409 @@
+page-game-result {
+    /******************************
+        闯关结果样式
+    ******************************/
+    .question_img{
+        width: 80%;
+    }
+    .quest-name {
+        padding: 10px 15px;
+        color: #999;
+        font-size: 13px;
+        background: #eee;
+    }
+    .quest-result {
+        padding: 0 20px;
+        background: #fff;
+    }
+    .result-box {
+        margin: 0 0 10px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .result-box .result-image {
+        position: relative;
+        margin: 0 0 15px 0;
+        padding: 10px 20px;
+    }
+    .result-box .result-image img {
+        width: 100%;
+    }
+    .result-box .result-image .star-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .star-group {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        margin-top: -28px;
+        margin-left: -79px;
+        width: 158px;
+        height: 56px;
+    }
+    .result-box .result-image .star-box .star {
+        display: inline-block;
+        margin: 4px;
+        width: 42px;
+        height: 42px;
+    }
+    .result-box .result-image .star-box .star-full {
+        background: url(../assets/images/game/star_full.png) no-repeat;
+        background-size: 42px;
+    }
+    .result-box .result-image .star-box .star-empty {
+        background: url(../assets/images/game/star_empty.png) no-repeat;
+        background-size: 42px;
+    }
+    .result-box .result-desc {
+        margin: 0 0 15px 0;
+        color: #ff8e19;
+        font-size: 18px;
+        text-align: center;
+    }
+    .result-box .result-condi {
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+    .result-box .result-condi .curr-score {
+        color: #69c83b;
+        font-size: 24px;
+    }
+    .exam-name {
+        margin: 0 0 15px 0;
+        color: #999;
+        font-size: 13px;
+    }
+    .subject-list {
+        margin: 0 0 18px 0;
+    }
+    .subject-list:before,
+    .subject-list:after {
+        display: table;
+        content: "";
+    }
+    .subject-list:after {
+        clear: both;
+    }
+    .subject-list .item {
+        float: left;
+        width: 20%;
+    }
+    .subject-list .item a {
+        display: block;
+        padding: 5px;
+        text-align: center;
+    }
+    .subject-list .item .ball {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        border-radius: 15px;
+    }
+    .subject-list .item .ball-green {
+        background: #69c83b;
+    }
+    .subject-list .item .ball-red {
+        background: #ff3434;
+    }
+    .subject-list .item .ball-gray {
+        background: #919191;
+    }
+    .note {
+        padding: 0 0 20px 0;
+        color: #999;
+        font-size: 12px;
+        text-align: center;
+    }
+    .note .green {
+        color: #69c83b;
+    }
+    .note .red {
+        color: #ff3434;
+    }
+    .note .gray {
+        color: #919191;
+    }
+
+
+    /******************************
+        按钮样式
+    ******************************/
+    .btn-group:before,
+    .btn-group:after {
+        display: table;
+        content: "";
+    }
+    .btn-group:after {
+        clear: both;
+    }
+    .again-btn {
+        display: inline-block;
+        padding: 10px 30px;
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 4px;
+        background: #ff8e19;
+        float: left;
+    }
+    .next-btn {
+        display: inline-block;
+        padding: 10px 30px;
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 4px;
+        background: #77bd33;
+        float: right;
+    }
+    .icon-again {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background: url(../assets/images/game/icon_again.png) no-repeat;
+        background-size: 16px;
+    }
+    .icon-next {
+        display: inline-block;
+        margin: 0 10px 0 0;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background: url(../assets/images/game/icon_next.png) no-repeat;
+        background-size: 16px;
+    }
+
+
+    /******************************
+
+    ******************************/
+    .close-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+    }
+    .close {
+        margin: 0 auto;
+        padding: 10px 15px;
+        width: 100%;
+        max-width: 480px;
+        background: #fff;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, .6);
+    }
+    .close .close-btn {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+        border: 1px solid #fff;
+        border-radius: 16px;
+        background: transparent;
+    }
+    .close .close-btn:hover,
+    .close .close-btn:focus {
+        border-color: #ff3434;
+        background-color: #ff3434;
+    }
+
+    .s-list .s-item {
+        margin: 0 0 10px 0;
+        padding: 0 15px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .s-list .s-item .question {
+        position: relative;
+        margin: 0 0 18px 0;
+        padding: 18px 80px 14px 0;
+        color: #333;
+        font-size: 16px;
+        text-align: justify;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .s-list .s-item .question .question-type {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right: 0;
+        padding: 0px 2px;
+        line-height: 16px;
+        color: #666;
+        font-size: 12px;
+        border: 1px solid #666;
+        border-radius: 2px;
+    }
+    .s-list .s-item .question .question-type-color-1 {
+        color: #73be3c;
+        border-color: #73be3c;
+    }
+    .s-list .s-item .question .question-type-color-2 {
+        color: #54a2ee;
+        border-color: #54a2ee;
+    }
+    .s-list .s-item .question .question-type-color-3 {
+
+    }
+    .s-list .s-item .question .question-type-color-4 {
+        color: #f5974c;
+        border-color: #f5974c;
+    }
+    .s-list .s-item .question .question-type-color-5 {
+
+    }
+    .s-list .s-item .question .question-type-color-6 {
+
+    }
+    .options-list {
+        margin: 0 0 14px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .options-list .options-item {
+        margin: 0 0 15px 0;
+    }
+    .options-list .options-item .option {
+        display: block;
+        color: #666;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .options-list .options-item .option .letter {
+        display: inline-block;
+        margin: 0 5px 0 0;
+        width: 20px;
+        height: 20px;
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: #fff;
+    }
+    .options-list .options-item .selected .correct {
+        color: #31af05;
+    }
+    .options-list .options-item .selected .wrong {
+        color: #f65d2c;
+    }
+    .options-list .options-item .unselected .correct {
+        color: #31af05;
+    }
+    .options-list .options-item .unselected .wrong {
+        color: #666;
+    }
+    .options-list .options-item .selected .correct .letter {
+        color: #fff;
+        border-color: #31af05;
+        background-color: #31af05;
+    }
+    .options-list .options-item .selected .wrong .letter {
+        color: #fff;
+        border-color: #f65d2c;
+        background-color: #f65d2c;
+    }
+    .options-list .options-item .selected .correct .icon,
+    .options-list .options-item .unselected .correct .icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        background: url(../assets//images/game/icon_right.png) no-repeat;
+        background-size: 20px;
+    }
+    .options-list .options-item .selected .wrong .icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        background: url(../assets/images/game/icon_error.png) no-repeat;
+        background-size: 20px;
+    }
+
+
+    .answer-resolve {
+        margin: 0 0 20px 0;
+    }
+    .answer-resolve .answer {
+        margin: 0 0 12px 0;
+        color: #666;
+        font-size: 14px;
+    }
+    .answer-resolve .answer span {
+        color: #31af05;
+        font-size: 16px;
+    }
+    .answer-resolve .resolve {
+        color: #666;
+        font-size: 14px;
+    }
+    .option_img{
+        max-width: 80px;
+    }
+
+    .StarNumClass{
+        width: 150px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 40px;
+        right: 0;
+        left: 0;
+    }
+    .StarNumClass span img{
+        float: left;
+        width: 40px !important;
+        margin: 0 5px;
+    }
+
+    .exam-box{
+        padding: 15px;
+    }
+    //.footer{
+    //    display: none;
+    //}
+    .gmae-title{
+        height:46px;
+        line-height: 46px;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    .gmae-title span{
+        font-size: 1.7rem;
+        font-weight: 600;
+        text-align: center;
+        color: #000;
+        pointer-events: auto;
+    }
+    .gmae-title-ionic{
+        position: absolute;
+        top:12px;
+        left:10px;
+        z-index: 100;
+        background: url(../assets/images/game/my_icon_game.png) no-repeat;
+        width: 22px;
+        height:22px;
+        background-size:22px;
+        display: block;
+    }
+    .game-footer{
+        display: none;
+    }
+    .page-game-course .gmae-title{
+        display: none;
+    }
+}

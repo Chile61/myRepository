@@ -1,0 +1,50 @@
+page-login {
+    .toolbar .segment-md {
+        padding-right: 44px !important;
+    }
+    .logo-wrap {
+        margin: 40px auto;
+        width: 65%;
+        text-align: center;
+    }
+    /*tab2*/
+    .mb-wrap {
+        width: calc(60% - 15px);
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .vc-wrap {
+        width: 40%;
+        box-sizing: border-box;
+    }
+    .btn {
+        padding: 10px 6px;
+    }
+    .vc-wrap .btn {
+        font-size: 14px;
+    }
+    .r-txt{
+        text-align: right;
+    }
+    .r-txt a{
+        text-align: right;
+        color:#387ef5;
+    }
+    .clear {
+        clear: both;
+    }
+    //Login强制转换样式
+    ion-segment-button.segment-button {
+        border: none !important;
+    }
+    ion-segment-button.segment-button.segment-activated {
+        background: transparent !important;
+        color: #387ef5 !important;
+        border-bottom: 2px solid #387ef5 !important;
+        border-radius: 0 !important;
+    }
+}

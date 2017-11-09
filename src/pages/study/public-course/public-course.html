@@ -1,0 +1,67 @@
+<ion-header>
+    <!--<ion-navbar>-->
+    <!--<ion-title>-->
+    <!--{{pageTitle}}-->
+    <!--</ion-title>-->
+    <!--<span class="header-right-text" (click)="screenCourse()">筛选</span>-->
+    <!--</ion-navbar>-->
+    <ion-navbar hideBackButton="true">
+        <div class="bar-title">
+            <img class="img-left" src="assets/images/back-icon.png" (click)="goBack()">
+            <div class="text-title">{{pageTitle}}</div>
+            <div class="text-right" (click)="screenCourse()">筛选</div>
+        </div>
+    </ion-navbar>
+    <div>
+        <ion-scroll scrollX="true" class="classify">
+            <div>
+                <span *ngFor="let classify of classifyList"
+                      (click)="selectClassify(classify.compcyClassId,classify.compcyClassName)"
+                      class="{{classify.compcyClassId==classifyId?'on':''}}">{{classify.compcyClassName}}</span>
+            </div>
+        </ion-scroll>
+    </div>
+</ion-header>
+<ion-content #PublicCourseContent>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(courseList.length>0)">
+    <ion-list class="course-list" no-lines>
+        <ion-item class="item" *ngFor="let course of courseList;let i = index" style="padding: 0px"
+                  (click)="toCourseDetail(i)">
+            <a class="course">
+                <div class="{{course.isRead==true?'course-title-read':'course-title'}}">{{course.title}}<span
+                    class="pub-time">{{(course.pubTime || course.modTime) | timePipe}}</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-image">
+                        <img src="{{course.smallIcon}}">
+                    </div>
+                    <div class="course-description">
+                        <div class="top">{{course.description}}</div>
+                        <div class="bottom">
+                            <span class="{{getCategoryCss(course.columnName)}}" *ngIf="course.columnName">{{course.columnName}}</span>
+                            <span class="tags">{{course.competencyName}}</span>
+                            <span class="comment-number">
+                                <span>{{course.commentNum}}</span>
+                                <span class="icon-reply"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<button class="top-button" (click)="toTop()"></button>

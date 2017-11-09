@@ -1,0 +1,111 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <div class="search-box" style="background-color: rgb(21, 139, 224);" *ngIf="studyTop">
+            <div class="search-input-box" *ngIf="courseSearch">
+                <input id="search" type="text" placeholder="搜索课程" (click)="toCourseSearch()" readOnly="true">
+            </div>
+            <div class="saomiao-box" id="saomiao" style="display: block;" (click)="goBarcodeScanner()" *ngIf="scan">
+                <img src="assets/images/saomiao.png">
+            </div>
+            <div class="clearB"></div>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content #StudyHomeContent>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list class="course-list" no-lines>
+        <ion-item style="padding: 0px">
+            <!--<a id="StudyHomeTop" name="StudyHomeTop"></a>-->
+            <!--课程Banner-->
+            <ion-slides class="study-banner" [options]="studyBannerSlides" *ngIf="banner&&(studyBanners.length>0)">
+                <ion-slide *ngFor="let studyBannerVo of studyBanners" (click)="clickBanner(studyBannerVo)">
+                    <img src={{studyBannerVo.imageUrl}}>
+                </ion-slide>
+            </ion-slides>
+            <!--快捷方式-->
+            <ion-grid class="quick">
+                <ion-row wrap>
+                    <ion-col width-20 *ngFor="let shortcut of shortcuts" (click)="shortcutClick(shortcut)">
+                        <div class="quick-item">
+                            <img src={{shortcut.imgUrl}}>
+                            <div class="quick-size">{{shortcut.itemName}}</div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <!--学习任务-->
+            <div class="task" *ngIf="studyTask">
+                <span class="task-title">{{studyTaskName}}</span>
+                <span class="task-content">|</span>
+                <span class="task-content" *ngIf="taskItems.length == 0">暂无待办任务</span>
+                <ion-slides class="taskSlides" [options]="taskSlides" *ngIf="taskItems.length > 0">
+                    <ion-slide *ngFor="let item of taskItems">
+                        <div>{{item.title}}</div>
+                    </ion-slide>
+                </ion-slides>
+
+            </div>
+            <!--推荐栏目主题-->
+            <div class="recommend" *ngIf="recommend">
+                <div class="title">
+                    <span class="title-label"></span>
+                    <span class="title-title">{{recommendName}}</span>
+                    <span class="title-more" *ngIf="hasMoreRecommend" (click)="toMoreRecommend()">更多</span>
+                </div>
+                <ion-grid margin-bottom="5px">
+                    <ion-row wrap>
+                        <ion-col width-50 *ngFor="let themeVo of columnThemes" (click)="toColumnOrThemeDetail(themeVo)">
+                            <div class="column-theme">
+                                <img src={{themeVo.iconUrl}}>
+                                <div>{{themeVo.topicalName}}</div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <!--最新课程头部-->
+            <div class="title" *ngIf="newCourse">
+                <div>
+                    <span class="title-label"></span>
+                    <span class="title-title">{{newCourseName}}</span>
+                    <span class="title-more" (click)="toMoreCourse()" *ngIf="hasMoreCourse">更多</span>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item *ngFor="let course of courseList;let i = index" style="padding: 0px" (click)="toCourseDetail(i)">
+            <div class="course">
+                <div class="{{course.isRead==true?'course-title-read':'course-title'}}">{{course.title}}<span
+                    class="pub-time">{{(course.pubTime||course.modTime) | timePipe}}</span></div>
+                <div class="course-content">
+                    <div class="course-image">
+                        <img src="{{course.smallIcon}}">
+                    </div>
+                    <div class="course-description">
+                        <div class="top">{{course.description}}</div>
+                        <div class="bottom">
+                            <span class="{{getCategoryCss(course.columnName)}}" *ngIf="course.columnName">{{course.columnName}}</span>
+                            <span class="tags">{{course.competencyName}}</span>
+                            <span class="price"
+                                  *ngIf="course.price2Str&&(course.price2Str>0)">{{course.price2Str}}</span><!--趣味币-->
+                            <span class="comment-number"><span>{{course.commentNum}}</span><span
+                                class="icon-reply"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<button class="top-button" (click)="toTop()"></button>

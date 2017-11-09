@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+    <!-- 搜索开始 -->
+    <form>
+        <div class="search-box">
+            <div class="search-input-box">
+                <input id="search" type="search" placeholder="搜索栏目" #search>
+            </div>
+            <div class="search-btn-box">
+                <button id="search_btn" style="background-color: rgb(21, 139, 224);"
+                   (click)="searchColumn(search.value)">搜索</button>
+            </div>
+        </div>
+    </form>
+    <!-- 搜索结束 -->
+    <!-- 栏目Banner开始 -->
+    <ion-slides [options]="bannerSlides" style="width: 100%;height: 170px" *ngIf="suggestTopicBanners">
+        <ion-slide *ngFor="let suggestTopicBanner of suggestTopicBanners" (click)="toColumnDetail(suggestTopicBanner)">
+            <img src={{suggestTopicBanner.iconUrl}} style="width: 100%;height: 100%">
+        </ion-slide>
+    </ion-slides>
+    <!-- 栏目Banner结束 -->
+    <div style="line-height: 40px;height: 40px">
+        <!-- 子标签开始 -->
+        <div *ngIf="columnClassifyLs.length>0">
+            <ion-scroll scrollX="true" class="classify">
+                <div>
+                <span *ngFor="let classify of columnClassifyLs" (click)="selectClassify(classify.seriesId)"
+                      class="{{classify.seriesId==selectClassifyId?'on':''}}">{{classify.seriesName}}</span>
+                </div>
+            </ion-scroll>
+        </div>
+        <!-- 子标签结束 -->
+        <div class="title" *ngIf="showTitle">
+            <span class="title-label"></span>
+            <span class="title-title">最新专栏</span>
+        </div>
+    </div>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list class="h-list" no-lines>
+        <ion-item class="h-item" *ngFor="let suggestTopic of columnList" (click)="toColumnDetail(suggestTopic)">
+            <a class="topic">
+                <div>
+                    <img class="column-img" src="{{suggestTopic.iconUrl}}">
+                    <div class="column-name">
+                        <div>{{suggestTopic.topicalName}}</div>
+                    </div>
+                </div>
+            </a>
+            <span class="td-avaster" *ngIf="suggestTopic.topicTeacherVo">
+              <a>
+                <span class="avaster">
+                  <img src="{{suggestTopic.topicTeacherVo.teacherHead}}">
+                </span>
+                <span>{{suggestTopic.topicTeacherVo.teacherName}}</span>
+              </a>
+            </span>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <!-- 栏目结束 -->
+</ion-content>

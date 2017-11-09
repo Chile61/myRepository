@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            <div>
+                <span>我的圈子</span>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let circle of myCircleList">
+            <ion-radio value="{{circle.id}}" (click)="selectCircle(circle)"></ion-radio>
+            <ion-label>{{circle.name}}</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

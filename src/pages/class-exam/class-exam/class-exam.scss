@@ -1,0 +1,67 @@
+page-class-exam {
+    #wrap {
+        background: #fff;
+    }
+
+    .box p {
+        font-size: 14px;
+        padding: 7px 20px;
+    }
+    .list {
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .list .item {
+        color: #333;
+        font-size: 14px;
+        line-height: 2em;
+        padding: 2px;
+    }
+    .list .item .icon {
+        display: inline-block;
+        margin: 5px 5px 0 20px;
+        width: 20px;
+        height: 20px;
+        background: transparent no-repeat;
+        background-size: 20px;
+        vertical-align: -4px;
+    }
+    .list .item .icon-clock {
+        background-image: url(../assets/images/class/exam1@2x.png);
+    }
+    .list .item .icon-file {
+        background-image: url(../assets/images/class/exam2@2x.png);
+    }
+    .list .item .icon-use {
+        background-image: url(../assets/images/class/exam3@2x.png);
+    }
+    .list .item .icon-times {
+        background-image: url(../assets/images/class/exam4@2x.png);
+    }
+    .box h1 {
+        margin-top: 0px;
+    }
+    .box h1 {
+        padding: 12px;
+        color: #333;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .box h1 span.line {
+        display: inline-block;
+        margin: 0 8px 0 0;
+        width: 3px;
+        height: 16px;
+        border-radius: 1px;
+        background: #eee;
+        vertical-align: -2px;
+    }
+    .tabbar.show-tabbar{
+        opacity: 0 !important;
+    }
+    .fixed-footer{
+        bottom: 45px !important;
+    }
+}

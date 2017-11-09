@@ -1,0 +1,342 @@
+
+page-circle-post {
+    /******************************
+	添加图片样式
+   ******************************/
+    .post-wrap {
+        position: absolute;
+        top: 110px;
+        z-index: 0;
+        width: 60px;
+        height: 60px;
+        right: 10px;
+    }
+    .post1-box {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 480px;
+        text-align: right;
+    }
+    .post-content {
+        width: 70%;
+        height: 60%;
+
+    }
+    .post-content img {
+        width: 18px;
+        height: 18px;
+    }
+    .post1-box a {
+        display: inline-block;
+        margin: 0 12px 0 0;
+        width: 60px;
+        height: 60px;
+    }
+    /*************发送************************/
+    .post {
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        font-size: 14px;
+        line-height: 23px;
+        top: 10px;
+        width: 50px;
+        height: 30px;
+    }
+    /**************圈子列表***************************/
+    .img-content {
+        margin: 5px 0 5px 0;
+    }
+    .comment-img {
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    .comment-img img {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        display: inline-block;
+    }
+    .img-wrap {
+        position: fixed;
+        top: 230px;
+        right: 10px;
+        z-index: 0;
+        height: 100px;
+        width: 50px;
+        background: #fff;
+    }
+    .circle-name {
+        font-size: 10px;
+        color: #333;
+        width: 10px;
+        margin: 0 10px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    /***************发送话题底部**********************************/
+    .bottom {
+        bottom: 0px;
+        position: absolute;
+        width: 100%;
+    }
+    .post-bottom {
+        background: #eeeeee;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .face-icon {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/expression.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .face-icon-show {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/expression_pressed.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .ate-icon {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/ate.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .ate-icon-show {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/ate_pressed.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .course-icon-show {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/courselink_pressed.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .course-icon {
+        display: inline-block;
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/circle/courselink.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .anonymous-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 40px;
+        height: 24px;
+        background: url(../assets/images/circle/anonymous.png) no-repeat;
+        background-size: 40px 24px;
+    }
+    .anonymous-icon-show {
+        display: inline-block;
+        margin-right: 10px;
+        width: 40px;
+        height: 24px;
+        background: url(../assets/images/circle/anonymous_pressed.png) no-repeat;
+        background-size: 40px 24px;
+    }
+    .comment-accessory {
+        padding: 0 12px;
+        background: #eee;
+        height: 200px;
+    }
+    .face-wrap {
+        text-align: center;
+    }
+    .emoji-width {
+        -webkit-flex: 0 0 14%;
+        -ms-flex: 0 0 14%;
+        flex: 0 0 14%;
+        max-width: 14%;
+    }
+    .input-comment {
+        padding: 10px;
+        width: 90%;
+        height: 60%;
+        color: #333;
+        font-size: 14px;
+        font-family: Arial, "Microsoft YaHei";
+        resize: none;
+        box-sizing: border-box;
+        background: #fff;
+        white-space: pre-wrap;
+        overflow: scroll;
+        -webkit-user-select: text;
+    }
+    .swiper-pagination {
+        bottom: -3px !important;
+    }
+    .emoji-size {
+        width: 15px;
+        height: 15px;
+    }
+    .title {
+        font-size: 14px;
+    }
+
+    .select-btn {
+        display: block;
+        padding: 12px;
+        color: #333;
+        font-size: 16px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .select-btn .text {
+        display: inline-block;
+        margin: 0 5px 0 0;
+        color: #999;
+        font-size: 13px;
+        vertical-align: middle;
+    }
+    .select-btn .icon {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        vertical-align: middle;
+        background: url(../assets/images/right_arrow_icon01.png) no-repeat;
+        background-size: 13px;
+    }
+    .right {
+        float: right;
+    }
+    /*选择好的图片*/
+    .prompt {
+        float: right;
+        height: 20px !important;
+        width: 20px !important;
+        position: absolute;
+        right: 3px;
+        top: -3px;
+    }
+    .prompt_text {
+        float: right;
+        font-size: 10px;
+        color: #fff;
+        position: absolute;
+        right: 8px;
+        top: 0px;
+    }
+    .number-tag {
+        border-radius: 7.5px;
+        background: #f54039;
+        font-size: 12px;
+        color: #ffffff;
+        margin-left: 35px;
+        margin-top: -5px;
+        width: 15px;
+        height: 15px;
+        padding: 1px 4px;
+        position: absolute;
+    }
+    /*删除图标*/
+    .del {
+        position: absolute;
+        margin-left: 70px;
+        margin-top: -5px;
+        width: 20px;
+        height: 20px;
+    }
+    .select-img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .friend {
+        height: 100%;
+    }
+
+    .friend .friend-name {
+        padding: 10px 0px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .friend .friend-name span {
+        font-size: 15px;
+        color: #387ef5;
+        margin-right: 10px;
+    }
+
+    .friend .add-friend {
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        color: #999999;
+        font-size: 14px;
+        padding: 5px;
+    }
+    /*选择圈子*/
+    .TextSelect {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .TextSelect ion-label {
+        color: #000 !important;
+        font-size: 14px;
+    }
+    .TextSelect .select-text {
+        font-size: 14px !important;
+    }
+    .classify {
+        height: 80px !important;
+        border: 0;
+    }
+    .classify div {
+        line-height: normal !important;
+    }
+    .iconURLDiv {
+        display: inline-block;
+        width: 40px;
+        margin: 10px 7px 0 7px;
+        position: relative;
+    }
+    .iconURLDiv img {
+        border-radius: 100%;
+    }
+    .iconURLDiv p {
+        width: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 5px;
+        //text-align: center;
+        margin-top: 3px;
+        color: #666;
+    }
+    .SelectIcon {
+        opacity: 0.8;
+        z-index: 15;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+    }
+    .iconImg{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+

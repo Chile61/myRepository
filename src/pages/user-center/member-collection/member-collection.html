@@ -1,0 +1,115 @@
+<!--
+  Generated template for the MemberCollection page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+        <ion-segment [(ngModel)]="collectionBar">
+           <ion-segment-button value="course" (click)="getFavoritedCourses()">
+                课程收藏
+            </ion-segment-button>
+            <!--<ion-segment-button value="data" >
+                资料收藏
+            </ion-segment-button>-->
+            <ion-segment-button value="topic" (click)="getFavoritedSubject()">
+                话题收藏
+            </ion-segment-button>
+        </ion-segment>
+        <div class="collection-search-wrap" (click)="enterCollectionSearch()">
+          <img src="assets/images/search_icon01.png"/>
+        </div>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+
+  <div [ngSwitch]="collectionBar">
+    <!--Course-->
+    <ion-list *ngSwitchCase="'course'">
+    <ul class="course-list" *ngIf="collectionCourseList">
+     <li class="item" *ngFor="let course of collectionCourseList" (click)="toCourseDetail(course.courseId)">
+        <a class="course" href="javascript:void(0);">
+          <div class="course-title">{{course.title}}<span class="pub-time">
+            {{(course.pubTime||course.modTime) | timePipe}}
+          </span></div>
+          <div class="course-content">
+            <div class="course-image">
+              <img src="{{course.smallIcon}}" alt="">
+            </div>
+            <div class="course-description">
+              <div class="top">{{course.description}}</div>
+              <div class="bottom">
+                <span class="column-tag">{{course.columnName}}</span>
+                <span class="tags">{{course.competencyName}}</span>
+                <span class="price" *ngIf="course.price2Str&&(course.price2Str>0)">{{course.price2Str}}</span>
+                <span class="comment-number">
+                  <span>{{course.commentNum}}</span>
+                  <span class="icon-reply"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+       </li>
+      </ul>
+      <div class="blank_wrap" *ngIf="collectionCourseList == 0"><img src="assets/images/task/null.png"></div>
+    </ion-list>
+    <!-- Course end  -->
+    <!-- Data -->
+    <ion-list *ngSwitchCase="'data'">
+      <div class="blank_wrap"><img src="assets/images/task/null.png"></div>
+    </ion-list>
+    <!-- Data end -->
+    <!-- Topic -->
+    <ion-list *ngSwitchCase="'topic'">
+      <ul class="topic-list" *ngIf="collectionSubjectList" >
+        <li *ngFor="let topic of collectionSubjectList" >
+          <div class="img-wrap left">
+            <img src="{{topic.author.avatarUrl? topic.author.avatarUrl:'assets/images/default_avatar.png'}}">
+          </div>
+          <div class="right-content left">
+            <span class="m-name">{{topic.anonymousFlag==0? topic.author.nickName:'匿名'}}</span>
+            <span class="m-date">{{topic.createDate | timePipe}}</span>
+          </div>
+          <div class="clearB"></div>
+          <div class="middle-wrap">
+            <h3 class="topic-title">{{topic.title}}</h3>
+            <div class="topic-content">{{topic.content}}</div>
+          </div>
+          <div class="bottom">
+            <div class="left">
+              <span class="topic-type">{{topic.groupName}}</span>
+            </div>
+            <div class="right">
+              <span><span class="praise-icon" [ngClass]="{'praise-Awesomed' : topic.doYouAwesomed}"></span>{{topic.awesomeCount}}</span>
+              <span><span class="reply-icon"></span>{{topic.countOfComments}}</span>
+            </div>
+            <div class="clearB"></div>
+          </div>
+        </li>
+      </ul>
+      <div class="blank_wrap" *ngIf="collectionSubjectList == 0" ><img src="assets/images/task/null.png"></div>
+    </ion-list>
+    <!-- Topic end -->
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>统计详情</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-top: 10px;">
+
+    <ion-refresher (ionRefresh)="doRefresh($event,true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="section" color="primary">
+            <ion-segment-button value="sign" style="width :40px">
+                已签
+            </ion-segment-button>
+            <ion-segment-button value="unSign" style="width :40px">
+                未签
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    <span class="text1">已签到{{signCount}}人，签到率<span style="color:#1b8bdf">{{signRate}}%</span></span><br/>
+    <span class="text2">已签到详情</span>
+    <div [ngSwitch]="section">
+        <div *ngSwitchCase="'sign'">
+            <ion-list>
+                <ion-item *ngFor="let classSignUser of classSignUserList">
+                    <div class="signItem">
+                        <img class="avatar" src="{{classSignUser.avatarUrl||'assets/images/default_avatar.png'}}">
+                        <div class="signName">
+                            <span class="realName">{{classSignUser.realName}}</span>
+                            <span class="nickName">{{classSignUser.nickName}}</span>
+                        </div>
+                        <div class="signState">
+                            <span class="signText1" *ngIf="classSignUser.signState==1">按时签到</span>
+                            <span class="signText2" *ngIf="classSignUser.signState==3">延时签到</span>
+                            <span class="signTime">{{classSignUser.signTime| date:'MM-dd HH:mm'}}</span>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+            <div class="blank_wrap" *ngIf="classSignUserList.length == 0"><img src="assets/images/task/null.png"></div>
+        </div>
+
+        <div *ngSwitchCase="'unSign'">
+            <ion-list>
+                <ion-item class="item-thumbnail-left" *ngFor="let classUnSignUser of classUnSignUserList">
+                    <div>
+                        {{classUnSignUser.realName}}
+                    </div>
+                </ion-item>
+            </ion-list>
+            <div class="blank_wrap" *ngIf="classUnSignUserList.length == 0"><img src="assets/images/task/null.png"></div>
+        </div>
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

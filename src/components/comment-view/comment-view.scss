@@ -1,0 +1,185 @@
+comment-view {
+    .post-box {
+        background: #eee;
+    }
+    .post-box .top {
+        position: relative;
+        margin: 0 0 10px 0;
+        padding: 8px 12px 0;
+        color: #333;
+        font-size: 16px;
+        text-align: center;
+        height: 20px;
+    }
+    .post-box .top a {
+        display: inline-block;
+        color: #333;
+        font-size: 14px;
+    }
+    .post-box .left {
+        float: left;
+    }
+    .post-box .right {
+        float: right;
+    }
+    .post-box .center {
+        padding: 0 12px;
+    }
+    .post-box .center textarea {
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        color: #333;
+        font-size: 14px;
+        font-family: Arial,"Microsoft YaHei";
+        resize: none;
+        box-sizing: border-box;
+        background: #fff;
+    }
+    .post-box .center .input-comment {
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        color: #333;
+        font-size: 14px;
+        font-family: Arial,"Microsoft YaHei";
+        resize: none;
+        box-sizing: border-box;
+        background: #fff;
+        white-space: pre-wrap;
+        overflow: scroll;
+        -webkit-user-select: text;
+    }
+    .post-box .center div img{
+        width: 18px;
+        height: 18px;
+    }
+    .post-box .bottom .comment-options {
+        padding: 8px 12px;
+        border-bottom: 1px solid #d0d0d0;
+    }
+    .post-box .bottom .comment-options .face-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/face_icon01.png) no-repeat;
+        background-size: 24px 24px;
+    }
+    .post-box .bottom .comment-accessory {
+        padding: 0 12px;
+        background: #eee;
+        height: 200px;
+    }
+    .post-box .bottom .comment-accessory .face-wrap {
+        text-align: center;
+    }
+    .post-box .bottom .comment-accessory .face-wrap .del{
+        position: absolute;
+        margin-left: 60px;
+        margin-top: -5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .comment-input1 {
+        background: #e5e5e5;
+        width: 100%;
+        padding: 5px 0;
+    }
+    .comment-input1 div {
+        margin-left: 5px;
+        margin-right: 5px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        background: white;
+        width: initial;
+    }
+    .comment-input1 span {
+        color: #999999;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    .emoji-width {
+        -webkit-flex: 0 0 14%;
+        -ms-flex: 0 0 14%;
+        flex: 0 0 14%;
+        max-width: 14%;
+    }
+
+    .pic-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/input_picture.png) no-repeat;
+        background-size: 24px 24px;
+    }
+
+    .select-img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .post-box .bottom .bd .del {
+        margin-left: 65px;
+        margin-top: -5px;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+
+    .course-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/courselink.png) no-repeat;
+        background-size: 24px 24px;
+    }
+
+    .number-tag {
+        border-radius: 7.5px;
+        background: #f54039;
+        font-size: 12px;
+        color: #ffffff;
+        margin-left: 15px;
+        margin-top: -5px;
+        width: 15px;
+        height: 15px;
+        padding: 1px 4px;
+        position: absolute;
+    }
+
+    .anonymous {
+        display: inline-block;
+        margin-right: 10px;
+        width: 48px;
+        height: 24px;
+        background: url(../assets/images/anonymous_pressed.png) no-repeat;
+        background-size: 48px 24px;
+    }
+
+    .unanonymous {
+        display: inline-block;
+        margin-right: 10px;
+        width: 48px;
+        height: 24px;
+        background: url(../assets/images/anonymous.png) no-repeat;
+        background-size: 48px 24px;
+    }
+
+    .swiper-container-horizontal .swiper-pagination {
+        bottom: 0px !important;
+    }
+
+    .swiper-slide img {
+        width: auto;
+        height: auto;
+        max-width: 40px;
+        max-height: 40px;
+    }
+}

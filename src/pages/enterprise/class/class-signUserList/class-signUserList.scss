@@ -1,0 +1,67 @@
+
+page-class-signUserList{
+    body{
+        background: #fff !important;
+    
+    }
+    .text1{
+        margin-top: 20px;
+        font-size: 13px;
+        color: #999;
+        margin-left: 10px;
+    }
+    .text2{
+        background: #eee;
+        height: 35px;
+        font-size: 13px;
+        color: #333333;
+        margin-left: 10px;
+    }
+    .avatar {
+        position: absolute;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        border: 0px solid #fff;
+        border-radius: 20px;
+        background: #eee;
+    }
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .signItem{
+        margin-left: 15px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-right: 15px;
+    }
+    .signName{
+        left: 15px;
+    }
+    .realName{
+        font-size: 15px;
+        color: #333333;
+    }
+    .nickName{
+        font-size: 13px;
+        color: #999;
+    }
+    .signState{
+        position: absolute;
+        float: right;
+    }
+    .signText1{
+        font-size: 13px;
+        color: #08c782;
+    }
+    .signText2{
+        font-size: 13px;
+        color: #666666;
+    }
+    .signTime{
+        font-size: 13px;
+        color: #999999;
+    }
+}

@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+          <ion-segment [(ngModel)]="tabTag" [ngSwitch]="loginWays.loginWayCode">
+            <ion-segment-button value="tabPwd" *ngSwitchCase="FUN_LOGIN_UNP">
+                账号登录
+            </ion-segment-button>
+            <ion-segment-button value="tabCode" *ngSwitchCase="FUN_LOGIN_MNC">
+                验证码登录
+            </ion-segment-button>
+          </ion-segment>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div [ngSwitch]="tabTag">
+
+        <!-- 账号登录 -->
+        <ion-list *ngSwitchCase="'tabPwd'">
+            <section class="log-section">
+                <div class="logo-wrap">
+                    <img [src]="loginLogoUrl? loginLogoUrl:'assets/images/scho-logo.png'" alt="">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="username" class="block ipt" placeholder="请输入账号" autofocus [(ngModel)]="username">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" class="block ipt" placeholder="请输入密码" [(ngModel)]="password">
+                </div>
+
+                <div class="form-group">
+                    <a id="login_btn" class="btn btn-block" href="javascript:void(0);" (click)="bindBtnLogin()">登录</a>
+                </div>
+
+
+                <p class="r-txt reg-link" style="display: none">暂无ID?<a href="register.html">快速体验</a></p>
+                <p class="r-txt" (click)="enterResPwd()"><a href="javascript:void(0);">忘记密码?</a></p>
+            </section>
+        </ion-list>
+
+        <!-- 验证码登录 -->
+        <ion-list *ngSwitchCase="'tabCode'">
+            <section class="reg-section">
+                <div class="logo-wrap">
+                    <img [src]="loginLogoUrl" alt="">
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <input type="text" id="mobile" class="ipt" placeholder="输入手机号码" autofocus [(ngModel)]="phoneNo">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="left mb-wrap">
+                        <input type="text" id="vc" class="ipt" placeholder="输入短信验证码" [(ngModel)]="checkNum">
+                    </div>
+                    <div class="right vc-wrap">
+                        <a id="vc_btn" class="btn btn-block" href="javascript:void(0);" (click)="askForCheckNum()">{{checkText}}</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form-group">
+                    <a id="reg_btn" class="btn btn-block" href="javascript:void(0);" (click)="quickLogin()">登录</a>
+                </div>
+
+            </section>
+        </ion-list>
+    </div>
+
+</ion-content>

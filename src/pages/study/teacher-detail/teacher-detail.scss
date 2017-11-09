@@ -1,0 +1,399 @@
+teacher-detail-page {
+    /*头试图*/
+    body {
+        background-color: #fff;
+
+    }
+    .page_2 {
+        background-color: #eee;
+        height: 100%;
+    }
+    .hd {
+        background-color: #fff;
+        width: 100%;
+        z-index: 999;
+    }
+    .bd {
+        width: 100%;
+        height: 100%;
+    }
+    .teacher-top {
+        background-image: url('../assets/images/bg_teacher_detail.jpg');
+        -webkit-background-size:  100% 100%;
+        background-size: 100% 100%;
+        padding: 20px 0 30px 0;
+    }
+    .teacher-img {
+        margin: 0 auto;
+        width: 70px !important;
+
+    }
+    .teacher-img img {
+        width: 100%;
+        height: 70px;
+        border-radius: 50%;
+    }
+    .name {
+        width: 80%;
+        padding: 10px 0;
+        margin: 0 auto;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        line-height: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .teacher-label {
+        margin: 3%;
+        height: 20px;
+        width: 94%;
+    }
+    .teacher-label span {
+        font-size: 12px;
+        color: #fff;
+        background-color: rgba(255,255,255,0.3);
+        margin: 3px 5px;
+        padding: 2px 4px;
+        border-radius: 12px;
+        line-height: 14px;
+        display: inherit;
+        float: left;
+    }
+
+    /*切换表头*/
+    .slide_Btn {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .slide_Btn .li-width-33 {
+        float: left;
+        width: 33%;
+        font-size: 15px;
+        text-align: center;
+        color: #666;
+        padding: 8px 0;
+        border-right: 1px solid #e5e5e5;
+    }
+    .slide_Btn .li-width-25 {
+        float: left;
+        width: 25%;
+        font-size: 15px;
+        text-align: center;
+        color: #666;
+        padding: 8px 0;
+        border-right: 1px solid #e5e5e5;
+    }
+    .slide_Btn li:last-child {
+        border-right: 0;
+    }
+    .slide_Btn li.on {
+        color: #1b8bdf;
+    }
+    .slide_Btn:before , .slide_Btn:after {
+        display: table;
+        content: '';
+    }
+    .slide_Btn:after {
+        clear: both;
+    }
+
+    /*切换内容*/
+    .tit {
+        height: 40px;
+
+    }
+    .tit span {
+        font-size: 15px;
+    }
+    .tit span:last-child {
+        color: #333;
+    }
+    .line {
+        padding-right: 3px;
+        margin: 0 12px 0 15px;
+        height: 12px;
+    }
+    .tit_wrap {
+        padding-top: 11px;
+    }
+    .teacher-intro {
+        color: #666;
+        font-size: 13px;
+        padding: 0 16px;
+    }
+
+    /*item2*/
+    .course_wrap li {
+        padding: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .course-title {
+        font-size: 16px;
+        padding:  0 60px 10px 0;
+        height: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        color: #000000;
+    }
+    .pub-time {
+        position: absolute;
+        top: 0;
+        right: 0;
+        float: right;
+        font-size: 10px;
+        text-align: right;
+        color: #666;
+    }
+    .course-content {
+        position: relative;
+    }
+    .course-description {
+        padding-left: 108px;
+        height: 80px;
+    }
+    .de_top {
+        font-size: 14px;
+        height: 44px;
+        text-align: justify;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 14px;
+        color: #666;
+    }
+    .de_bottom {
+        font-size: 12px;
+        height: 22px;
+        width: 100%;
+        line-height: 22px;
+        white-space: nowrap;
+    }
+    .de_bottom .price {
+        color: #ffba25;
+        background: url("../assets/images/jb_icon@3x03.png") no-repeat;
+        background-size: 13px;
+        padding-left: 15px;
+    }
+    .column-tag {
+        color: #ee8900;
+        border: 1px solid #ee8900;
+        border-radius: 3px;
+        padding: 1px 3px;
+        margin-right: 5px;
+    }
+    .tag {
+        margin-right: 5px;
+    }
+    .comment-number {
+        float: right;
+    }
+    .icon-reply {
+        width: 14px;
+        height: 14px;
+        padding-bottom: 4px;
+    }
+    /*item3*/
+
+    .word-warp {
+        margin: 0 12px;
+        padding: 8px 0;
+        position: relative;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .word-icon {
+        position: absolute;
+
+    }
+    .word-icon img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+    .word-description {
+        padding-left: 45px;
+    }
+    .word-name {
+        font-size: 12px;
+        margin-bottom: 5px;
+        height: 22px;
+    }
+    .nickname {
+        max-width: 70%;
+        line-height: 35px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .level {
+        margin-left: 5px;
+        vertical-align: 14px;
+    }
+    .isTeacher {
+        background-color: #ee8900;
+        color: #fff;
+        padding: 1px 2px;
+        margin-left: 5px;
+        border-radius: 2px;
+        vertical-align: 14px;
+    }
+    .word-content {
+        margin-bottom: 10px;
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .word-content img {
+        width: 24px;
+        height: 24px;
+    }
+    .word-comment {
+        margin-bottom: 10px;
+        background-color: #fffffa;
+    }
+    .word-comment li {
+        border-bottom: 1px solid #eee;
+        padding: 6px 8px;
+    }
+    .comment-top {
+        font-size: 12px;
+        margin-bottom: 5px;
+        height: 35px;
+    }
+    .comment-top span:last-child {
+        float: right;
+    }
+    .comment-bottom {
+        font-size: 14px;
+        text-align: justify;
+        white-space: pre-line;
+    }
+    .comment-bottom img {
+        width: 24px;
+        height: 24px;
+    }
+    .word-bottom {
+        font-size: 11px;
+    }
+    .word-bottom a {
+        float: right;
+    }
+    .word-bottom img {
+        width: 14px;
+        height: 14px;
+    }
+    /*
+     * 显示图片
+     */
+    .img-content {
+        margin: -5px 0 5px 0;
+    }
+    .comment-img {
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    .comment-img img {
+        width: 80px;
+        height: 80px;
+        margin: 0 5px;
+        display: inline-block;
+    }
+    /****************/
+    .fixed-foot {
+        width: 100%;
+        max-width: 480px;
+        background-color: #efefef;
+        position: fixed;
+        bottom: 0;
+        border-top: 1px solid #e5e5e5;
+    }
+    .fixed-warp {
+        width: 100%;
+        max-width: 480px;
+        padding: 6px 10px;
+    }
+    .post-input {
+        border: 1px solid #e5e5e5;
+        padding: 2px 4px;
+        border-radius: 5px;
+        width: 92%;
+        max-width: 480px;
+        height: 26px;
+        margin: 0 auto;
+    }
+
+    .more_btn_2 {
+        margin-bottom: 45px;
+    }
+    .hd .pic-icon {
+        display: inline-block;
+        margin:0 10px;
+        width: 24px;
+        height: 24px;
+    }
+    /*
+     * 优化话题评论样式
+     */
+    .filePicker {
+        background: #EEEEEE;
+        border-bottom: 1px solid #d0d0d0;
+    }
+
+    .teacher-label ion-col {
+        padding: 0 !important;
+    }
+
+    //.teacher-slides {
+    //    width: 100%;
+    //    height: 100%;
+    //}
+    //
+    //.teacher-slides .swiper-slide {
+    //    text-align: start !important;
+    //    -webkit-justify-content: flex-start;
+    //    //-ms-flex-pack: center;
+    //    justify-content: flex-start;
+    //    -webkit-align-items: flex-start;
+    //    //-ms-flex-align: center;
+    //    align-items: flex-start;
+    //}
+    //.teacher-slides .slide-zoom {
+    //    text-align: start !important;
+    //    height: 100%;;
+    //    overflow: auto;
+    //}
+
+    .item_4 {
+        margin-bottom: 50px;
+    }
+
+    .column-theme {
+        padding: 5px 0px;
+        width: 100%;
+        height: 120px;
+    }
+    .column-theme img {
+        width: 100%;
+        height: 90%;
+        border-radius: 3px;
+    }
+    .column-theme div {
+        width: 100%;
+        font-size: 12px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        -webkit-text-overflow:ellipsis;
+        -moz-text-overflow:ellipsis;
+        white-space:nowrap;
+    }
+}

@@ -1,0 +1,61 @@
+
+page-information-list{
+    /*message css*/
+
+    .m-list {
+    border-bottom: 1px solid #e5e5e5;
+    }
+    .message {
+    outline-style: none;
+    text-decoration: none;
+    color: #333;
+    }
+
+    #message-list h3{
+    font-size: 16px;
+    font-weight: normal;
+    width: 90%;
+    overflow: hidden;
+    margin: 15px 0 10px 15px;
+    }
+    .msg-bottom {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 16px 8px 0;
+    }
+    .msg-bottom:before, .msg-bottom:after {
+    display: table;
+    content: "";
+    }
+    .msg-bottom:after {
+    clear: both;
+    }
+    .msg-bottom tt {
+    width: 17px;
+    line-height: 13px;
+    padding: 2px 4px;
+
+    border-radius: 3px;
+    margin-left: 8px;
+    }
+    .news {
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    }
+    .notice {
+    color: #fa7c06;
+    border: 1px solid #FA7C06;
+    }
+    .msg-image img{
+    width: 82px;
+    height: 82px;
+    margin: 0 8px 8px 0;
+    }
+    .msg-image {
+    margin-left: 15px;
+    }
+    .ion-page{
+        background: #fff !important;
+    }
+
+}

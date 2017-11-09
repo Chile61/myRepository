@@ -1,0 +1,103 @@
+<ion-header>
+    <normal-header #NormalHeaderComponent (goBack)="goBackClick()"></normal-header>
+</ion-header>
+
+<ion-content>
+    <ion-item class="title">
+        <ion-label color="primary">标题</ion-label>
+        <ion-input placeholder="请输入标题" type="text" [(ngModel)]="circleTitle"></ion-input>
+    </ion-item>
+
+    <div class="post-content">
+        <!--<input id="commentInput" [(ngModel)]="circleContent"> [innerHtml]="transSmiles(circleContent)   -->
+        <div class="input-comment" placeholder="请输入内容" contenteditable="true" id="commentInput" name="commentInput" [innerHtml]="transSmiles(editContent)"></div>
+        <!--<div><textarea placeholder="请输入文字" id="commentInput" [(ngModel)]="circleContent"></textarea></div>-->
+        <!--<input placeholder="请输入内容" type="text" [(ngModel)]="circleContent"></input>-->
+    </div>
+    <!--底部-->
+    <div class="bottom">
+        <div *ngIf="isShowMyCircle" class="TextSelect">
+            <ion-scroll scrollX="true" class="classify">
+                <div class="iconURLDiv" *ngFor="let circle of myCircleList;let i = index">
+                    <img class="SelectIcon" *ngIf="circleId==circle.groupId" src="assets/images/circle/circle_selected.png" alt="">
+                    <img class="iconImg" (click)="SelectIconFun(circle.groupId)" src={{circle.iconURL}} alt="">
+                    <p>{{circle.name}}</p>
+                </div>
+            </ion-scroll>
+        </div>
+        <div class="post-bottom">
+            <div>
+                <div class="comment-options">
+                    <a class="emotion">
+                        <span class="{{isShowEmoji?'face-icon-show':'face-icon'}}" (click)="showEmoji()"></span>
+                    </a>
+                    <a>
+                        <span class="number-tag" *ngIf="selectFriend.length>0">{{selectFriend.length}}</span>
+                        <span class="{{isShowFriend?'ate-icon-show':'ate-icon'}}" (click)="showSelectFriend()"></span>
+                    </a>
+                    <a>
+                        <span class="number-tag" *ngIf="selectCourseNum>0">{{selectCourseNum}}</span>
+                        <span class="{{isSelectCourse?'course-icon-show':'course-icon'}}" (click)="showCourse()"></span>
+                    </a>
+                    <a style="float: right" *ngIf="isHasAnonymous" >
+                        <span class="{{isAnonymous?'anonymous-icon-show':'anonymous-icon'}}" (click)="showAnonymous()"></span>
+                    </a>
+                </div>
+                <div class="comment-accessory" *ngIf="isShowEmoji || isSelectCourse || isShowFriend">
+                    <div class="face-wrap">
+
+                        <ion-slides *ngIf="isShowEmoji" [options]="emojiSlides">
+                            <ion-slide *ngFor="let emojiItem of emojiList;let i = index">
+                                <ion-grid>
+                                    <ion-row wrap>
+                                        <ion-col class="emoji-width" *ngFor="let emoji of emojiItem;let j = index">
+                                            <div>
+                                                <img src={{emoji}} (click)="selectEmoji(i,j)">
+                                            </div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-slide>
+                        </ion-slides>
+
+                        <div *ngIf="isSelectCourse">
+                            <ion-grid>
+                                <ion-row wrap>
+                                    <ion-col width-33 *ngFor="let course of courseList">
+                                        <div>
+                                            <img class="del" (click)="deleteCourse(course)" *ngIf="course.smallIcon != 'assets/images/icon_addpic_unfocused.png'" src="assets/images/del.png">
+                                            <img class="select-img" src="{{course.smallIcon}}" (click)="selectCourse(course.smallIcon)">
+                                        </div>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </div>
+
+                    </div>
+                    <div class="friend" *ngIf="isShowFriend">
+                        <div class="friend-name" (click)="deleteSelectFriend()">
+                            <span *ngFor="let friend of selectFriend">@{{friend.nickName}}</span>
+                        </div>
+                        <span class="add-friend" (click)="toSelectFriend()">@ 添加好友</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 选择的图片 -->
+    <div class="img-wrap" *ngIf="selectedImg.length>0" (click)=editPicture(selectedImg)>
+        <img src="{{selectedImg[selectedImg.length-1]}}">
+        <img class="prompt" src="assets/images/class/cc_prompt.png">
+        <span class="prompt_text">{{selectedImg.length}}</span>
+    </div>
+
+    <!-- 添加图片开始 -->
+    <div class="post-wrap" *ngIf="selectedImg.length<6" >
+        <div class="post1-box">
+            <a id="post_btn">
+                <img src="assets/images/circle/circle_icon_imgadd.png" alt="" (click)="addPicture()">
+            </a>
+        </div>
+    </div>
+    <!-- 添加图片结束 -->
+</ion-content>

@@ -1,0 +1,73 @@
+<!--
+  Generated template for the TaskFeedback page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>任务反馈</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div class="section-wrap" *ngIf="taskItemVo">
+    <h2>{{taskItemVo.objName}}</h2>
+    <div>
+      <div class="title-wrap">
+        <div class="title-icon-wrap">
+          <img src="assets/images/task/ms.png">
+        </div>
+        <span>任务描述</span>
+      </div>
+      <div class="statement">
+        {{taskItemVo.objContent}}
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="title-wrap" style="position:relative;">
+        <div class="title-icon-wrap">
+          <img src="assets/images/task/bjrw.png">
+        </div>
+        <span>任务反馈</span>
+        <div class="badge-wrap">
+          <ion-badge item-right>{{value}}%</ion-badge>
+        </div>
+     </div>
+
+     <div style="padding-right: 14px;">
+       <ion-item no-lines>
+         <ion-range [(ngModel)]="value"></ion-range>
+       </ion-item>
+     </div>
+     <div style="margin: 0 28px;">
+        <img src="assets/images/task/fkcd.png">
+     </div>
+     <span class="txt">给管理员反馈你目前的进度吧，可反馈多次</span>
+  </div>
+
+  <div>
+    <h2 class="txt-title">照片</h2>
+    <div class="addPic-warp">
+      <img src="assets/images/icon_addpic_unfocused.png">
+    </div>
+  </div>
+  
+  <div>
+    <h2 class="txt-title">总结</h2>
+    <div>
+      <textarea placeholder="请输入文字" [(ngModel)]="txtArea"></textarea>
+    </div>
+  </div>
+</ion-content>
+<!-- Footer -->
+<ion-footer >
+    <span class="feedback-btn" color="secondary" (click)="submitBtn()" >
+      提交
+    </span>
+</ion-footer>

@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>公告通知</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item *ngFor="let notice of classNoticeList">
+            <li class="item">
+                <div class="title">
+                    {{notice.title}}
+                </div>
+                <div class="content">
+                    {{notice.content}}
+                </div>
+                <div class="pubtime">
+                    <span>{{notice.publishTime|timePipe}}</span>
+                </div>
+            </li>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <div class="blank_wrap" *ngIf="classNoticeList.length == 0"><img src="assets/images/task/null.png"></div>
+</ion-content>

@@ -1,0 +1,26 @@
+<!--
+  Generated template for the MoreHome page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>更多</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ul class="m-list-2">
+    
+  <li (click)="enterModifyPhone()"><a class="morephone"><p>绑定手机<span class="tel-txt">{{tel? tel:''}}</span><span class="r-arrow"></span></p></a></li>
+  <li (click)="enterModifyPwd()"><a class="morePwd"><p>修改密码<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterHelpCenter()"><a class="moreHelp"><p>帮助中心<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterFuncIntroduction()"><a class="moreIntroduce"><p>功能介绍<span class="r-arrow"></span></p></a></li>
+  <li (click)="enterAboutUs()"><a class="moreAbout"><p>关于我们<span class="r-arrow"></span></p></a></li>
+
+</ul>
+</ion-content>

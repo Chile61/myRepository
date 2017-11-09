@@ -1,0 +1,61 @@
+<!--
+  Generated template for the MemberHistory page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>已学课程</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+  <div class="box">
+    <h1>共学习了<span id="size">{{totalCount}}</span>门课程</h1>
+  </div>
+  <ul class="course-list" *ngIf="historyList">
+    <li class="item" *ngFor="let course of historyList; let i = index" (click)="toCourseDetail(course.courseId)">
+      <div class="dot-wrap" *ngIf="bindTime(i)" ><span class="day-dot"></span> {{course.readTime | date:'yyyy年MM月dd日'}}</div>
+        <a class="course" href="javascript:void(0);" *ngIf="course.courseVo">
+          <div class="course-title">{{course.courseVo.title}}<span class="pub-time">
+            {{(course.courseVo.pubTime||course.courseVo.modTime) | timePipe}}
+          </span></div>
+          <div class="course-content">
+            <div class="course-image">
+              <img src="{{course.courseVo.smallIcon}}" alt="">
+            </div>
+            <div class="course-description">
+              <div class="top"></div>
+              <div class="bottom">
+                <span class="column-tag">{{course.courseVo.columnName}}</span>
+                <span class="tags">{{course.courseVo.competencyName}}</span>
+                <span class="price" *ngIf="course.courseVo.price2Str&&(course.courseVo.price2Str>0)">{{course.courseVo.price2Str}}</span>
+                <span class="comment-number">
+                  <span>{{course.courseVo.commentNum}}</span>
+                  <span class="icon-reply"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+  </ul>
+  <div class="blank_wrap" *ngIf="historyList.length == 0"><img src="assets/images/task/null.png"></div>
+  <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>

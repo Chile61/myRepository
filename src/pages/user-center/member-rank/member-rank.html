@@ -1,0 +1,92 @@
+<!--
+  Generated template for the MemberRank page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      我的排行榜
+     <div class="rank-sort-icon" style="z-index:9;">
+      <img src="assets/images/ranking_sorting1.png">
+    </div>
+    <ion-select class="rank-sort-wrap"  [(ngModel)]="deptBar" [selectOptions]="deptOptions" (ionChange)="bindDeptOptions()">
+      <ion-option value="{{dept.deptId}}" *ngFor="let dept of deptList" > {{dept.deptName}} </ion-option>
+    </ion-select>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+  </ion-refresher>
+<!-- -->
+<div class="rank-header">
+  <ion-segment [(ngModel)]="rankBar">
+    <ion-segment-button value="{{TOTAL_RANK}}" (click)="clickRankBar(TOTAL_RANK)">
+      总排行
+    </ion-segment-button>
+    <ion-segment-button value="{{MONTH_RANK}}" (click)="clickRankBar(MONTH_RANK)">
+      上月排行
+    </ion-segment-button>
+    <ion-segment-button value="{{WEEK_RANK}}" (click)="clickRankBar(WEEK_RANK)">
+      上周排行
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<!-- Content -->
+<div>
+  <ion-list>
+    <ul class="rank-list" id="rank_list_001">
+      <li class="item" *ngFor="let rankItem of rankingList;let i= index">
+        <div class="item-col">
+          <div class="rank">
+            <span class="ranking-tgm" *ngIf="(i+1) == 1" ></span>
+            <span class="ranking-tsm" *ngIf="(i+1) == 2" ></span>
+            <span class="ranking-tsb" *ngIf="(i+1) == 3" ></span>
+            <span class="text" *ngIf="(i+1) > 3" >{{i + 1}}</span>
+          </div>
+        </div>
+        <div class="item-col">
+          <div class="avatar-name">
+            <div class="avatar">
+              <img [src]="rankItem.avatarUrl? rankItem.avatarUrl:'assets/images/default_avatar.png'">
+            </div>
+            <span class="name">{{rankItem.realName}}</span>
+          </div>
+        </div>
+        <div class="item-col">
+          <div class="integral">{{rankItem.totalScore}}积分</div>
+        </div>
+      </li>
+    </ul>
+  </ion-list>
+  
+</div>
+
+<ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>
+<!-- Footer -->
+<ion-footer *ngIf="myRanking">
+      <div>
+        <span class="rank-footer-left">排名 {{myRanking.rankNo}}</span>
+        <span class="rank-footer-right">{{myRanking.totalScore}} 积分</span>
+        <div class="clearB"></div>
+      </div>
+      <div class="rank-statement">已超越<span>{{myRanking.rankingCount - myRanking.rankNo}}</span>个同事</div>
+</ion-footer>

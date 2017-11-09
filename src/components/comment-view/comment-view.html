@@ -1,0 +1,94 @@
+<div>
+    <div class="comment-input1" *ngIf="!isInput">
+        <div (click)="inputComment()">
+            <span>请输入您的观点</span>
+        </div>
+    </div>
+    <div class="page" *ngIf="isInput">
+        <div class="post-box">
+            <div class="top">
+                <a class="left" (click)="cancelInput()">取消</a>
+                <a class="right" (click)="postCommentInput()">发送</a>
+            </div>
+            <div class="center">
+                <!--<textarea placeholder="输入你的观点" [value]="commentContent" #CommentContent></textarea>-->
+                <div class="input-comment" contenteditable="true" id="commentInput" (click)="clickInput()"></div>
+            </div>
+            <div class="bottom">
+                <div>
+                    <div class="comment-options">
+                        <a class="emotion">
+                            <span class="face-icon" (click)="showEmoji()"></span>
+                        </a>
+                        <a *ngIf="isShowImage">
+                            <span class="number-tag" *ngIf="selectImageNum>0">{{selectImageNum}}</span>
+                            <span class="pic-icon" (click)="showImage()"></span>
+                        </a>
+                        <a *ngIf="isShowCourse">
+                            <span class="number-tag" *ngIf="selectCourseNum>0">{{selectCourseNum}}</span>
+                            <span class="course-icon" (click)="showCourse()"></span>
+                        </a>
+                        <a *ngIf="isShowAnonymous" style="float: right">
+                            <span class="{{isAnonymous?'anonymous':'unanonymous'}}" (click)="clickAnonymous()"></span>
+                        </a>
+                    </div>
+                    <div class="comment-accessory" *ngIf="isShowEmoji || isSelectImage || isSelectCourse">
+                        <div class="face-wrap">
+
+                            <ion-slides *ngIf="isShowEmoji" [options]="emojiSlides">
+                                <ion-slide *ngFor="let emojiItem of emojiList;let i = index">
+                                    <ion-grid>
+                                        <ion-row wrap>
+                                            <ion-col class="emoji-width" *ngFor="let emoji of emojiItem;let j = index">
+                                                <div>
+                                                    <img src={{emoji}} (click)="selectEmoji(i,j)">
+                                                </div>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-slide>
+                            </ion-slides>
+
+                            <div *ngIf="isSelectImage">
+                                <ion-grid>
+                                    <ion-row wrap>
+                                        <ion-col width-33 *ngFor="let imageUrl of imageUrls;let i = index">
+                                            <div>
+                                                <img class="del"
+                                                     (click)="detailImage(i)"
+                                                     *ngIf="imageUrl != 'assets/images/icon_addpic_unfocused.png'"
+                                                     src="assets/images/del.png">
+                                                <img class="select-img"
+                                                     src="{{imageUrl}}"
+                                                     (click)="selectImage(imageUrl, i)">
+                                            </div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </div>
+
+                            <div *ngIf="isSelectCourse">
+                                <ion-grid>
+                                    <ion-row wrap>
+                                        <ion-col width-33 *ngFor="let course of courseList">
+                                            <div>
+                                                <img class="del"
+                                                     (click)="detailCourse(course)"
+                                                     *ngIf="course.smallIcon != 'assets/images/icon_addpic_unfocused.png'"
+                                                     src="assets/images/del.png">
+                                                <img class="select-img"
+                                                     src="{{course.smallIcon}}"
+                                                     (click)="selectCourse(course.smallIcon)">
+                                            </div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

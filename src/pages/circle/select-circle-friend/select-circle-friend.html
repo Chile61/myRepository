@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <div class="bar-title">
+            <img class="img-left" src="assets/images/back-icon.png" (click)="goBack()">
+            <div class="text-title">选择圈子成员</div>
+            <div class="text-right" (click)="completeSelectFriend()"><span class="complete">完成({{selectCount}}/3)</span></div>
+        </div>
+    </ion-navbar>
+    <div class="search-box">
+        <div class="search-input-box">
+            <input id="search" type="search" placeholder="搜索关键字" [value]="searchKey" #search
+                   (keyup)="searchFriend(search.value)">
+        </div>
+    </div>
+</ion-header>
+<ion-content>
+    <ion-list class="friend-list">
+        <ion-item *ngFor="let friend of showFriendList;let i = index">
+            <div class="divide" *ngIf="i>0?!(friend.nickIndexKey==showFriendList[i-1].nickIndexKey):true">
+                {{friend.nickIndexKey}}
+            </div>
+            <div class="friend-item" (click)="selectFriend(i)" *ngIf="!(friend.isShow==false)">
+                <img class="avator-img" src="{{friend.avasterURL||'assets/images/default_avatar.png'}}">
+                <div class="name">
+                    <div class="nickname">{{friend.nickName}}</div>
+                    <div class="real-name">{{friend.realName}}</div>
+                </div>
+                <img class="select"
+                     src="{{friend.isSelect?'assets/images/icon_data_select.png':'assets/images/icon_data_noselect.png'}}">
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer class="select-friend-footer">
+    <div class="select-friend-item" *ngFor="let selectFriend of selectFriendList">
+        <img class="avator-img-select"
+             src="{{selectFriend.avasterURL||'assets/images/default_avatar.png'}}">
+        <div class="nickname-select">{{selectFriend.nickName}}</div>
+    </div>
+</ion-footer>

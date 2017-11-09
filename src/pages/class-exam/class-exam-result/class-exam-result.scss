@@ -1,0 +1,118 @@
+page-class-exam-result {
+    .result-wrap {
+        padding: 12px 0 0 0;
+    }
+    .result {
+        margin-top: 14%;
+        border-radius: 4px;
+        position: relative;
+    }
+    .result .description .exam-pass,
+    .result .description .exam-fails {
+        max-width: 94%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .result .description .exam-pass img,
+    .result .description .exam-fails img {
+        max-width: 100%;
+        height: auto;
+    }
+    .result .situation {
+        text-align: center;
+        line-height: 1.8em;
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: #666666;
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+        right: 0;
+    }
+    .result .situation .score {
+        color: #6ec22b;
+        font-size: 40px;
+        letter-spacing: 2px;
+    }
+    .result_survey {
+        margin: 0 12px 12px;
+        padding: 12px;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        background: #fff;
+    }
+    .result_survey .description_survey {
+        margin: 0 0 10px 0;
+        color: #f47f32;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    /*************************************
+     *
+     *************************************/
+    .exam-result-btns {
+        /*	height: 118px;*/
+    }
+    .exam-result-btns .exam-result-btn1 a,
+    .exam-result-btns .exam-result-btn2 a {
+        height: 40px;
+        background: #168AE1;
+        font-size: 16px;
+    }
+    .exam-result-btns .exam-result-btn2 a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: #FAFAFA;
+        color: #666666;
+        border: 1px solid #EEEEEE;
+    }
+    .scroll-content{
+        background: #eee;
+    }
+    .fixed-footer{
+        bottom: 40px !important;
+    }
+
+
+    .gmae-title{
+        height:46px;
+        line-height: 46px;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    .gmae-title span{
+        font-size: 1.7rem;
+        font-weight: 600;
+        text-align: center;
+        color: #000;
+        pointer-events: auto;
+    }
+    .gmae-title-ionic{
+        position: absolute;
+        top:12px;
+        left:10px;
+        z-index: 100;
+        background: url(../assets/images/game/my_icon_game.png) no-repeat;
+        width: 22px;
+        height:22px;
+        background-size:22px;
+        display: block;
+    }
+
+    .researchDiv{
+        width: 150px;
+        border-radius: 5px;
+        background: #fff;
+        height: 150px;
+        margin: 50px auto;
+        text-align: center;
+    }
+    .researchDiv p{
+        color:#67CD3A;
+    }
+    .researchDiv img{
+        margin: 30px auto 15px;
+    }
+}

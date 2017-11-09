@@ -1,0 +1,169 @@
+<ion-header>
+    <normal-header #NormalHeaderComponent (goBack)="goBackClick()" (more)="moreTopic()" [isHaveHeaderMore]="isShowMoreEdit"></normal-header>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!--话题详情-->
+    <div class="topic-wrap" *ngIf="discussSubjectMiniVo">
+        <div class="head">
+            <div class="fromGroup" (click)="goCircleDetail(discussSubjectMiniVo.groupId)"><span class="group">来自</span><span class="group">{{discussSubjectMiniVo.groupName}}</span><img class="arrow"
+                    src="assets/images/circle/arrow.png"></div>
+            <div class="title" id="topicTitle">{{discussSubjectMiniVo.title}}</div>
+            <div class="info">
+                <div class="avaster">
+                    <!--<div id="publishId" style="display: none;">{{user.userId}}</div>
+                    <div id="groupId" style="display: none;">{{groupId}}</div>
+                    <div id="anonymousFlag" style="display: none;">{{anonymousFlag}}</div>-->
+                    <a class="user" href="javascript:void(0);">
+                        <img src="{{discussSubjectMiniVo.author.avatarUrl? discussSubjectMiniVo.author.avatarUrl:'assets/images/default_avatar.png'}}">
+                    </a>
+                </div>
+                <div class="content">
+                    <div class="name">
+                        {{discussSubjectMiniVo.author.nickName}}<span class="publish-time right">{{discussSubjectMiniVo.createDate | timePipe}}</span>
+                    </div>
+                    <!--<div class="group" id="groupName">{{discussSubjectMiniVo.groupName}}</div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="cont">
+            <div>
+                <div class="text" id="topicContent" [innerHtml]="transSmiles(discussSubjectMiniVo.content)"></div>
+                <span class="friend" *ngIf="discussSubjectMiniVo.inviteeUsers">{{getFriend()}}</span>
+            </div>
+            <!--内容图片-->
+            <div class="img-content" *ngIf="discussSubjectMiniVo.imgURLs">
+                <div class="comment-img">
+                    <img *ngFor="let imgUrl of discussSubjectMiniVo.imgURLs;let i = index" src="{{imgUrl}}" (click)="showBigPicture(i)">
+                </div>
+            </div>
+        </div>
+        <!--课程链接-->
+
+        <div class="course-wrap" *ngIf="discussSubjectMiniVo.attachCourses.length>0">
+            <div class="course-title">
+                <span class="icon">课</span><span class="link">课程链接</span>
+            </div>
+            <ul class="content-wrap">
+                <li class="attachCourses-content" *ngFor="let attachCourse of discussSubjectMiniVo.attachCourses" (click)=goCourseDetail(attachCourse.courseId)>
+                    <img class="smallIcon" src="{{attachCourse.smallIcon||'assets/images/default_icon.png'}}">
+                    <span class="course-title">{{attachCourse.title}}</span>
+                </li>
+            </ul>
+        </div>
+        <!--点赞、收藏、打赏-->
+        <div class="foot">
+            <div class="action-list">
+                <div class="item">
+                    <a id="praise_btn">
+                        <div class="praise_icon">
+                            <img src="{{discussSubjectMiniVo.doYouAwesomed?'assets/images/praise_icon04.png':'assets/images/praise_icon03.png'}}" (click)="clickAppraise()">
+                        </div>
+                        <div class="text">{{discussSubjectMiniVo.doYouAwesomed?'已赞':'赞'}}(<span class="num">{{discussSubjectMiniVo.awesomeCount}}</span>)</div>
+                    </a>
+                    <a id="favorites_btn">
+                        <div>
+                            <img class="favorites" src="{{discussSubjectMiniVo.doYouFavorite?'assets/images/favorites_icon04.png':'assets/images/favorites_icon03.png'}}"
+                                (click)=clickFavorites()>
+                            <p>{{discussSubjectMiniVo.doYouFavorite?'已收藏':'收藏'}}</p>
+                        </div>
+                    </a>
+                    <!--<a id="coin_btn" href="javascript:void(0);">
+                        <div class="coin">
+                            <img src="assets/images/jb_icon@3x03.png" alt="">
+                        </div>
+                        <div class="text">打赏(<span class="coin_num">{{discussSubjectMiniVo.offeredCoinNums}}</span>)</div>
+                    </a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--评论头部-->
+
+    <div class="tab-box" *ngIf="circleComments.length>0">
+        <div class="hd">
+            <h1 class="c-title"><span class="c-line"></span>课程评论</h1>
+            <ul>
+                <li class="{{COMMENT_TYPE=='02'?'on':''}}">
+                    <a COMMENT_TYPE="02" (click)="selectCommentType('02')">最热</a>
+                </li>
+                <li class="{{COMMENT_TYPE=='02'?'':'on'}}">
+                    <a COMMENT_TYPE="01" (click)="selectCommentType('01')">最新</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--评论列表-->
+    <ion-list class="comment-list">
+        <ion-item class="item" *ngFor="let comment of circleComments;let i = index">
+            <div class="item-box">
+                <div class="avatar">
+                    <img src="{{comment.user.avatarUrl||'assets/images/default_avatar.png'}}">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span class="nickname">{{comment.user.nickName}}</span>
+                        <span class="level">lv{{comment.user.level || 0}}</span>
+                    </div>
+                    <div class="comment" [innerHtml]="transSmiles(comment.content)"></div>
+                    <!--评论图片-->
+                    <div class="img-content" *ngIf="comment.imgURLs">
+                        <div class="comment-img">
+                            <img *ngFor="let imgUrl of comment.imgURLs;let i = index" src="{{imgUrl}}" (click)="showCommentBigPicture(comment.imgURLs,i)">
+                        </div>
+                    </div>
+                    <ul *ngIf="comment.attachCourses">
+                        <li *ngFor="let course of comment.attachCourses" (click)=goCourseDetail(course.courseId)>
+                            <div>
+                                <img class="smallIcon" src="{{course.smallIcon||'assets/images/default_icon.png'}}">
+                                <span class="course-title">{{course.title}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div *ngIf="comment.followingComments!=null">
+                        <ul>
+                            <li *ngFor="let followingComment of comment.followingComments">
+                                <div class="sub-comment-list">
+                                    <div class="sub-item">
+                                        <div class="sub-name">{{followingComment.user.nickName}}:
+                                            <span class="right">{{(followingComment.replyTime) | timePipe}}</span>
+                                        </div>
+                                        <div class="sub-comment" [innerHtml]="transSmiles(followingComment.content)"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <span>{{(comment.replyTime) | timePipe}}</span>
+                        <span class="right">
+                            <a class="praise">
+                             <span>{{comment.awesomeCount}}</span>
+                        <img src="{{comment.hasAppraised=='true'?'assets/images/praise_icon02.png':'assets/images/praise_icon01.png'}}" (click)=clickCommentAppraised(i)>
+                        </a>
+                        <span>|</span>
+                        <a class="reply" (click)="replyInput(comment.commentId)">
+                            <img src="assets/images/reply_icon01.png">回复
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+<ion-footer style="position:fixed">
+    <div style="width: 100%">
+        <comment-view #CommentView (postComment)="checkComment($event)" (cancelInputComment)="cancelInputComment()" [isShowImage]="true"
+            [isShowCourse]="true" [isShowAnonymous]="isShowAnonymous"></comment-view>
+    </div>
+</ion-footer>

@@ -1,0 +1,88 @@
+page-class-list{
+/******************课程内容******************/
+.item{
+  border-bottom: 9px solid #eee;
+}
+.class_content{
+  padding: 22px 10px 22px 128px;
+}
+.class{
+  position: relative;
+}
+.class .class_img{
+  position: absolute;
+  top: 35px;
+  left: 10px;
+
+}
+.class .class_img {
+  width: 105px;
+  height: 105px;
+}
+.class .proceed{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 41px;
+  padding: 0 4px;
+  border-radius: 2px;
+  background: #ddd;
+  font-size: 10px;
+  text-align: center;
+  color: #666;
+}
+
+.class_content .class_title{
+  font-size: 15px;
+  color: #333;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.class_content .labels{
+  font-size: 10px;
+}
+.class_content .labels .stage{
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+.class_content .labels .price{
+  font-size: 13px;
+  color: #ffba25;
+  background: url("../images/jb_icon@3x03.png") no-repeat;
+  background-size: 16px 16px;
+  padding-left: 18px;
+  margin-left: 3px;
+}
+.start,.end,.address{
+  font-size: 13px;
+  color: #666;
+  margin-top: 2px;
+}
+.address{
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+  .blank_wrap{
+    text-align: center;
+    margin-top: 100px;
+  }
+  .blank_wrap img{
+    width: 80px;
+  }
+  .scroll-content{
+    margin-top: 58px !important;
+  }
+  .review{
+    width: 40px;
+    height: 20px;
+    float: right;
+    background: #e5e5e5;
+    text-align: center;
+    font-size: 8px;
+    padding-bottom: 25px;
+  }
+}

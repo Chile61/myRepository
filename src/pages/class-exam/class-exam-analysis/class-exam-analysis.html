@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>答案解析</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="item exam" style="display: block;">
+        <ul class="subject-list">
+            <li class="subject-item" *ngFor="let item of questionsVosArr; let k=index">
+                <div class="question" questiontypeid="2" [ngSwitch]="item.examQuestionVo.questionTypeId">
+                    {{item.orderSeq+1}}、
+                    <span [innerHtml]="isFill(item.examQuestionVo.content,item.examQuestionVo.result)"></span>
+                    <div class="subject-list-Img" *ngIf="item.examQuestionVo.url"><img src={{item.examQuestionVo.url}}>
+                    </div>
+
+                    <span *ngSwitchCase="1" class="question-type question-type-color-2">单选题</span>
+                    <span *ngSwitchCase="2" class="question-type question-type-color-2">多选题</span>
+                    <span *ngSwitchCase="3" class="question-type question-type-color-2">判断题</span>
+                    <span *ngSwitchCase="4" class="question-type question-type-color-2">问答题</span>
+                    <span *ngSwitchCase="5" class="question-type question-type-color-2">阅读理解</span>
+                    <span *ngSwitchCase="6" class="question-type question-type-color-2">填空题</span>
+                </div>
+
+                <div [ngSwitch]="item.examQuestionVo.questionTypeId">
+                    <!--单选题-->
+                    <div *ngSwitchCase="1" class="options-list">
+                        <ion-list>
+                            <ion-item
+                                *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                                <!--<ion-radio disabled="true" value="{{examQuestionOptionVo.id}}"></ion-radio>-->
+                                <ion-label [style.color]="examQuestionOptionVo.correct==1?'#31af05':'#333'">
+                                    <span *ngIf="examQuestionOptionVo.type==1">
+                                        <span class="letter">{{conversionFun(i)}}</span>{{examQuestionOptionVo.content}}
+                                    </span>
+                                    <span *ngIf="examQuestionOptionVo.type==2">
+                                         <span class="letter">{{conversionFun(i)}}</span><img class="question_img"
+                                                                                              src={{examQuestionOptionVo.remark}}
+                                                                                              alt="">
+                                    </span>
+                                </ion-label>
+
+                            </ion-item>
+
+                        </ion-list>
+                    </div>
+                    <!--多选题-->
+                    <div *ngSwitchCase="2" class="options-list">
+                        <ion-list>
+                            <ion-item
+                                *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                                <ion-label [style.color]="examQuestionOptionVo.correct==1?'#31af05':'#333'">
+                                    <span *ngIf="examQuestionOptionVo.type==1">
+                                        <span class="letter">{{conversionFun(i)}}</span>{{examQuestionOptionVo.content}}
+                                    </span>
+                                    <span *ngIf="examQuestionOptionVo.type==2">
+                                        <span class="letter">{{conversionFun(i)}}</span><img class="question_img"
+                                                                                             src={{examQuestionOptionVo.remark}}
+                                                                                             alt="">
+                                    </span>
+                                </ion-label>
+                                <!--<ion-checkbox (ionChange)="getCheckbox(examQuestionOptionVo.probId,examQuestionOptionVo.id)"></ion-checkbox >-->
+                            </ion-item>
+
+                        </ion-list>
+
+                    </div>
+                    <!--判断题-->
+                    <div *ngSwitchCase="3" class="options-list">
+                        <ion-list radio-group (ionChange)="getRadion(item.probId,$event)">
+                            <ion-item
+                                *ngFor="let examQuestionOptionVo of item.examQuestionVo.examQuestionOptionVos;let i=index">
+                                <!--<ion-radio value="{{examQuestionOptionVo.id}}"></ion-radio>-->
+                                <ion-label [style.color]="examQuestionOptionVo.correct==1?'#31af05':'#333'">
+                                    <span class="letter">{{conversionFun(i)}}</span>{{examQuestionOptionVo.content}}
+                                </ion-label>
+
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                    <!--问答题-->
+                    <div *ngSwitchCase="4" class="options-list">
+                        <textarea class="game-textarea" placeholder="请在此处作答"></textarea>
+                    </div>
+                    <!--填空题-->
+                    <div *ngSwitchCase="6" class="options-list">
+                    </div>
+                </div>
+                <div class="answer-resolve">
+                    <div class="answer">参考答案：<span
+                        [innerHtml]="bindanswer(k,item.examQuestionVo.questionTypeId,item.examQuestionVo.refrence)"></span>
+                    </div>
+                    <div class="resolve">
+                        题目解析：
+                        <p>{{item.examQuestionVo.description}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</ion-content>

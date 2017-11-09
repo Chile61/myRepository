@@ -1,0 +1,173 @@
+page-game-exam {
+    /******************************
+        考试样式
+    ******************************/
+    .exem-title {
+        padding: 0 16px;
+        height: 34px;
+        line-height: 34px;
+        color: #333;
+        font-size: 15px;
+        background: #eee;
+    }
+    .subject-list {
+        background: #fafafa;
+        margin-top: 0;
+
+    }
+    .subject-list .subject-item {
+        margin: 0 0 10px 0;
+        padding: 0 15px;
+        border-bottom: 1px solid #e5e5e5;
+        border-top: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    .subject-list .subject-item:nth-child(1){
+        border-top:0;
+    }
+    .subject-list .subject-item .question {
+        position: relative;
+        margin: 0 0 18px 0;
+        padding: 18px 80px 14px 0;
+        color: #333;
+        font-size: 16px;
+        text-align: justify;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .subject-list .subject-item .question .question-type {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right: 0;
+        padding: 0px 2px;
+        line-height: 16px;
+        color: #666;
+        font-size: 12px;
+        border: 1px solid #666;
+        border-radius: 2px;
+    }
+    .subject-list .subject-item .question .question-type-color-1 {
+        color: #73be3c;
+        border-color: #73be3c;
+    }
+    .subject-list .subject-item .question .question-type-color-2 {
+        color: #54a2ee;
+        border-color: #54a2ee;
+    }
+    .subject-list .subject-item .question .question-type-color-3 {
+
+    }
+    .subject-list .subject-item .question .question-type-color-4 {
+        color: #f5974c;
+        border-color: #f5974c;
+    }
+    .subject-list .subject-item .question .question-type-color-5 {
+
+    }
+    .subject-list .subject-item .question .question-type-color-6 {
+
+    }
+
+    .img_box,.audio_box {
+        margin-top: 10px;
+    }
+    img.question_img {
+        width: 80px;
+    }
+    img.option_img {
+        width: 80px;
+    }
+    /******************************
+        单选题/多选题/判断题选项样式
+    ******************************/
+    .options-list {
+        margin: 0 0 18px 0;
+    }
+    .options-list .options-item {
+        margin: 0 0 15px 0;
+    }
+    .options-list .options-item:last-child {
+        margin: 0;
+    }
+    .options-list .options-item a {
+        display: block;
+        color: #666;
+        font-size: 15px;
+        text-align: justify;
+    }
+    .letter {
+        display: inline-block;
+        margin: 0 5px 0 0;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius:100%;
+        background: #fff;
+        vertical-align: top;
+    }
+
+    .selectedColor{
+        background: #4db1fe !important;
+        border-color: #4db1fe !important;
+        color: #fff !important;
+    }
+
+    /******************************
+        简单题输入框样式
+    ******************************/
+    .short-textarea {
+        margin: 0 0 18px 0;
+    }
+    .short-textarea .short-desc {
+        margin: 0 0 18px 0;
+        color: #666;
+        font-size: 15px;
+    }
+    .short-textarea textarea {
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        color: #666;
+        font-size: 14px;
+        border: 1px solid #d0d0d0;
+        border-radius: 6px;
+        box-sizing: border-box;
+        resize: none;
+    }
+
+    .subject-list-Img{
+        margin-top: 15px;
+    }
+    .game-textarea{
+        width: 90%;
+        padding:10px;
+        border-radius: 5px;
+        resize: none;
+        margin: 0 auto;
+        display: block;
+        border:1px solid #e5e5e5;
+    }
+    .game-input{
+        width: 60px;
+        border: 0;
+        border-bottom: 1px solid #666;
+        margin: 0 5px;
+        text-align: center;
+    }
+    .label{
+        margin: 0;
+    }
+    .list .item{
+        line-height:normal;
+    }
+    .span.button-inner{
+        display: block !important;
+    }
+    .list-ios .item-block .item-inner{
+        border-bottom: 0px !important;
+    }
+}

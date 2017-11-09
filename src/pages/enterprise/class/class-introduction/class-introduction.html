@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>班级简介</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="classDetail">
+        <div class="in_item">
+            <div class="c_title">
+                {{classDetail.className}}
+            </div>
+            <div class="c_time">
+                上课时间：{{classDetail.startTime | date:'yyyy/MM/dd HH:mm'}}~{{classDetail.endTime | date:'yyyy/MM/dd HH:mm'}}
+            </div>
+        </div>
+
+        <div class="in_item c_intro" *ngIf="classDetail.description">
+            <div class="left_color"></div>
+            <div class="in_title">班级简介</div>
+            <div class="in_content">{{classDetail.description}}</div>
+        </div>
+
+        <div class="in_item t_intro" *ngIf="classDetail.teacherList">
+            <div class="left_color"></div>
+            <div class="in_title">讲师简介</div>
+            <ul class="instroduction-list">
+                <li *ngFor="let classTeacher of classDetail.teacherList let i=index">
+                    <div class="tea_warp">
+                        <div class="teacher">{{classTeacher.name}}</div>
+                        <div class="in_content">{{classTeacher.description}}</div>
+                        <div class="in_label" *ngIf="classTeacher.label" >
+                            <span *ngFor="let labels of teacherLabel[i]">{{labels}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--<div class="tea_warp">
+                <div class="teacher"> </div>
+                <div class="in_content"> </div>
+                <div class="in_label">
+                    <span>{{classDetail.classTeacher}}</span>
+                </div>
+            </div>-->
+        </div>
+
+        <!--<span id="stu_btn" *ngIf="classDetail.state==1">学员列表</span>-->
+        <div class="c_num">上课人数：{{classDetail.joinedUserCount}}/{{classDetail.userCounts}}<span class="type_1" (click)=goStudyList() *ngIf="classDetail.joinStatus==2">学员列表</span></div>
+        <div class="c_add" *ngIf="classDetail.address">上课地址：{{classDetail.address}}</div>
+
+        <div class="qcode" *ngIf="classDetail.joinStatus>0">
+            <img [src]="classDetail.qcodeUrl">
+            <div class="c_qcode">班级二维码</div>
+            <div class="enjoy">（可分享给其他学员扫描加入）</div>
+        </div>
+        <div class="fixed-footer" *ngIf="classDetail.joinStatus==0||classInfo.joinStatus==1">
+            <div class="fixed-box" (click)="joinClass()">
+                <button class="joinClassStyle" [ngClass]="bindJoinClass()">加入班级</button>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,10 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div id="title" *ngIf="title">{{title}}</div>
+    <div id="pub_time" *ngIf="time">{{time}}</div>
+    <div id="content" *ngIf="content">{{content}}</div>
+</ion-content>

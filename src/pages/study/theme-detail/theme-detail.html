@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{pageTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)" enabled="true">
+        <ion-refresher-content
+            pullingText="下拉刷新"
+            refreshingSpinner="circles"
+            refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="studyTopicDetail">
+        <div class="td-box">
+            <div class="td-img"><img src="{{studyTopicDetail.iconUrl}}"></div>
+            <div class="td-tit">{{studyTopicDetail.topicalName}}</div>
+            <div class="td-des">{{studyTopicDetail.description}}</div>
+            <div class="td-avaster" *ngIf="studyTopicDetail.topicTeacherVo"
+                 (click)="toModeratorDetail(studyTopicDetail.topicTeacherVo.teacherId)">
+                <a>
+                    <span class="avaster">
+                        <img src="{{studyTopicDetail.topicTeacherVo.teacherHead}}">
+                    </span>
+                    <span>{{studyTopicDetail.topicTeacherVo.teacherName}}</span>
+                </a>
+            </div>
+        </div>
+        <ion-list class="td-s-box" *ngFor="let topicStage of studyTopicDetail.topicStageVoLs;let i = index">
+            <ion-item style="padding: 0px">
+                <div class="td-s-tit">
+                    {{topicStage.stageName}}
+                    <img src="{{stageShow[i]?'assets/images/jt_hide.png':'assets/images/jt_open.png'}}"
+                         (click)="showStage(i)">
+                </div>
+                <div *ngIf="stageShow[i]">
+                    <div class="td-s-des"><i>{{topicStage.description}}</i></div>
+                    <ion-list class="td-s-list" no-lines>
+                        <ion-item class="td-s-item" *ngFor="let stageCourse of topicStage.stageCourseMiniVoLs"
+                                  (click)="toCourseDetail(stageCourse.courseId)" style="padding: 0px">
+                            <a class="course">
+                                <div>
+                                    <div class="td-s-img">
+                                        <img src="{{stageCourse.smallIcon}}">
+                                    </div>
+                                    <div class="td-s-cnt">
+                                        <img class="tag-new" src="assets/images/tag_new.png"
+                                             *ngIf="getNewTagShow(stageCourse.pubTime||stageCourse.modTime)">
+                                        <div class="td-c-title">{{stageCourse.title}}</div>
+                                        <div class="td-c-bottom">
+                                        <span class="{{getCategoryCss(stageCourse.columnName)}}"
+                                              *ngIf="stageCourse.columnName">{{stageCourse.columnName}}</span>
+                                            <span class="tags">{{stageCourse.competencyName}}</span>
+                                            <span class="right">{{(stageCourse.pubTime||stageCourse.modTime) | timePipe}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

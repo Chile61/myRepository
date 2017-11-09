@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>扫描签到</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <button ion-button color="secondary" (click)="goBarcode()">我要扫码</button>
+    <div *ngIf="fromType==2">
+        <button ion-button color="secondary" (click)="goSignHistory()">签到历史</button>
+    </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event, true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ul class="topic-list">
+        <li *ngFor="let topic of newTopicList">
+            <div class="img-wrap left">
+                <img src="{{topic.author.avatarUrl? topic.author.avatarUrl:'assets/images/default_avatar.png'}}">
+            </div>
+            <div class="right-content left">
+                <span class="m-name">{{topic.anonymousFlag==0? topic.author.nickName:'匿名'}}</span>
+                <span class="m-date">{{topic.createDate | timePipe}}</span>
+            </div>
+            <div class="clearB"></div>
+            <div class="middle-wrap" (click)=goToTopicDetail(topic.subjectId,topic.type)>
+                <h3 class="topic-title">{{topic.title}}</h3>
+                <div class="topic-content" [innerHtml]="transSmiles(topic.content)"></div>
+            </div>
+            <div class="img-content" *ngIf="topic.imgURLs">
+                <div class="comment-img">
+                    <img *ngFor="let imgUrl of topic.imgURLs;let i=index" src="{{imgUrl}}" (click)="showPicture(topic.imgURLs,i)">
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <span class="topic-type">{{topic.groupName}}</span>
+                </div>
+                <div class="right">
+                    <span><span class="praise-icon" [ngClass]="{'praise-Awesomed' : topic.doYouAwesomed}" (click)="clickPraise(topic)"></span>{{topic.awesomeCount}}</span>
+                    <span><span class="reply-icon"></span>{{topic.countOfComments}}</span>
+                </div>
+                <div class="clearB"></div>
+            </div>
+        </li>
+    </ul>
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

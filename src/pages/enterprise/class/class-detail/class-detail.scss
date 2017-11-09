@@ -1,0 +1,235 @@
+page-class-detail{
+    .statistic {
+        position: absolute;
+        float: right;
+        top: 13px;
+        right: 10px;
+        font-size: 15px;
+    }
+    /******************************导航菜单******************************/
+
+    .m-wrap {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff;
+    }
+    .m-list:before,
+    .m-list:after {
+    display: table;
+    content: "";
+    }
+    .m-list:after {
+    clear: both;
+    }
+    .m-list .m-item {
+    float: left;
+    width: 25%;
+    }
+    .m-list .m-item a {
+    display: block;
+    position: relative;
+    }
+    .m-list .m-item .icon {
+    margin: 0 0 5px 0;
+    text-align: center;
+    }
+    .m-list .m-item .icon img {
+    width: 35px;
+    height: 35px;
+    }
+    .m-list .m-item .name {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    }
+    .m-list .m-item .count {
+    display: inline-block;
+    position: absolute;
+    top: -10%;
+    right: 30%;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 9px;
+    text-align: center;
+    border-radius: 10px;
+    background: #F43530;
+    z-index: 1;
+    }
+    .c-list {
+    background: #fff;
+    }
+    .c-list .c-item .name {
+    padding: 12px;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #edf6fc;
+    }
+    .c-list .c-item .arrow {
+    display: inline-block;
+    margin: 0 8px 0 0;
+    width: 14px;
+    height: 14px;
+    background: url(../assets/images/class/pack.png) no-repeat;
+    background-size: 14px 14px;
+    }
+    .c-list .c-item .on .arrow {
+    background-image: url(../assets/images/class/drop.png);
+    }
+    /******************************/
+    // .c-s-list {
+	// display: none;
+    // }
+    .c-s-item {
+    padding: 12px 12px 12px 0;
+    margin-left: 34px;
+    border-bottom: 1px solid #e5e5e5;
+    }
+    .c-s-item .resource {
+    position: relative;
+    height: 22px;
+    }
+    .c-s-item .resource .resource-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 0 5px 0;
+    padding: 0 100px 0 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    }
+    .c-s-item .resource .tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    }
+    .c-s-item .type {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 5px 7px;
+    color: #999;
+    font-size: 10px;
+    line-height: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    }
+    .c-s-item .type-course {
+    color: #1b8bdf;
+    border-color: #1b8bdf;
+    }
+    .c-s-item .type-exam {
+    color: #f6724a;
+    border-color: #f6724a;
+    }
+    .c-s-item .type-exercise {
+    color: #3f71f2;
+    border-color: #3f71f2;
+    }
+    .c-s-item .type-survey {
+    color: #85c632;
+    border-color:#85c632;
+    }
+    .c-s-item .type-vote {
+    color: #eac42a;
+    border-color: #eac42a;
+    }
+    .c-s-item .type-compulsory{
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    left: -25px;
+    padding: 0 5px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    }
+
+    .type_blue{
+    background-color:#2a92ea;
+    }
+    .type_red{
+    background-color:#ee4242;
+    }
+    .type_deepBlue{
+    background-color:#3f71f2;
+    }
+    .type_green{
+    background-color:#85c632;
+    }
+    .type_yellow{
+    background-color:#eac42a;
+    }
+    .type_brown{
+    background-color:#d08a5f;
+    }
+    .type_deepBrown{
+    background-color:#bc5f55;
+    }
+    .type_1{
+	position:absolute;
+	padding:6px;
+	font-size:12px;
+	line-height:14px;
+	border-radius:50px;
+	color:#fff;
+	right:15px;
+	letter-spacing:1px;
+    }
+    .type{
+	position:absolute;
+	bottom:12px;
+	left:8px;
+	padding:5px;
+	font-size:10px;
+	line-height:14px;
+	border-radius:50px;
+	color:#fff;
+	background-color:#ff8200;
+    }
+    .course_type{
+        margin-left: 33px;
+        font-size: 12px;
+        color: #333;
+    }
+    .course_not_learn{
+        color: #333;
+    }
+    .course_has_learn{
+        color: #e5e5e5;
+    }
+    .comment_title{
+        height: 40px;
+    }
+    .prompt{
+    float: right;
+    height: 20px !important;
+    width: 20px !important;
+    position: absolute;
+    right: 20%;
+    }
+    .prompt_text{
+    float: right;
+    font-size: 1px;
+    color: #fff;
+    position: absolute;
+    right: 26%;
+    top:5%;
+    }
+    .span{
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #fff;
+    }
+    .label-ios {
+     margin: initial !important;
+     max-width: 87% !important;
+    }
+    .ion-label{
+     max-width: 87% !important;
+    }
+}

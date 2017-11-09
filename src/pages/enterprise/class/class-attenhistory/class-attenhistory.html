@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>签到历史</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event,true)" enabled="true">
+        <ion-refresher-content pullingText="下拉刷新" refreshingSpinner="circles" refreshingText="正在加载...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list *ngFor="let userSignVo of userSignList">
+        <ion-item>
+            <div class="s_item">
+                <div class="s_left">
+                    <div class="s_title">
+                        {{userSignVo.signDefineName}}
+                    </div>
+                    <div class="c_time">上课时间：<span>{{userSignVo.startTime|date:'yyyy/MM/dd HH:mm:ss'}}</span></div>
+                    <div class="s_time">签到时间：<span>{{userSignVo.signTime|date:'yyyy/MM/dd HH:mm:ss'}}</span></div>
+                </div>
+                <div class="s_right">
+                    <div class="signed">已签到</div>
+                    <div class="l_time"></div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doRefresh($event, false)" enabled="true" *ngIf="canLoadMore">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <div class="blank_wrap" *ngIf="userSignList.length == 0"><img src="assets/images/task/null.png"></div>
+</ion-content>

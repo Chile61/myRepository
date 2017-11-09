@@ -1,0 +1,47 @@
+<!--<ion-header>-->
+<!--<ion-navbar>-->
+<!--<ion-title>得分结果</ion-title>-->
+<!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-header>
+    <div class="gmae-title">
+        <a (click)="openClassExam()" class="gmae-title-ionic"></a>
+        <span>{{TitleName}}</span>
+    </div>
+</ion-header>
+<ion-content>
+    <div class="result" *ngIf="objType==2 || objType==3">
+        <div class="description">
+            <div *ngIf="isPass==true" class="exam-pass"><img src="assets/images/class/jg.png"/></div>
+            <div *ngIf="isPass==false" class="exam-fails"><img src="assets/images/class/bjg.png"/></div>
+        </div>
+        <div class="situation">
+            <div class="score">{{currScore}}<span style="font-size: 20px;">分</span></div>
+            <div>用时<span>***秒</span></div>
+        </div>
+    </div>
+
+    <div *ngIf="objType==4" class="researchDiv">
+        <img src="assets/images/icon_data_select.png"/>
+        <p>你已完成本次调研</p>
+    </div>
+    <div *ngIf="objType==5" class="researchDiv">
+        <img src="assets/images/icon_data_select.png"/>
+        <p>你已完成本次投票</p>
+    </div>
+
+    <div class="fixed-footer">
+        <div class="fixed-box exam-result-btns">
+            <div *ngIf="isPass==true" class="exam-result-btn1">
+                <a class="btn btn-block" (click)="openClassExamAnalysis()">查看答案解析</a>
+            </div>
+            <div class="exam-result-btn2" *ngIf="objType==2 || objType==3">
+                <a class="btn btn-block" (click)="openClassExam()">{{startBtn}}</a>
+            </div>
+            <div class="exam-result-btn2" *ngIf="objType==4 || objType==5">
+                <a class="btn btn-block" (click)="openPracticeAnalysis()">{{startBtn}}</a>
+            </div>
+        </div>
+    </div>
+</ion-content>

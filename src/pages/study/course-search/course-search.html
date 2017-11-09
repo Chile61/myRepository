@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>课程搜索</ion-title>
+    </ion-navbar>
+    <form>
+        <div class="search-box">
+            <div class="search-input-box">
+                <input id="search" type="search" placeholder="搜索关键字" [value]="searchKey" #search>
+            </div>
+            <div class="search-btn-box">
+                <button id="search_btn" style="background-color: rgb(21, 139, 224);"
+                   (click)="toCourseSearchResult(search.value)">搜索</button>
+            </div>
+        </div>
+    </form>
+    <div>
+        <ion-scroll scrollX="true" class="classify">
+            <div>
+                <span *ngFor="let classify of classifyList" (click)="selectClassify(classify.compcyClassId)"
+                      class="{{classify.compcyClassId==classifyId?'on':''}}">{{classify.compcyClassName}}</span>
+            </div>
+        </ion-scroll>
+    </div>
+</ion-header>
+<ion-content>
+    <!--子标签-->
+    <img class="no-content" src="assets/images/member/no_content.png" *ngIf="!(classifyLabels.length>0)">
+    <ion-list no-lines>
+        <ion-item style="padding: 0px" *ngFor="let classifyLabel of classifyLabels">
+            <div class="title" (click)="clickClassifyLabel(classifyLabel, classifyLabel.competencyId)">
+                <span class="title-label"></span>
+                <span class="title-title">{{classifyLabel.competencyName}}</span>
+                <img class="title-link" src="assets/images/right_arrow_icon01.png"/>
+            </div>
+            <ion-grid class="label-grid">
+                <ion-row wrap>
+                    <ion-col width-50 *ngFor="let label of classifyLabel.subCompetencyVoLs"
+                             (click)="clickClassifyLabel(classifyLabel, label.competencyId)">
+                        <div>
+                            <img src="{{label.smallIcon}}">
+                            <span>{{label.competencyName}}</span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,133 @@
+page-study-home {
+    .search-box .search-input-box {
+        float: left;
+        width: calc(100% - 46px);
+    }
+    .search-box .search-input-box input {
+        border-radius: 5px;
+    }
+    .saomiao-box {
+        display: none;
+    }
+    .saomiao-box {
+        float: right;
+        /*margin-right: 10px;*/
+        margin-top: 5px;
+        width: 26px;
+        height: 26px;
+    }
+    .saomiao-box img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .study-banner {
+        width: 100%;
+        height: 150px
+    }
+
+    .study-banner img {
+        width: 100%;
+        height: 150px;
+    }
+
+    .quick {
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .quick-item {
+        width: 95%;
+        height: 90%;
+        padding: 5%;
+        text-align: center;
+    }
+    .quick-item img {
+        padding: 0px 5px;
+    }
+    .quick-size {
+        font-size: 10px;
+        margin-top: -10px;
+    }
+
+    ion-grid {
+        padding: 5px 10px;
+    }
+
+    ion-col {
+        padding: 0px !important;
+    }
+
+    .task {
+        width: 100%;
+        padding: 8px;
+        border-bottom: 10px solid #e5e5e5;
+    }
+    .task-title {
+        font-size: 15px;
+        color: #fe6500;
+        font-weight: bold;
+        display: inline;
+    }
+    .task-content {
+        font-size: 13px;
+        margin: 0 5px;
+        display: inline;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .recommend {
+        border-bottom: 10px solid #e5e5e5;
+    }
+    .title-more {
+        font-size: 13px;
+        display: inline;
+        float: right;
+        margin-right: 5px;
+        background: url('../assets/images/course_more.png') right no-repeat;
+        padding-right: 20px;
+        background-size: 15px;
+        height: 25px;
+        line-height: 25px;
+    }
+    .column-theme {
+        padding: 5px;
+        width: 95%;
+        height: 120px;
+    }
+    .column-theme img {
+        width: 100%;
+        height: 90%;
+        border-radius: 3px;
+    }
+    .column-theme div {
+        width: 100%;
+        font-size: 12px;
+        margin-top: -13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .taskSlides{
+        height: 40px;
+        display: inline-block;
+        width: calc(100% - 100px);
+    }
+    .slide-zoom{
+        text-align: left;
+    }
+
+    //ios头部padding样式覆盖
+    .toolbar-ios {
+        padding: 0px;
+    }
+    .slide-zoom > div{
+        font-size: 14px !important;
+    }
+}

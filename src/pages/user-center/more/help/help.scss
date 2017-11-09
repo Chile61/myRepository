@@ -1,0 +1,75 @@
+page-help {
+    .on{
+        color: #387ef5;
+    }
+    /*** ***/
+ /******************************
+	问题列表样式
+******************************/
+.label-wrap {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.qna_wrap .qna_list,#finished_list,#unfinished_list{
+	margin: 0 0 12px 0;
+	background: #fff;
+}
+.qna_wrap .qna_list li{
+	border-bottom: 1px solid #e5e5e5;
+}
+.qna_content {
+	padding: 12px 12px 8px 12px;
+	color: #333;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.qna_title {
+  line-height: 24px;
+  font-size: 16px;
+  position: relative;
+  
+}
+.qna_title span,.answer_content span{
+	position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  padding: 0 1px;
+}
+.questionContent{
+	overflow:hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+}
+.answerContent{
+	overflow:hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient:vertical;
+	margin-top: 5px;
+}
+.answer_content{
+	color:#666;
+	position: relative;
+}
+.bottom{
+  padding: 5px 0 0 0;
+  color: #999;
+  font-size: 11px;
+  text-align: right;
+}
+.stickied{
+	display: inline-block;
+  padding: 0 3px;
+  color: #fff;
+  background: #5b99ee;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+}
